@@ -6,11 +6,16 @@ body {
 #Header {
   /* background: linear-gradient(rgb(255, 255, 255,0.8), rgb(255, 255, 255,0.8)), 
     url(Images/3f2140094e808464c825a2706032a1ba.jpg); */
-  background-color: rgba(37, 4, 182, 0.911);
+  /* background-color: rgba(37, 4, 182, 0.911); */
+  background: linear-gradient(
+    rgba(37, 4, 182, 0.911),
+    rgba(90, 126, 247, 0.911)
+  );
   width: 100%;
   height: 100%;
   display: table;
   color: white;
+  margin-bottom: 0px;
 }
 
 #Header .headerContent {
