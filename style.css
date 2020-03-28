@@ -26,9 +26,22 @@ body {
   border-radius: 20px;
 }
 
+#Header .headerContent .display-1 {
+   font-family: 'Rubik', sans-serif;
+}
+
+#Header .headerContent .position {
+    font-weight: 100;
+}
+
 #Summary {
   font-weight: 200;
 }
+
+#Summary .helloWorld {
+ font-size: larger;
+}
+
 /*TODO: Find alternative method for butting up Skills div with html div*/
 #Skills {
 background: linear-gradient(rgba(90, 126, 247, 0.911), rgb(255, 255, 255));
