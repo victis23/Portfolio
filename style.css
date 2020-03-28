@@ -1,6 +1,7 @@
 html,
 body {
   height: 100%;
+  margin: 0px;
 }
 
 #Header {
@@ -27,4 +28,14 @@ body {
 
 #Summary {
   font-weight: 200;
+}
+
+#Skills {
+background: linear-gradient(rgba(90, 126, 247, 0.911), rgb(255, 255, 255));
+margin-top: -24px;
+}
+
+#Skills .skillHeader {
+    color: black;
+    padding-top: 5%;
 }
