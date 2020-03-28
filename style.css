@@ -1,24 +1,25 @@
-
-html, body {
-    height: 100%;
+html,
+body {
+  height: 100%;
 }
 
 #Header {
-    /* background: linear-gradient(rgb(255, 255, 255,0.8), rgb(255, 255, 255,0.8)), 
+  /* background: linear-gradient(rgb(255, 255, 255,0.8), rgb(255, 255, 255,0.8)), 
     url(Images/3f2140094e808464c825a2706032a1ba.jpg); */
-    background-color: rgba(37, 4, 182, 0.911);
-    width: 100%;
-    height: 100%;
-    display: table;
-    color: white;
+  background-color: rgba(37, 4, 182, 0.911);
+  width: 100%;
+  height: 100%;
+  display: table;
+  color: white;
 }
 
 #Header .headerContent {
-    margin-left: 10%;
-    margin-right: 10%;
-
+  margin-left: 10%;
+  margin-right: 10%;
+  /* border: white solid 1px; */
+  border-radius: 20px;
 }
 
 #Summary {
-   font-weight: 200;
+  font-weight: 200;
 }
