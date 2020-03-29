@@ -144,7 +144,7 @@ function hideContactForm() {
     skillsSection.classList.add("blueGradient");
 }
 
-
+// When user scrolls element becomes visible when it reaches the middle of screen.
 function scroller() {
     currentScrollPosition = window.scrollY;
     console.log(currentScrollPosition);
@@ -176,10 +176,12 @@ function scroller() {
 
 }
 
+// Shows element on screen with animations.
 function animateElementin(element) {
     element.classList.add("animateSectionHeader");
 }
 
+// Removes element on screen with animation.
 function removeElementClassIn(element) {
     element.classList.remove("animateSectionHeader");
 }
