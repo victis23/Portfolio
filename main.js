@@ -37,7 +37,10 @@ var experienceHeaderTxt = document.querySelector(".experienceHeader");
 var educationHeaderTxt = document.querySelector(".educationHeader");
 
 //* Coordinates
-var skillOffset = skillsSection.getBoundingClientRect();
+var skillTitleTxtOffset = skillHeaderTxt.getBoundingClientRect();
+var projectTitleTxtOffset = projectHeaderTxt.getBoundingClientRect();
+var experienceTitleTxtOffset = experienceHeaderTxt.getBoundingClientRect();
+var educationTitleTxtOffset = educationHeaderTxt.getBoundingClientRect();
 
 //! Event listeners
 
