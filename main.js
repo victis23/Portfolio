@@ -4,6 +4,14 @@
 
 //! Variables
 
+// State variable that is set depending on what color the menu button is.
+var isWhite = true;
+
+// Current position of screen.
+var currentScrollPosition = 0;
+
+//*  Element Variables
+
 // Hamburger Button in top left corner of screen.
 var sideMenuBtn = document.getElementById("MenuButton");
 
@@ -20,9 +28,6 @@ var submitBtn = document.getElementById("SubmitButton");
 
 // var skillsSection = document.getElementById("Skills");
 var skillsSection = document.querySelector(".skills")
-
-// State variable that is set depending on what color the menu button is.
-var isWhite = true;
 
 //! Event listeners
 
@@ -103,7 +108,7 @@ function showContactForm() {
             contactFormScreen.style.height = position + "%";
         }
     }
-    //! Changes color gradient of Skills section to orange.
+    //* Changes color gradient of Skills section to orange.
     skillsSection.classList.remove("blueGradient");
     skillsSection.classList.add("orangeGradient");
 }
@@ -121,7 +126,7 @@ function hideContactForm() {
             contactFormScreen.style.height = position + "%";
         }
     }
-    //! Changes color gradient of Skills section to blue. 
+    //* Changes color gradient of Skills section to blue. 
     skillsSection.classList.remove("orangeGradient");
     skillsSection.classList.add("blueGradient");
 }
