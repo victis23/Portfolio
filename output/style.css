@@ -13,6 +13,10 @@
     #Header .headerContent .position {
         font-size: x-large;
     }
+
+    .sectionHeaders .display-4 {
+        font-size: xx-large;
+    }
 }
 
 /*! Larger Screens Default values */
