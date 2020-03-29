@@ -179,6 +179,15 @@ font-weight: 100;
     padding-top: 5%;
 }
 
+#Skills .skillListHeader {
+    font-weight: 900;
+    font-size: larger;
+}
+
+#Skills ul {
+    font-weight: 100;
+}
+
 .projectImage {
     height: 300px;
     opacity: 0.2;

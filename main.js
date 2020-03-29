@@ -154,20 +154,20 @@ function scroller() {
         removeElementClassIn(skillHeaderTxt);
     }
 
-    if (currentScrollPosition >= (projectTitleTxtOffset.top / 2)) {
+    if (currentScrollPosition >= (projectTitleTxtOffset.top / 1.5)) {
         animateElementin(projectHeaderTxt);
     } else {
         removeElementClassIn(projectHeaderTxt);
     }
 
-    if (currentScrollPosition >= (experienceTitleTxtOffset.top / 2)) {
+    if (currentScrollPosition >= (experienceTitleTxtOffset.top / 1.5)) {
         animateElementin(experienceHeaderTxt);
     } else {
         removeElementClassIn(experienceHeaderTxt);
     }
 
     //% Needs to use the offset of previous item because this will never reach the middle of the screen.
-    if (currentScrollPosition >= (experienceTitleTxtOffset.top / 2)) {
+    if (currentScrollPosition >= (experienceTitleTxtOffset.top / 1.5)) {
         animateElementin(educationHeaderTxt);
     } else {
         removeElementClassIn(educationHeaderTxt);
