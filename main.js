@@ -28,6 +28,7 @@ var submitBtn = document.getElementById("SubmitButton");
 
 // var skillsSection = document.getElementById("Skills");
 var skillsSection = document.querySelector(".skills")
+var skillLists = document.querySelector(".skillList");
 
 //* Section Header Properties
 
@@ -150,8 +151,10 @@ function scroller() {
     
     if (currentScrollPosition >= (skillTitleTxtOffset.top / 2)) {
         animateElementin(skillHeaderTxt);
+        showSkillLists();
     } else {
         removeElementClassIn(skillHeaderTxt);
+        hideSkillList();
     }
 
     if (currentScrollPosition >= (projectTitleTxtOffset.top / 1.5)) {
@@ -173,6 +176,13 @@ function scroller() {
         removeElementClassIn(educationHeaderTxt);
     }
 
+}
+
+function showSkillLists(){
+    skillLists.classList.add("appear");
+}
+function hideSkillList(){
+    skillLists.classList.remove("appear");
 }
 
 // Shows element on screen with animations.

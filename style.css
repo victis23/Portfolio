@@ -184,6 +184,22 @@ font-weight: 100;
     font-size: larger;
 }
 
+#Skills .firstList, 
+#Skills .secondtList, 
+#Skills .thirdList, 
+#Skills .fourthList {
+opacity: 0;
+transition: all ease-out 3s;
+}
+
+#Skills .appear .firstList, 
+#Skills .appear .secondtList, 
+#Skills .appear .thirdList, 
+#Skills .appear .fourthList {
+opacity: 1;
+transition: ease-in all 2s;
+}
+
 #Skills ul {
     font-weight: 100;
 }
