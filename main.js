@@ -10,7 +10,7 @@ var isWhite = true;
 // Current position of screen.
 var currentScrollPosition = 0;
 
-//*  Element Variables
+//%  Element Variables
 
 // Hamburger Button in top left corner of screen.
 var sideMenuBtn = document.getElementById("MenuButton");
@@ -108,7 +108,7 @@ function showContactForm() {
             contactFormScreen.style.height = position + "%";
         }
     }
-    //* Changes color gradient of Skills section to orange.
+    //% Changes color gradient of Skills section to orange.
     skillsSection.classList.remove("blueGradient");
     skillsSection.classList.add("orangeGradient");
 }
@@ -126,7 +126,7 @@ function hideContactForm() {
             contactFormScreen.style.height = position + "%";
         }
     }
-    //* Changes color gradient of Skills section to blue. 
+    //% Changes color gradient of Skills section to blue. 
     skillsSection.classList.remove("orangeGradient");
     skillsSection.classList.add("blueGradient");
 }
