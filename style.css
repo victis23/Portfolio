@@ -33,11 +33,19 @@ body {
     border-top-right-radius: 15px;
     border-bottom-right-radius: 15px;
     box-shadow: 5px 0px 30px rgba(0, 0, 0, 0.541);
+    overflow: hidden;
 }
 
-#ChildScreen .menuItems {
-    position: absolute;
-    position: sticky;
+#ChildScreen .menuItems a {
+    color: white;
+}
+
+#ChildScreen .menuName {
+font-family: "Rubik", sans-serif;
+}
+
+#ChildScreen .menuTitle {
+font-weight: 100;
 }
 
 #Header {
