@@ -122,8 +122,13 @@ body {
 }
 
 /*TODO: Find alternative method for butting up Skills div with html div*/
-#Skills {
+#Skills .blueGradient {
   background: linear-gradient(rgba(90, 126, 247, 0.911), rgb(255, 255, 255));
+  margin-top: -24px;
+}
+
+#Skills .orangeGradient {
+  background: linear-gradient(rgb(250, 187, 69), rgb(255, 255, 255));
   margin-top: -24px;
 }
 
