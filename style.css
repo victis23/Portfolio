@@ -190,7 +190,17 @@ font-weight: 100;
 
 .projectImage {
     height: 300px;
+    /* position: absolute; */
     opacity: 0.2;
+}
+
+#Projects {
+    height: 300px;
+}
+
+.experienceData p, .experienceData ul {
+    margin-left: 40px;
+    margin-right: 40px;
 }
 
 #Education {
@@ -199,4 +209,11 @@ font-weight: 100;
     background: linear-gradient( rgba(43, 92, 255, 0.911), rgba(90, 126, 247, 0.911));
     padding-bottom: 50px;
     padding-top: 20px;
+    position: absolute;
+}
+
+#Education .content {
+
+    margin-left: 40px;
+    margin-right: 40px;
 }
