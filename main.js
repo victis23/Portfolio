@@ -150,28 +150,25 @@ function scroller() {
     console.log(currentScrollPosition);
 
     if (currentScrollPosition >= (skillTitleTxtOffset.top / 2)) {
-        console.log(skillsSection + "Has reached the middle of the screen.");
-
         animateElementin(skillHeaderTxt);
-
     }
 
     if (currentScrollPosition >= (projectTitleTxtOffset.top / 2)) {
-        console.log(projectHeaderTxt + "Has reached the middle of the screen.");
+        animateElementin(projectHeaderTxt);
     }
+    
     if (currentScrollPosition >= (experienceTitleTxtOffset.top / 2)) {
-        console.log(experienceHeaderTxt + "Has reached the middle of the screen.");
+        animateElementin(experienceHeaderTxt);
     }
 
     //% Needs to use the offset of previous item because this will never reach the middle of the screen.
     if (currentScrollPosition >= (experienceTitleTxtOffset.top / 2)) {
-        console.log(educationHeaderTxt + "Has reached the middle of the screen.");
+        animateElementin(educationHeaderTxt);
     }
 
 }
 
-function animateElementin(Element) {
-    Element.style.left = "200px";
-    Element.style.color = "blue";
+function animateElementin(element) {
+    element.classList.add("animateSectionHeader");
 }
 

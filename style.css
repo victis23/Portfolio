@@ -142,8 +142,24 @@ font-weight: 100;
 
 .sectionHeaders .display-4 {
     font-family: "Rubik", sans-serif;
+    opacity: 0;
 }
 
+#Skills .animateSectionHeader, 
+#Projects .animateSectionHeader, 
+#Experience .animateSectionHeader {
+    color: black;
+    opacity: 1;
+    transform: translateX(10px);
+    transition: 0.5s all ease-in;
+}
+
+#Education .animateSectionHeader {
+    color: white;
+    opacity: 1;
+    transform: translateX(10px);
+    transition: 0.5s all ease-in;
+}
 
 /*TODO: Find alternative method for butting up Skills div with html div*/
 
