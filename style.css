@@ -22,6 +22,7 @@ body {
 #MenuButton {
     position: absolute;
     color: white;
+    width: 1em;
 }
 
 #MenuButton:hover {
