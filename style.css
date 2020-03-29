@@ -4,6 +4,22 @@ body {
   margin: 0px;
 }
 
+#MenuButton {
+  position: absolute;
+  color: white;
+}
+
+#ChildScreen {
+  background-color:  rgba(79, 118, 245, 0.884);
+  width: 0px;
+  height: 75%;
+  position: absolute;
+  margin-top: 100px;
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+  box-shadow: 5px 0px 30px rgba(0, 0, 0, 0.541);
+}
+
 #Header {
   /* background: linear-gradient(rgb(255, 255, 255,0.8), rgb(255, 255, 255,0.8)), 
     url(Images/3f2140094e808464c825a2706032a1ba.jpg); */
@@ -48,8 +64,11 @@ body {
 }
 
 @keyframes socailMediaIcons {
-  0% {}
-  100%{font-size: 4em}
+  0% {
+  }
+  100% {
+    font-size: 4em;
+  }
 }
 
 #Summary {
@@ -73,8 +92,13 @@ body {
 }
 
 @keyframes requestInfobutton {
-  0%  {}
-  100% {background-color: white; box-shadow: 0px 5px 25px rgba(0, 0, 0, 0.541); color: red;}
+  0% {
+  }
+  100% {
+    background-color: white;
+    box-shadow: 0px 5px 25px rgba(0, 0, 0, 0.541);
+    color: red;
+  }
 }
 
 /*TODO: Find alternative method for butting up Skills div with html div*/
@@ -96,7 +120,10 @@ body {
 #Education {
   background-color: black;
   color: white;
-  background: linear-gradient(rgba(43, 92, 255, 0.911), rgba(90, 126, 247, 0.911));
+  background: linear-gradient(
+    rgba(43, 92, 255, 0.911),
+    rgba(90, 126, 247, 0.911)
+  );
   padding-bottom: 50px;
   padding-top: 20px;
 }
