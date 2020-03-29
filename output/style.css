@@ -1,3 +1,22 @@
+
+/*! CSS For Small Screens */
+@media only screen and (max-width: 896px) {
+   
+    #Header .headerContent {
+       font-size: medium;
+    }
+
+    .display-1 {
+        font-size: xx-large;
+    }
+
+    #Header .headerContent .position {
+        font-size: x-large;
+    }
+}
+
+/*! Larger Screens Default values */
+
 html,
 body {
     height: 100%;
@@ -80,21 +99,6 @@ font-weight: 100;
     margin-right: 10%;
     /* border: white solid 1px; */
     border-radius: 20px;
-}
-
-@media only screen and (max-width: 896px) {
-   
-    #Header .headerContent {
-       font-size: medium;
-    }
-
-    .display-1 {
-        font-size: xx-large;
-    }
-
-    #Header .headerContent .position {
-        font-size: x-large;
-    }
 }
 
 #Header .headerContent .display-1 {
