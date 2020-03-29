@@ -14,10 +14,10 @@ requestButton.addEventListener("click", colorSwitcher);
 var isWhite = true;
 
 function colorSwitcher() {
-    
+
     if (isWhite) {
         requestButton.style.color = "rgba(79, 118, 245, 0.884)";
-    } else if (!isWhite){
+    } else if (!isWhite) {
         requestButton.style.color = "white";
     }
     isWhite = !isWhite;
