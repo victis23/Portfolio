@@ -75,3 +75,11 @@ body {
   height: 300px;
   opacity: 0.2;
 }
+
+#Education {
+  background-color: black;
+  color: white;
+  background: linear-gradient(rgba(43, 92, 255, 0.911), rgba(90, 126, 247, 0.911));
+  padding-bottom: 50px;
+  padding-top: 20px;
+}
