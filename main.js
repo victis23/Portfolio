@@ -2,13 +2,17 @@
 // Main javascript file used for altering UI Appearences. 
 
 
-
+// Hamburger Button in top left corner of screen.
 var sideMenuBtn = document.getElementById("MenuButton");
+
+// Left slideout menu.
 var menu = document.getElementById("ChildScreen");
 
+//Screen containing form for requesting more information. | Actuall form.
 var contactFormScreen = document.getElementById("RequestServiceForm");
 var formView = document.getElementById("ContactForm");
 
+//Button used to request contact form | Button used to submit info from form (also dismisses form).
 var requestInfoBtn = document.getElementById("RequestServicesBtn");
 var submitBtn = document.getElementById("SubmitButton");
 
@@ -23,8 +27,10 @@ sideMenuBtn.addEventListener("click", colorSwitcher);
 requestInfoBtn.addEventListener("click", showContactForm);
 submitBtn.addEventListener("click", hideContactForm);
 
+// State variable that is set depending on what color the menu button is.
 var isWhite = true;
 
+//Controls color state of menu button.
 function colorSwitcher() {
 
     if (isWhite) {
@@ -34,8 +40,6 @@ function colorSwitcher() {
     }
     isWhite = !isWhite;
 }
-
-
 
 //Executed when user taps Request Services button.
 function userClickedMenuBtn() {
@@ -76,6 +80,7 @@ function hideMenu() {
     }
 }
 
+//Displays contact form to user.
 function showContactForm() {
     var position = 0;
     var interval = setInterval(move, 5);
@@ -89,10 +94,12 @@ function showContactForm() {
             contactFormScreen.style.height = position + "%";
         }
     }
+    //! Changes color gradient of Skills section to orange.
     skillsSection.classList.remove("blueGradient");
     skillsSection.classList.add("orangeGradient");
 }
 
+//Hides contact from from user.
 function hideContactForm() {
     var position = 100;
     var interval = setInterval(move, 5);
@@ -105,6 +112,7 @@ function hideContactForm() {
             contactFormScreen.style.height = position + "%";
         }
     }
+    //! Changes color gradient of Skills section to blue. 
     skillsSection.classList.remove("orangeGradient");
     skillsSection.classList.add("blueGradient");
 }
