@@ -2,6 +2,8 @@
 // Main javascript file used for altering UI Appearences. 
 
 
+//! Variables
+
 // Hamburger Button in top left corner of screen.
 var sideMenuBtn = document.getElementById("MenuButton");
 
@@ -19,6 +21,11 @@ var submitBtn = document.getElementById("SubmitButton");
 // var skillsSection = document.getElementById("Skills");
 var skillsSection = document.querySelector(".skills")
 
+// State variable that is set depending on what color the menu button is.
+var isWhite = true;
+
+//! Event listeners
+
 //Listens for user interation with menu button.
 sideMenuBtn.addEventListener("click", userClickedMenuBtn);
 sideMenuBtn.addEventListener("click", colorSwitcher);
@@ -27,8 +34,10 @@ sideMenuBtn.addEventListener("click", colorSwitcher);
 requestInfoBtn.addEventListener("click", showContactForm);
 submitBtn.addEventListener("click", hideContactForm);
 
-// State variable that is set depending on what color the menu button is.
-var isWhite = true;
+// Listens for scrolling.
+window.addEventListener("scroll",scroller);
+
+//! Methods
 
 //Controls color state of menu button.
 function colorSwitcher() {
@@ -117,4 +126,7 @@ function hideContactForm() {
     skillsSection.classList.add("blueGradient");
 }
 
+function scroller() {
+
+}
 
