@@ -5,20 +5,22 @@
 
 var requestButton = document.getElementById("MenuButton");
 var menu = document.getElementById("ChildScreen");
-var isWhite = true;
+
 
 //Listens for user interation with menu button.
 requestButton.addEventListener("click", userClickedMenuBtn);
 requestButton.addEventListener("click", colorSwitcher);
 
+var isWhite = true;
 
 function colorSwitcher() {
+    
     if (isWhite) {
         requestButton.style.color = "rgba(79, 118, 245, 0.884)";
-    } else {
+    } else if (!isWhite){
         requestButton.style.color = "white";
-        isWhite = !isWhite;
     }
+    isWhite = !isWhite;
 }
 
 
