@@ -29,6 +29,16 @@ var submitBtn = document.getElementById("SubmitButton");
 // var skillsSection = document.getElementById("Skills");
 var skillsSection = document.querySelector(".skills")
 
+//* Section Header Properties
+
+var skillHeaderTxt = document.querySelector(".skillHeader");
+var projectHeaderTxt = document.querySelector(".projectHeader");
+var experienceHeaderTxt = document.querySelector(".experienceHeader");
+var educationHeaderTxt = document.querySelector(".educationHeader");
+
+//* Coordinates
+var skillOffset = skillsSection.getBoundingClientRect();
+
 //! Event listeners
 
 //Listens for user interation with menu button.
@@ -131,8 +141,10 @@ function hideContactForm() {
     skillsSection.classList.add("blueGradient");
 }
 
+
 function scroller() {
     currentScrollPosition = window.scrollY;
     console.log(currentScrollPosition);
+    
 }
 
