@@ -3,22 +3,31 @@
 
 
 
-var requestButton = document.getElementById("MenuButton");
+var sideMenuBtn = document.getElementById("MenuButton");
 var menu = document.getElementById("ChildScreen");
 
+var contactFormScreen = document.getElementById("RequestServiceForm");
+var formView = document.getElementById("ContactForm");
+
+var requestInfoBtn = document.getElementById("RequestServicesBtn");
+var submitBtn = document.getElementById("SubmitButton");
 
 //Listens for user interation with menu button.
-requestButton.addEventListener("click", userClickedMenuBtn);
-requestButton.addEventListener("click", colorSwitcher);
+sideMenuBtn.addEventListener("click", userClickedMenuBtn);
+sideMenuBtn.addEventListener("click", colorSwitcher);
+
+// Listens for interaction on Request Services button.
+requestInfoBtn.addEventListener("click", showContactForm);
+submitBtn.addEventListener("click", hideContactForm);
 
 var isWhite = true;
 
 function colorSwitcher() {
 
     if (isWhite) {
-        requestButton.style.color = "rgba(79, 118, 245, 0.884)";
+        sideMenuBtn.style.color = "rgba(79, 118, 245, 0.884)";
     } else if (!isWhite) {
-        requestButton.style.color = "white";
+        sideMenuBtn.style.color = "white";
     }
     isWhite = !isWhite;
 }
@@ -64,13 +73,33 @@ function hideMenu() {
     }
 }
 
-function userClickedRequestServicesBtn() {
-    /* 
-  Sudo code
-  — When button is clicked slide in new screen with a purple / pink gradient 
-  containing a contact form
-  — Change gradient colors for skills to match
-  — Prsent user with submit button
-  — Return to main screen upon submit button click
-  */
+function showContactForm() {
+    var position = 0;
+    var interval = setInterval(move, 5);
+
+    function move() {
+        if (position === 100) {
+            formView.style.visibility = "visible";
+            clearInterval(interval);
+        } else {
+            position += 1;
+            contactFormScreen.style.height = position + "%";
+        }
+    }
 }
+
+function hideContactForm() {
+    var position = 100;
+    var interval = setInterval(move, 5);
+    formView.style.visibility = "hidden";
+    function move() {
+        if (position === 0) {
+            clearInterval(interval);
+        } else {
+            position -= 1;
+            contactFormScreen.style.height = position + "%";
+        }
+    }
+}
+
+
