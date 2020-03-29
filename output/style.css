@@ -85,7 +85,15 @@ font-weight: 100;
 @media only screen and (max-width: 896px) {
    
     #Header .headerContent {
-        margin: auto;
+       font-size: medium;
+    }
+
+    .display-1 {
+        font-size: xx-large;
+    }
+
+    #Header .headerContent .position {
+        font-size: x-large;
     }
 }
 
