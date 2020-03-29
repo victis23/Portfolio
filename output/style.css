@@ -242,9 +242,15 @@ transition: ease-in all 2s;
     height: 300px;
 }
 
+ .experienceData .h3 {
+    font-size: large;
+    font-family: 'Baloo Da 2', cursive;
+}
+
 .experienceData p, .experienceData ul {
     margin-left: 40px;
     margin-right: 40px;
+    font-weight: 200;
 }
 
 #Education {
