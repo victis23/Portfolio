@@ -101,6 +101,10 @@ body {
   }
 }
 
+.sectionHeaders .display-4 {
+  font-family: "Rubik", sans-serif;
+}
+
 /*TODO: Find alternative method for butting up Skills div with html div*/
 #Skills {
   background: linear-gradient(rgba(90, 126, 247, 0.911), rgb(255, 255, 255));
