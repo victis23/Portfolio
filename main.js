@@ -147,8 +147,7 @@ function hideContactForm() {
 // When user scrolls element becomes visible when it reaches the middle of screen.
 function scroller() {
     currentScrollPosition = window.scrollY;
-    console.log(currentScrollPosition);
-
+    
     if (currentScrollPosition >= (skillTitleTxtOffset.top / 2)) {
         animateElementin(skillHeaderTxt);
     } else {
