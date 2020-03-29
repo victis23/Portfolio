@@ -233,3 +233,13 @@ transition: ease-in all 2s;
     margin-left: 40px;
     margin-right: 40px;
 }
+
+.container-fluid .checker {
+    opacity: 0;
+    transition: ease-out 1s all;
+}
+
+.container-fluid .appear {
+    opacity: 1;
+    transition: ease-in all 2s;
+}

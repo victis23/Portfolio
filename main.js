@@ -35,6 +35,7 @@ var skillLists = document.querySelector(".skillList");
 var skillHeaderTxt = document.querySelector(".skillHeader");
 var projectHeaderTxt = document.querySelector(".projectHeader");
 var experienceHeaderTxt = document.querySelector(".experienceHeader");
+var experienceData = document.querySelector(".experienceData");
 var educationHeaderTxt = document.querySelector(".educationHeader");
 
 //* Coordinates
@@ -165,8 +166,12 @@ function scroller() {
 
     if (currentScrollPosition >= (experienceTitleTxtOffset.top / 1.5)) {
         animateElementin(experienceHeaderTxt);
+        experienceData.classList.remove("checker");
+        experienceData.classList.add("appear");
     } else {
         removeElementClassIn(experienceHeaderTxt);
+        experienceData.classList.add("checker");
+        experienceData.classList.remove("appear");
     }
 
     //% Needs to use the offset of previous item because this will never reach the middle of the screen.
