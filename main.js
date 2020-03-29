@@ -151,9 +151,9 @@ function scroller() {
 
     if (currentScrollPosition >= (skillTitleTxtOffset.top / 2)) {
         console.log(skillsSection + "Has reached the middle of the screen.");
-           
+
         animateElementin(skillHeaderTxt);
-        
+
     }
 
     if (currentScrollPosition >= (projectTitleTxtOffset.top / 2)) {
