@@ -143,6 +143,7 @@ font-weight: 100;
 .sectionHeaders .display-4 {
     font-family: "Rubik", sans-serif;
     opacity: 0;
+    transition: ease-out 0.5s all;
 }
 
 #Skills .animateSectionHeader, 
