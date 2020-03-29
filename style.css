@@ -34,6 +34,11 @@ body {
     font-weight: 100;
 }
 
+#Header .headerContent #socialMediaIcons .fa-github:hover,
+#Header .headerContent #socialMediaIcons .fa-linkedin:hover {
+font-size: 5em;
+}
+
 #Summary {
   font-weight: 200;
 }
