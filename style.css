@@ -40,7 +40,16 @@ body {
 
 #Header .headerContent #socialMediaIcons .fa-github:hover,
 #Header .headerContent #socialMediaIcons .fa-linkedin:hover {
-  font-size: 5em;
+  /* font-size: 5rem; */
+  animation-name: socailMediaIcons;
+  animation-duration: 1s;
+  animation-iteration-count: 2;
+  animation-direction: alternate;
+}
+
+@keyframes socailMediaIcons {
+  0% {}
+  100%{font-size: 4em}
 }
 
 #Summary {
