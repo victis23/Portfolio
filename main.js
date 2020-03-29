@@ -40,7 +40,7 @@ requestInfoBtn.addEventListener("click", showContactForm);
 submitBtn.addEventListener("click", hideContactForm);
 
 // Listens for scrolling.
-window.addEventListener("scroll",scroller);
+window.addEventListener("scroll", scroller);
 
 //! Methods
 
@@ -132,6 +132,7 @@ function hideContactForm() {
 }
 
 function scroller() {
-
+    currentScrollPosition = window.scrollY;
+    console.log(currentScrollPosition);
 }
 

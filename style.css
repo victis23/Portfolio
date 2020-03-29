@@ -24,6 +24,20 @@ body {
     color: white;
 }
 
+#MenuButton:hover {
+    animation-name: hovering;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+@keyframes hovering {
+    0%{}
+    100%{
+        color: rgb(250, 187, 69);
+    }
+}
+
 #ChildScreen {
     background-color: rgba(79, 118, 245, 0.884);
     width: 0px;
