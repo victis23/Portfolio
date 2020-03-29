@@ -150,7 +150,10 @@ function scroller() {
     console.log(currentScrollPosition);
 
     if (currentScrollPosition >= (skillTitleTxtOffset.top / 2)) {
-       console.log(skillsSection + "Has reached the middle of the screen.");
+        console.log(skillsSection + "Has reached the middle of the screen.");
+           
+        animateElementin(skillHeaderTxt);
+        
     }
 
     if (currentScrollPosition >= (projectTitleTxtOffset.top / 2)) {
@@ -165,5 +168,10 @@ function scroller() {
         console.log(educationHeaderTxt + "Has reached the middle of the screen.");
     }
 
+}
+
+function animateElementin(Element) {
+    Element.style.left = "200px";
+    Element.style.color = "blue";
 }
 
