@@ -12,6 +12,9 @@ var formView = document.getElementById("ContactForm");
 var requestInfoBtn = document.getElementById("RequestServicesBtn");
 var submitBtn = document.getElementById("SubmitButton");
 
+// var skillsSection = document.getElementById("Skills");
+var skillsSection = document.querySelector(".skills")
+
 //Listens for user interation with menu button.
 sideMenuBtn.addEventListener("click", userClickedMenuBtn);
 sideMenuBtn.addEventListener("click", colorSwitcher);
@@ -76,7 +79,7 @@ function hideMenu() {
 function showContactForm() {
     var position = 0;
     var interval = setInterval(move, 5);
-
+    console.dir(skillsSection.classList);
     function move() {
         if (position === 100) {
             formView.style.visibility = "visible";
@@ -86,6 +89,8 @@ function showContactForm() {
             contactFormScreen.style.height = position + "%";
         }
     }
+    skillsSection.classList.remove("blueGradient");
+    skillsSection.classList.add("orangeGradient");
 }
 
 function hideContactForm() {
@@ -100,6 +105,8 @@ function hideContactForm() {
             contactFormScreen.style.height = position + "%";
         }
     }
+    skillsSection.classList.remove("orangeGradient");
+    skillsSection.classList.add("blueGradient");
 }
 
 
