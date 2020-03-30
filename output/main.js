@@ -26,9 +26,11 @@ var formView = document.getElementById("ContactForm");
 var requestInfoBtn = document.getElementById("RequestServicesBtn");
 var submitBtn = document.getElementById("SubmitButton");
 
-// var skillsSection = document.getElementById("Skills");
-var skillsSection = document.querySelector(".skills")
+var skillsSection = document.querySelector(".skills");
 var skillLists = document.querySelector(".skillList");
+
+// project section values.
+var projectSectionContent = document.querySelector("#projectContent");
 
 //* Section Header Properties
 
@@ -160,8 +162,10 @@ function scroller() {
 
     if (currentScrollPosition >= (projectTitleTxtOffset.top / 1.5)) {
         animateElementin(projectHeaderTxt);
+        projectSectionContent.classList.add("animateSectionHeader");
     } else {
         removeElementClassIn(projectHeaderTxt);
+        projectSectionContent.classList.remove("animateSectionHeader");
     }
 
     if (currentScrollPosition >= (experienceTitleTxtOffset.top / 1.5)) {

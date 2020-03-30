@@ -242,6 +242,17 @@ transition: ease-in all 2s;
     height: 300px;
 }
 
+#projectContent {
+    opacity: 0;
+    transition: ease-out 1s all;
+}
+
+.animateSectionHeader #projectContent {
+    opacity: 1;
+    transition: ease-out 1s all;
+}
+
+
  .experienceData .h3 {
     font-size: large;
     font-family: 'Baloo Da 2', cursive;
