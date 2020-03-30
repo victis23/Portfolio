@@ -20,8 +20,22 @@
     }
 
 }
+/*! Large Screens Only */
 
-/*! Larger Screens Default values */
+@media only screen and (min-width:897px){
+
+    .btn {
+        margin-top: 2em;
+    }
+   
+    #Summary .btn {
+    border-radius: 5em;
+    height: 5em;
+    width: 30%;
+    }
+}
+
+/*! Default values */
 
 html,
 body {
@@ -141,15 +155,6 @@ font-weight: 100;
 
 #Summary .helloWorld {
     font-size: larger;
-}
-
-@media only screen and (min-width:897px){
-   
-    #Summary .btn {
-    border-radius: 5em;
-    height: 5em;
-    width: 30%;
-    }
 }
 
 #Summary .btn:hover {
