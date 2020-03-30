@@ -217,15 +217,27 @@ font-weight: 100;
 #Skills .thirdList, 
 #Skills .fourthList {
 opacity: 0;
-transition: all ease-out 3s;
+transition: all ease-out 2s;
 }
 
-#Skills .appear .firstList, 
-#Skills .appear .secondtList, 
-#Skills .appear .thirdList, 
+/*% Eventually modify to have them slide into view one by one.*/
 #Skills .appear .fourthList {
 opacity: 1;
+transition: ease-in all 6s;
+}
+ 
+#Skills .appear .thirdList {
+opacity: 1;
+transition: ease-in all 4s;
+}
+
+#Skills .appear .secondtList {
+opacity: 1;
 transition: ease-in all 2s;
+}
+#Skills .appear .firstList {
+opacity: 1;
+transition: ease-in all 1s;
 }
 
 #Skills ul {
