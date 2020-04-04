@@ -141,10 +141,6 @@ html,body{
 
 /* PROJECTS */
 
-#Projects {
-    /* padding-top: 5%; */
-}
-
 #Section2 .nonVisable {
     opacity: 0;
     transition: all 1s ease-in;
