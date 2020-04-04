@@ -24,11 +24,13 @@ var sectionOneArea = sectionOne.getBoundingClientRect();
 var sectionTwoArea = sectionTwo.getBoundingClientRect();
 var sectionThreeArea = sectionThree.getBoundingClientRect();
 var sectionFourArea = sectionFour.getBoundingClientRect();
+var windowArea = window.getBoundingClientRect();
 
 //! Event Listeners
 infoBtn.addEventListener("click",infoBtnClicked);
 window.addEventListener("scroll", scroller);
 
+console.log(windowArea);
 
 
 function infoBtnClicked(){
