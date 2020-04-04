@@ -144,7 +144,7 @@ img #ScreenShots {
 
 #Section3 .animateSectionHeader {
     opacity: 1;
-    transition: all 1s ease-in;
+    transition: all 1.5s ease-in;
 }
 
 #Experience {
@@ -167,7 +167,7 @@ img #ScreenShots {
 
 #Section4 .animateSectionHeader {
     opacity: 1;
-    transition: all 1s ease-in;
+    transition: all 1.5s ease-in;
 }
 
 /* FOOTER */ 
