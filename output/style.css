@@ -141,6 +141,10 @@ html,body{
 
 /* PROJECTS */
 
+#Projects {
+    /* padding-top: 5%; */
+}
+
 #Section2 .nonVisable {
     opacity: 0;
     transition: all 1s ease-in;
@@ -153,9 +157,12 @@ html,body{
 
 .projectTitle {
     margin-top: 10%;
-     font-family: 'Baloo Da 2', cursive;
+    font-family: 'Baloo Da 2', cursive;
     font-size: xx-large;
     color: rgb(37, 86, 248);
+}
+.projectD {
+    font-weight: 100;
 }
 
 img #ScreenShots {
@@ -190,6 +197,10 @@ img #ScreenShots {
 }
 
 /* EDUCATION */
+
+#Education {
+    margin-top: 5%;
+}
 
 #Section4 .nonVisable {
     opacity: 0;

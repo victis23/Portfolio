@@ -57,7 +57,7 @@ function scroller() {
         removeElementClassIn(skillsSection);
     }
 // Projects
-    if (sectionTwoArea.top - currentScrollPosition <= (windowHalfway)) {
+    if ((sectionTwoArea.top - currentScrollPosition) <= (windowHalfway)) {
         animateElementin(projectSection);
     } else {
         removeElementClassIn(projectSection);
