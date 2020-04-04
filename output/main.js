@@ -1,4 +1,8 @@
 
+
+
+
+/*
 // Main javascript file used for altering UI Appearences. 
 
 
@@ -204,3 +208,4 @@ function removeElementClassIn(element) {
     element.classList.remove("animateSectionHeader");
 }
 
+/*
