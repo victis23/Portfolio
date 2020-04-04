@@ -1,5 +1,19 @@
 
 
+
+/*! SMALL SCREENS  */
+
+@media only screens and (max-width: 896px){
+
+}
+
+
+/*! LARGE SCREENS  */
+
+@media only screens and (min-width: 897px){
+    
+}
+
 /* Sets the body equal to beginning section of site. */
 html,body{
     height: 100%;
