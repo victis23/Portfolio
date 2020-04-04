@@ -1,5 +1,36 @@
 
 
+var isFormShowing = false;
+
+
+var infoBtn = document.getElementById("RequestInfoButton");
+var transitionArea = document.getElementById("TransitionArea");
+var headerArea = document.getElementById("Header");
+
+
+//! Event Listeners
+infoBtn.addEventListener("click",infoBtnClicked);
+
+
+
+
+function infoBtnClicked(){
+
+    isFormShowing = !isFormShowing;
+
+    if (isFormShowing) {
+        headerArea.classList.add("orangeFluid");
+        headerArea.classList.remove("fluidArea");
+        transitionArea.style.background = "linear-gradient(rgb(250, 187, 69), rgb(255, 255, 255))";
+    } else {
+        headerArea.classList.add("fluidArea");
+        headerArea.classList.remove("orangeFluid");
+        transitionArea.style.background = "linear-gradient(rgba(90, 126, 247, 0.911), rgb(255, 255, 255))";
+    }
+}
+
+
+
 
 
 /*
