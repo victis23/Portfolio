@@ -2,6 +2,7 @@
 
 var isFormShowing = false;
 var infoBtn = document.getElementById("RequestInfoButton");
+var navigationBar = document.getElementById("NavigationBar");
 
 //%Sections
 
@@ -29,10 +30,12 @@ var windowArea = window.screen.height;
 var windowHalfway = (windowArea / 2);
 
 //! Event Listeners
-infoBtn.addEventListener("click",infoBtnClicked);
+infoBtn.addEventListener("click", infoBtnClicked);
 window.addEventListener("scroll", scroller);
 
-function infoBtnClicked(){
+//% On load
+
+function infoBtnClicked() {
 
     isFormShowing = !isFormShowing;
 
@@ -40,35 +43,37 @@ function infoBtnClicked(){
         headerArea.classList.add("orangeFluid");
         headerArea.classList.remove("fluidArea");
         transitionArea.style.background = "linear-gradient(rgb(250, 187, 69), rgb(255, 255, 255))";
+        navigationBar.style.backgroundColor = "rgb(255, 19, 90)";
     } else {
         headerArea.classList.add("fluidArea");
         headerArea.classList.remove("orangeFluid");
         transitionArea.style.background = "linear-gradient(rgba(90, 126, 247, 0.911), rgb(255, 255, 255))";
+        navigationBar.style.backgroundColor = "rgba(37, 4, 182, 0.911)";
     }
 }
 
 function scroller() {
     currentScrollPosition = window.scrollY;
 
-// Skills
+    // Skills
     if (sectionOneArea.top - currentScrollPosition <= (windowHalfway)) {
         animateElementin(skillsSection);
     } else {
         removeElementClassIn(skillsSection);
     }
-// Projects
+    // Projects
     if ((sectionTwoArea.top - currentScrollPosition) <= (windowHalfway)) {
         animateElementin(projectSection);
     } else {
         removeElementClassIn(projectSection);
     }
-// Experience
+    // Experience
     if (sectionThreeArea.top - currentScrollPosition <= (windowHalfway)) {
         animateElementin(experienceSection);
     } else {
         removeElementClassIn(experienceSection);
     }
-// Education
+    // Education
     //% Needs to use the offset of previous item because this will never reach the middle of the screen.
     if (sectionFourArea.top - currentScrollPosition <= (windowHalfway)) {
         animateElementin(educationSection);
@@ -93,7 +98,7 @@ function removeElementClassIn(element) {
 
 
 /*
-// Main javascript file used for altering UI Appearences. 
+// Main javascript file used for altering UI Appearences.
 
 
 //! Variables
@@ -237,7 +242,7 @@ function hideContactForm() {
             contactFormScreen.style.height = position + "%";
         }
     }
-    //% Changes color gradient of Skills section to blue. 
+    //% Changes color gradient of Skills section to blue.
     skillsSection.classList.remove("orangeGradient");
     skillsSection.classList.add("blueGradient");
 }
@@ -245,7 +250,7 @@ function hideContactForm() {
 // When user scrolls element becomes visible when it reaches the middle of screen.
 function scroller() {
     currentScrollPosition = window.scrollY;
-    
+
     if (currentScrollPosition >= (skillTitleTxtOffset.top / 2)) {
         animateElementin(skillHeaderTxt);
         showSkillLists();
