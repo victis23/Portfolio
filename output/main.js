@@ -1,16 +1,33 @@
 
 
 var isFormShowing = false;
-
-
 var infoBtn = document.getElementById("RequestInfoButton");
+
+//%Sections
+
 var transitionArea = document.getElementById("TransitionArea");
 var headerArea = document.getElementById("Header");
 
+var skillsSection = document.getElementById("Skills");
+var projectSection = document.getElementById("Projects");
+var experienceSection = document.getElementById("Experience");
+var educationSection = document.getElementById("Education");
+
+var sectionOne = document.getElementById("Section1");
+var sectionTwo = document.getElementById("Section2");
+var sectionThree = document.getElementById("Section3");
+var sectionFour = document.getElementById("Section4");
+
+//* Measurments
+
+var sectionOneArea = sectionOne.getBoundingClientRect();
+var sectionTwoArea = sectionTwo.getBoundingClientRect();
+var sectionThreeArea = sectionThree.getBoundingClientRect();
+var sectionFourArea = sectionFour.getBoundingClientRect();
 
 //! Event Listeners
 infoBtn.addEventListener("click",infoBtnClicked);
-
+window.addEventListener("scroll", scroller);
 
 
 
@@ -29,7 +46,52 @@ function infoBtnClicked(){
     }
 }
 
+console.log(sectionOneArea.top);
 
+function scroller() {
+    currentScrollPosition = window.scrollY;
+    console.log("This is the position of SKILL list"+ sectionOneArea.top);
+    console.log("This is the scroll value" + currentScrollPosition);
+
+// Skills
+    if (currentScrollPosition >= (sectionOneArea.top / 2)) {
+        animateElementin(skillsSection);
+    } else {
+        removeElementClassIn(skillsSection);
+    }
+// Projects
+    if (currentScrollPosition >= (sectionTwoArea.top / 1.7)) {
+        animateElementin(projectSection);
+    } else {
+        removeElementClassIn(projectSection);
+    }
+// Experience
+    if (currentScrollPosition >= (sectionThreeArea.top)) {
+        animateElementin(experienceSection);
+    } else {
+        removeElementClassIn(experienceSection);
+    }
+// Education
+    //% Needs to use the offset of previous item because this will never reach the middle of the screen.
+    if (currentScrollPosition >= (sectionFourArea.top)) {
+        animateElementin(educationSection);
+    } else {
+        removeElementClassIn(educationSection);
+    }
+
+}
+
+// Shows element on screen with animations.
+function animateElementin(element) {
+    element.classList.add("animateSectionHeader");
+    element.classList.remove("nonVisable")
+}
+
+// Removes element on screen with animation.
+function removeElementClassIn(element) {
+    element.classList.remove("animateSectionHeader")
+    element.classList.add("nonVisable")
+}
 
 
 

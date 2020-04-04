@@ -89,6 +89,16 @@ html,body{
 
 /* SKILLS */
 
+#Section1 .nonVisable {
+    opacity: 0;
+    transition: all 1s ease-in;
+}
+
+#Section1 .animateSectionHeader {
+    opacity: 1;
+    transition: all 1s ease-in;
+}
+
 .skillListHeader {
     font-weight: 900;
     font-size: larger;
@@ -99,6 +109,16 @@ html,body{
 }
 
 /* PROJECTS */
+
+#Section2 .nonVisable {
+    opacity: 0;
+    transition: all 1s ease-in;
+}
+
+#Section2 .animateSectionHeader {
+    opacity: 1;
+    transition: all 1s ease-in;
+}
 
 .projectTitle {
     margin-top: 10%;
@@ -117,6 +137,16 @@ img #ScreenShots {
 
 /* EXPERIENCE */
 
+#Section3 .nonVisable {
+    opacity: 0;
+    transition: all 1s ease-in;
+}
+
+#Section3 .animateSectionHeader {
+    opacity: 1;
+    transition: all 1s ease-in;
+}
+
 #Experience {
     background-color: rgb(12, 81, 172);
     padding: 5%;
@@ -130,7 +160,15 @@ img #ScreenShots {
 
 /* EDUCATION */
 
+#Section4 .nonVisable {
+    opacity: 0;
+    transition: all 1s ease-in;
+}
 
+#Section4 .animateSectionHeader {
+    opacity: 1;
+    transition: all 1s ease-in;
+}
 
 /* FOOTER */ 
 
