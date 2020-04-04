@@ -3,15 +3,40 @@
 
 /*! SMALL SCREENS  */
 
-@media only screens and (max-width: 896px){
+@media only screen and (max-width: 896px){
 
+    #MyName .display-1 {
+    font-family: "Rubik", sans-serif;
+    font-size: xx-large;
+    }
+
+    #Position .h1 {
+    font-weight: 100;
+    font-size: large;
+}
+
+    .sectionHeader {
+        font-family: "Rubik", sans-serif;
+        font-size: xx-large;
+    }
 }
 
 
 /*! LARGE SCREENS  */
 
-@media only screens and (min-width: 897px){
-    
+@media only screen and (min-width: 897px){
+
+    #MyName {
+    font-family: "Rubik", sans-serif;
+    }
+
+    #Position .h1 {
+    font-weight: 100;
+}
+
+    .sectionHeader {
+        font-family: "Rubik", sans-serif;
+    }
 }
 
 /* Sets the body equal to beginning section of site. */
@@ -39,14 +64,6 @@ html,body{
     /* display: table; */
     color: white;
     margin-bottom: 0px;
-}
-
-#MyName {
-    font-family: "Rubik", sans-serif;
-}
-
-#Position .h1 {
-    font-weight: 100;
 }
 
 #SocialMediaIcons .fab {
