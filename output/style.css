@@ -110,6 +110,12 @@ html,body{
     background-color: rgba(37, 4, 182, 0.911);
 }
 
+.dropdown-item {
+    font-weight: 200;
+    font-family: 'Ubuntu', sans-serif;
+    color: rgba(37, 4, 182, 0.7);
+}
+
 #TransitionArea {
     height: 75px;
     width: 100%;
