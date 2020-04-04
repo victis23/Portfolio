@@ -24,14 +24,13 @@ var sectionOneArea = sectionOne.getBoundingClientRect();
 var sectionTwoArea = sectionTwo.getBoundingClientRect();
 var sectionThreeArea = sectionThree.getBoundingClientRect();
 var sectionFourArea = sectionFour.getBoundingClientRect();
-var windowArea = window.getBoundingClientRect();
+
+var windowArea = window.screen.height;
+var windowHalfway = (windowArea / 2);
 
 //! Event Listeners
 infoBtn.addEventListener("click",infoBtnClicked);
 window.addEventListener("scroll", scroller);
-
-console.log(windowArea);
-
 
 function infoBtnClicked(){
 
@@ -48,34 +47,30 @@ function infoBtnClicked(){
     }
 }
 
-console.log(sectionOneArea.top);
-
 function scroller() {
     currentScrollPosition = window.scrollY;
-    console.log("This is the position of SKILL list"+ sectionOneArea.top);
-    console.log("This is the scroll value" + currentScrollPosition);
 
 // Skills
-    if (currentScrollPosition >= (sectionOneArea.top / 2)) {
+    if (sectionOneArea.top - currentScrollPosition <= (windowHalfway)) {
         animateElementin(skillsSection);
     } else {
         removeElementClassIn(skillsSection);
     }
 // Projects
-    if (currentScrollPosition >= (sectionTwoArea.top / 1.7)) {
+    if (sectionTwoArea.top - currentScrollPosition <= (windowHalfway)) {
         animateElementin(projectSection);
     } else {
         removeElementClassIn(projectSection);
     }
 // Experience
-    if (currentScrollPosition >= (sectionThreeArea.top)) {
+    if (sectionThreeArea.top - currentScrollPosition <= (windowHalfway)) {
         animateElementin(experienceSection);
     } else {
         removeElementClassIn(experienceSection);
     }
 // Education
     //% Needs to use the offset of previous item because this will never reach the middle of the screen.
-    if (currentScrollPosition >= (sectionFourArea.top)) {
+    if (sectionFourArea.top - currentScrollPosition <= (windowHalfway)) {
         animateElementin(educationSection);
     } else {
         removeElementClassIn(educationSection);
