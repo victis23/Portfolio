@@ -208,4 +208,4 @@ function removeElementClassIn(element) {
     element.classList.remove("animateSectionHeader");
 }
 
-/*
+*/
