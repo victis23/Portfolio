@@ -164,10 +164,6 @@ function submitButtonTapped() {
     var phone = phoneField.value;
     var email = emailField.value;
     var descriptionText = textField.value;
-
-    console.dir(phoneField);
-    console.dir(emailField);
-
 }
 
 //Is called when DOM loads; creates smooth loading animation for content within header section.
