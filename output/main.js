@@ -18,6 +18,7 @@ var textField = document.getElementById("DescriptionField");
 
 var transitionArea = document.getElementById("TransitionArea");
 var headerArea = document.getElementById("Header");
+var headerContent = document.getElementById("HeaderContent");
 
 var skillsSection = document.getElementById("Skills");
 var projectSection = document.getElementById("Projects");
@@ -42,15 +43,17 @@ var windowHalfway = (windowArea / 2);
 //! Event Listeners
 infoBtn.addEventListener("click", infoBtnClicked);
 window.addEventListener("scroll", scroller);
-submitButton.addEventListener("click",submitButtonTapped);
+submitButton.addEventListener("click", submitButtonTapped);
 
 //% On load
 
 contactFormScreen.style.height = "0%";
 contactFormScreen.style.visibility = "hidden";
+loadSectionHeaderWithFadeIn()
 
 //%End Load
 
+// When user clicks info button method updates background and presents user with form.
 function infoBtnClicked() {
 
     isFormShowing = !isFormShowing;
@@ -70,6 +73,7 @@ function infoBtnClicked() {
     }
 }
 
+// Is called as user scrolls down page.
 function scroller() {
     currentScrollPosition = window.scrollY;
 
@@ -153,8 +157,8 @@ function hideContactForm() {
 }
 
 //Handles data returned from form.
-function submitButtonTapped(){
-   
+function submitButtonTapped() {
+
     infoBtnClicked();
     var name = nameField.value;
     var phone = phoneField.value;
@@ -164,6 +168,24 @@ function submitButtonTapped(){
     console.dir(phoneField);
     console.dir(emailField);
 
+}
+
+//Is called when DOM loads; creates smooth loading animation for content within header section.
+function loadSectionHeaderWithFadeIn() {
+    headerContent.style.opacity = "0";
+    var currentOpacity = 0;
+
+   var interval = setInterval(function () {
+
+        if (currentOpacity != 100){
+            headerContent.style.opacity = currentOpacity + "%";
+            currentOpacity += 0.3;
+        }
+    }, 5);
+
+    if (currentOpacity === 100) {
+        clearInterval(interval);
+    }
 }
 
 
