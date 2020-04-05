@@ -179,7 +179,7 @@ function loadSectionHeaderWithFadeIn() {
 
         if (currentOpacity != 100){
             headerContent.style.opacity = currentOpacity + "%";
-            currentOpacity += 0.3;
+            currentOpacity += 0.3; // might need to change this to 1 (might be introducing a bug).
         }
     }, 5);
 
