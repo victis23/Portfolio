@@ -37,6 +37,12 @@
     #HeaderContent {
         padding-top: 10px;
     }
+
+    #AboutME {
+    font-weight: 200;
+    padding-left: 5%;
+    padding-right: 5%;
+    }
 }
 
 
@@ -64,6 +70,12 @@
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
     z-index: 3;
+    }
+
+    #AboutME {
+    font-weight: 200;
+    padding-left: 15%;
+    padding-right: 15%;
     }
 }
 
@@ -139,12 +151,6 @@ html,body{
     100% {
         font-size: 4em;
     }
-}
-
-#AboutME {
-    font-weight: 200;
-    padding-left: 15%;
-    padding-right: 15%;
 }
 
 #RequestInfoButton .btn:hover {
