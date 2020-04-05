@@ -30,22 +30,25 @@
     <div class="d-flex justify-content-center" id="FormHolder">
         <div class="container d-flex justify-content-center flex-column" id="ContactForm">
             <div class="hidden" id="ContactFormContent">
-                <form class="py-4">
+                <form class="py-4" id="RequestForm" onsubmit="return sendEmail();">
                     <p class="contactFormHeader h3 pb-2">
                         Contact Form
                     </p>
                     <div class="form-group">
-                        <input type="text" class="form-control" id="NameField" placeholder="Name">
-                        <input type="tel" class="form-control my-3" id="PhoneNumberField" placeholder="Phone Number">
-                        <input type="email" class="form-control" placeholder="Email" id="EmailField">
+                        <input type="text" class="form-control" id="NameField" placeholder="Name" name="name">
+                        <input type="tel" class="form-control my-3" id="PhoneNumberField" placeholder="Phone Number"
+                            name="phone">
+                        <input type="email" class="form-control" placeholder="Email" id="EmailField" name="email">
                     </div>
 
                     <div class="form-group">
                         <label for="DescriptionField" class="DescriptionLabel">Description:</label>
-                        <textarea class="form-control" id="DescriptionField" rows="3"></textarea>
+                        <textarea class="form-control" id="DescriptionField" rows="3"
+                            name="requestDescription"></textarea>
                     </div>
                 </form>
-                <button type="submit" class="btn btn-primary" id="SubmitButton">Submit</button>
+                <button type="submit" class="btn btn-primary" id="SubmitButton" form="RequestForm" value="Submit">Submit
+                </button>
             </div>
         </div>
     </div>
