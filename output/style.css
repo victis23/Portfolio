@@ -19,6 +19,19 @@
         font-family: "Rubik", sans-serif;
         font-size: xx-large;
     }
+
+    #ContactForm {
+    position: absolute;
+    background-color: white;
+    padding: 2%;
+    border-radius: 10px;
+    z-index: 3;
+    }
+
+    #FormHolder {
+        margin-right: 20px;
+        margin-left: 20px;
+    }
 }
 
 
@@ -36,6 +49,15 @@
 
     .sectionHeader {
         font-family: "Rubik", sans-serif;
+    }
+
+    #ContactForm {
+    position: absolute;
+    width: 33.3%;
+    background-color: white;
+    padding: 2%;
+    border-radius: 10px;
+    z-index: 3;
     }
 }
 
@@ -55,6 +77,35 @@ html,body{
     background: linear-gradient(rgb(255, 19, 90), rgb(250, 187, 69));
     transition: 0.5s all ease-in;
 }
+
+/*% Contact Form */
+
+.contactFormHeader {
+    font-weight: 800;
+}
+
+#ContactForm .hidden {
+    opacity: 0;
+    /* transition: all ease-out 1s; */
+}
+
+#ContactForm .visible {
+    opacity: 1;
+    transition: all ease-in 1s;
+}
+
+#SubmitButton {
+    /* margin-right: 20%;
+    margin-left: 20%; */
+    margin-bottom: 10px;
+}
+
+.DescriptionLabel {
+    color: white;
+}
+
+
+/*% Form End  */
 
 /* Sets attributes for header section. */
 #Header {

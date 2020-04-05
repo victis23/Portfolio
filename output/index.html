@@ -26,6 +26,33 @@
 
 <body>
 
+    <!--! Form Begins -->
+    <div class="d-flex justify-content-center" id="FormHolder">
+        <div class="container d-flex justify-content-center flex-column" id="ContactForm">
+            <div class="hidden" id="ContactFormContent">
+                <form class="py-4">
+                    <p class="contactFormHeader h3 pb-2">
+                        Contact Form
+                    </p>
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="NameField" placeholder="Name">
+                        <input type="text" class="form-control my-3" id="PhoneNumbeField" placeholder="Phone Number">
+                        <input type="email" class="form-control" placeholder="Email" id="EmailField">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="DescriptionField" class="DescriptionLabel">Description</label>
+                        <textarea class="form-control" id="DescriptionField" rows="3"></textarea>
+                    </div>
+                </form>
+                <button type="submit" class="btn btn-primary" id="SubmitButton">Submit</button>
+            </div>
+        </div>
+    </div>
+    <!-- ! Form Ends -->
+
+    <!--! Navigation Bar Begins  -->
+
     <nav class="navbar navbar-expand-lg navbar-dark custom" id="NavigationBar">
 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"

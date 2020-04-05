@@ -3,6 +3,8 @@
 var isFormShowing = false;
 var infoBtn = document.getElementById("RequestInfoButton");
 var navigationBar = document.getElementById("NavigationBar");
+var contactFormScreen = document.getElementById("ContactForm");
+var contactFormFields = document.getElementById("ContactFormContent");
 
 //%Sections
 
@@ -35,16 +37,23 @@ window.addEventListener("scroll", scroller);
 
 //% On load
 
+contactFormScreen.style.height = "0%";
+contactFormScreen.style.visibility = "hidden";
+
+//%End Load
+
 function infoBtnClicked() {
 
     isFormShowing = !isFormShowing;
 
     if (isFormShowing) {
+        showContactForm();
         headerArea.classList.add("orangeFluid");
         headerArea.classList.remove("fluidArea");
         transitionArea.style.background = "linear-gradient(rgb(250, 187, 69), rgb(255, 255, 255))";
         navigationBar.style.backgroundColor = "rgb(255, 19, 90)";
     } else {
+        hideContactForm();
         headerArea.classList.add("fluidArea");
         headerArea.classList.remove("orangeFluid");
         transitionArea.style.background = "linear-gradient(rgba(90, 126, 247, 0.911), rgb(255, 255, 255))";
@@ -97,16 +106,7 @@ function removeElementClassIn(element) {
 
 
 
-/*
 
-//Executed when user taps Request Services button.
-function userClickedMenuBtn() {
-    if (menu.style.width === "300px") {
-        hideMenu();
-    } else {
-        showMenu();
-    }
-}
 
 //Displays contact form to user.
 function showContactForm() {
@@ -114,35 +114,38 @@ function showContactForm() {
     var interval = setInterval(move, 5);
     console.dir(skillsSection.classList);
     function move() {
-        if (position === 100) {
-            formView.style.visibility = "visible";
+        if (position === 75) {
+            // formView.style.visibility = "visible";
             clearInterval(interval);
         } else {
             position += 1;
             contactFormScreen.style.height = position + "%";
         }
     }
-    //% Changes color gradient of Skills section to orange.
-    skillsSection.classList.remove("blueGradient");
-    skillsSection.classList.add("orangeGradient");
+    contactFormFields.classList.add("visible");
+    contactFormFields.classList.remove("hidden");
+    contactFormScreen.style.visibility = "visible";
 }
 
 //Hides contact from from user.
 function hideContactForm() {
-    var position = 100;
+    var position = 50;
     var interval = setInterval(move, 5);
-    formView.style.visibility = "hidden";
+    // formView.style.visibility = "hidden";
     function move() {
-        if (position === 0) {
+        if (position === 75) {
             clearInterval(interval);
         } else {
             position -= 1;
             contactFormScreen.style.height = position + "%";
         }
+
+        if (position === 0) {
+            contactFormScreen.style.visibility = "hidden";
+        }
     }
-    //% Changes color gradient of Skills section to blue.
-    skillsSection.classList.remove("orangeGradient");
-    skillsSection.classList.add("blueGradient");
+    contactFormFields.classList.remove("visible");
+    contactFormFields.classList.add("hidden");
 }
 
-*/
+
