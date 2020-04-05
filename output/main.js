@@ -5,6 +5,14 @@ var infoBtn = document.getElementById("RequestInfoButton");
 var navigationBar = document.getElementById("NavigationBar");
 var contactFormScreen = document.getElementById("ContactForm");
 var contactFormFields = document.getElementById("ContactFormContent");
+var submitButton = document.getElementById("SubmitButton");
+
+//!Form Outlets & Values
+
+var nameField = document.getElementById("NameField");
+var phoneField = document.getElementById("PhoneNumberField");
+var emailField = document.getElementById("EmailField");
+var textField = document.getElementById("DescriptionField");
 
 //%Sections
 
@@ -34,6 +42,7 @@ var windowHalfway = (windowArea / 2);
 //! Event Listeners
 infoBtn.addEventListener("click", infoBtnClicked);
 window.addEventListener("scroll", scroller);
+submitButton.addEventListener("click",submitButtonTapped);
 
 //% On load
 
@@ -104,15 +113,10 @@ function removeElementClassIn(element) {
     element.classList.add("nonVisable")
 }
 
-
-
-
-
 //Displays contact form to user.
 function showContactForm() {
     var position = 0;
     var interval = setInterval(move, 5);
-    console.dir(skillsSection.classList);
     function move() {
         if (position === 75) {
             // formView.style.visibility = "visible";
@@ -146,6 +150,20 @@ function hideContactForm() {
     }
     contactFormFields.classList.remove("visible");
     contactFormFields.classList.add("hidden");
+}
+
+//Handles data returned from form.
+function submitButtonTapped(){
+   
+    infoBtnClicked();
+    var name = nameField.value;
+    var phone = phoneField.value;
+    var email = emailField.value;
+    var descriptionText = textField.value;
+
+    console.dir(phoneField);
+    console.dir(emailField);
+
 }
 
 
