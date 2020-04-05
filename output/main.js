@@ -167,6 +167,35 @@ function submitButtonTapped() {
     var phone = phoneField.value;
     var email = emailField.value;
     var descriptionText = textField.value;
+
+    // Asign values to properties on a new DataObject.
+    var data = new DataObject;
+    data.name = name;
+    data.phone = phone;
+    data.email = email;
+    data.description = descriptionText;
+
+    clearfields();
+    return data;
+}
+
+// Class that will hold data returned from form.
+class DataObject {
+    constructor(name, phone, email, description) {
+        this.name = name;
+        this.phone = phone;
+        this.email = email;
+        this.description = description;
+    }
+}
+
+
+// Removes values from fields once submitted.
+function clearfields() {
+    nameField.value = "";
+    phoneField.value = "";
+    emailField.value = "";
+    textField.value = "";
 }
 
 //Is called when DOM loads; creates smooth loading animation for content within header section.
@@ -174,9 +203,9 @@ function loadSectionHeaderWithFadeIn() {
     headerContent.style.opacity = "0";
     var currentOpacity = 0;
 
-   var interval = setInterval(function () {
+    var interval = setInterval(function () {
 
-        if (currentOpacity != 100){
+        if (currentOpacity != 100) {
             headerContent.style.opacity = currentOpacity + "%";
             currentOpacity += 0.3; // might need to change this to 1 (might be introducing a bug).
         }
@@ -186,5 +215,6 @@ function loadSectionHeaderWithFadeIn() {
         clearInterval(interval);
     }
 }
+
 
 
