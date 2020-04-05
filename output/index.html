@@ -2,9 +2,11 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Michael Wells Developer</title>
+
+    <!-- Import various CDN -->
     <!-- BOOTSTRAP CDN -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
@@ -13,83 +15,122 @@
     <!-- GOOGLE FONTS -->
     <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Baloo+Da+2&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
+
     <!-- FONT AWESOME CDN -->
     <script src="https://kit.fontawesome.com/d3b8691003.js" crossorigin="anonymous"></script>
+
+
 </head>
-<!-- BODY BEGINS -->
 
-<body class="mx-md-0">
-    <!-- MENU -->
-    <div class="container-fluid dropdownMenuButton display-4" id="MenuButton">
-        <svg class="bi bi-justify" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"
-            xmlns="http://www.w3.org/2000/svg">
-            <path fill-rule="evenodd"
-                d="M2 12.5a.5.5 0 01.5-.5h11a.5.5 0 010 1h-11a.5.5 0 01-.5-.5zm0-3a.5.5 0 01.5-.5h11a.5.5 0 010 1h-11a.5.5 0 01-.5-.5zm0-3a.5.5 0 01.5-.5h11a.5.5 0 010 1h-11a.5.5 0 01-.5-.5zm0-3a.5.5 0 01.5-.5h11a.5.5 0 010 1h-11a.5.5 0 01-.5-.5z"
-                clip-rule="evenodd" />
-        </svg>
-    </div>
 
-    <!-- REQUEST SERVICES FORM -->
-    <div id="RequestServiceForm" class="container-fluid">
-        <div class="container pt-5 justify-content-center" id="ContactForm">
-            <p class="display-1">Contact Form</p>
-            <form>
-                <div class="form-group">
-                    <label for="formGroupExampleInput">Name</label>
-                    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Name">
-                </div>
-                <div class="form-group">
-                    <label for="formGroupExampleInput2">Email Address</label>
-                    <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Email Address">
-                </div>
-            </form>
-            <button class="btn btn-primary" id="SubmitButton" type="button">Submit</button>
+<body>
+
+    <!--! Form Begins -->
+    <div class="d-flex justify-content-center" id="FormHolder">
+        <div class="container d-flex justify-content-center flex-column" id="ContactForm">
+            <div class="hidden" id="ContactFormContent">
+                <form class="py-4">
+                    <p class="contactFormHeader h3 pb-2">
+                        Contact Form
+                    </p>
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="NameField" placeholder="Name">
+                        <input type="text" class="form-control my-3" id="PhoneNumbeField" placeholder="Phone Number">
+                        <input type="email" class="form-control" placeholder="Email" id="EmailField">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="DescriptionField" class="DescriptionLabel">Description</label>
+                        <textarea class="form-control" id="DescriptionField" rows="3"></textarea>
+                    </div>
+                </form>
+                <button type="submit" class="btn btn-primary" id="SubmitButton">Submit</button>
+            </div>
         </div>
     </div>
+    <!-- ! Form Ends -->
 
-    <!-- SIDE MENU -->
-    <div id="ChildScreen" class="text-center">
-        <span class="flex-column menuItems px-5 pt-5">
-            <div class="row m-auto px-4 h4">
-                <a class="col-12 mb-5 mt-5">
-                    <p class="h3 menuName">Michael Wells</p>
-                    <span class="h5 menuTitle">Software Engineer</span>
-                </a>
-                <a href="#" class="col-12 py-3">SKILLS</a>
-                <a href="#" class="col-12 py-3">PROJECTS</a>
-                <a href="#" class="col-12 py-3">EXPERIENCE</a>
-                <a href="#" class="col-12 py-3">EDUCATION</a>
-                <a href="https://www.github.com/victis23" class="col-12 py-3">
-                    <i class="fab fa-github h2 mr-4"></i>
-                </a>
-                <a href="https://www.linkedin.com/in/michael-wells-17b21857/" class="col-12 py-3">
-                    <i class="fab fa-linkedin h2 mr-4"></i>
-                </a>
-            </div>
+    <!--! Navigation Bar Begins  -->
 
-        </span>
-    </div>
-    <!-- END MENU -->
-    <div class="container-fluid justify-content-center text-center d-flex align-items-center" id="Header">
-        <div class="headerContent">
-            <div class="mt-4"><strong class="display-1">Michael Wells</strong>
-                <br>
-                <p class="h1 position">Software Engineer</p>
-                <!-- SOCIAL MEDIA ICONS -->
-                <div id="socialMediaIcons" class="pt-2 pt-md-3">
-                    <a href="https://www.github.com/victis23">
+    <nav class="navbar navbar-expand-lg navbar-dark custom" id="NavigationBar">
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item pr-4">
+                    <a class="nav-link" href="https://www.linkedin.com/in/michael-wells-17b21857">
+                        <i class="fab fa-linkedin h2"></i>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="https://www.github.com/victis23">
                         <i class="fab fa-github h2 mr-4"></i>
                     </a>
+                </li>
 
-                    <a href="https://www.linkedin.com/in/michael-wells-17b21857/">
-                        <i class="fab fa-linkedin h2 mr-4"></i>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fas fa-file-code h2"></i>
                     </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+
+                        <a class="dropdown-item"
+                            href="https://github.com/victis23/Inventory-Tracker-Iphone-App">Inventory Tracker APP</a>
+                        <a class="dropdown-item" href="https://github.com/victis23/PrintShopProQuoter">Print Shop Pro
+                            Quoter</a>
+                        <a class="dropdown-item" href="https://github.com/victis23/Petstagram">Petstagram</a>
+                        <a class="dropdown-item" href="https://github.com/victis23/AwesomeNote">Awesome Note</a>
+                        <a class="dropdown-item" href="https://github.com/victis23/Portfolio">This Site</a>
 
 
-                </div>
+                        <div class="dropdown-divider"></div>
+                        <div class="container d-flex flex-column justify-content-center">
+                            <Strong><i class="fab fa-apple h3 pr-3"></i> Store Links</Strong>
+                        </div>
+                        <a class="dropdown-item"
+                            href="https://apps.apple.com/us/app/print-plus-inventory-tracker/id1484276877">Inventory
+                            Tracker App</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
 
+    <div id="Header" class="headerContent flex-row d-flex align-items-center fluidArea">
+
+        <div class="container-fluid text-center">
+
+            <!-- My Name -->
+            <div id="MyName" class="flex-column">
+                <strong class="display-1">Michael Wells</strong>
             </div>
-            <div class="container-fluid my-4" id="Summary">
+
+            <!-- Position -->
+            <div id="Position" class="flex-column">
+                <p class="h1">Software Engineer</p>
+            </div>
+
+            <!-- Social Media Icons -->
+            <div id="SocialMediaIcons" class="d-flex justify-content-center">
+                <a href="https://www.github.com/victis23">
+                    <i class="fab fa-github h2 mr-4"></i>
+                </a>
+
+                <a href="https://www.linkedin.com/in/michael-wells-17b21857/">
+                    <i class="fab fa-linkedin h2"></i>
+                </a>
+            </div>
+
+            <!-- About Me Summary -->
+            <div id="AboutME" class="flex-column py-4">
                 <p>
                     <strong><span class="helloWorld">Hello world</span></strong>, I am a software engineer who
                     specializes in building robust mobile experiences for both enterprise and commercial usage.
@@ -101,88 +142,209 @@
                     management tools such as Git, using industry standard OOP architectures
                     such MVC & MVVM, and best practices like SOLID.
                 </p>
-                <button class="btn btn-outline-light btn-lg" type="button" id="RequestServicesBtn">Request
-                    Services</button>
+            </div>
+
+            <div id="RequestInfoButton" class="d-flex justify-content-center">
+                <button class="btn btn-outline-light btn-lg requestInfoButton" type="button">
+                    Request Services
+                </button>
             </div>
         </div>
     </div>
-    <!-- This period needs no be here in order to control keep gradient smooth -->
-    .
-    <!-- !REAL CONTENT BEGINS -->
-    <div id="Content">
-        <!-- Skills Container -->
-        <div id="Skills">
-            <div class="container-fluid sectionHeaders blueGradient skills">
-                <p class="display-4 skillHeader">Key Skills:</p>
+
+    <!-- Transition Area -->
+    <div id="TransitionArea"></div>
+
+    <!-- Left Menu -->
+
+    <!-- CONTENT SECTION BEGINS -->
+
+    <div id="ContentSection" class="container-fluid">
+        <span id="Section1">
+            <div class="flex-row my-4 nonVisable container-fluid" id="Skills">
+                <p class="display-4 sectionHeader">Key Skills</p>
+
+                <div class="container-fluid row">
+
+                    <div class="container-fluid firstList col-lg-3 col-sm-6">
+                        <span class="skillListHeader">Tech Stacks</span>
+                        <ul class="lists">
+                            <li>Swift</li>
+                            <li>Objective-C</li>
+                            <li>SwiftUI</li>
+                            <li>HTML5</li>
+                            <li>CSS3</li>
+                            <li>JavaScript</li>
+                        </ul>
+                    </div>
+
+                    <div class="container-fluid secondList col-lg-3 col-sm-6">
+                        <span class="skillListHeader">Software & Tools</span>
+                        <ul class="lists">
+                            <li>GitHub</li>
+                            <li>Xcode IDE</li>
+                            <li>Google FireBase</li>
+                            <li>Visual Code Studio</li>
+                            <li>Adobe Design Suite</li>
+                            <li>CocoaPods / Swift Packages</li>
+                        </ul>
+                    </div>
+
+                    <div class="container-fluid thirdList col-lg-3 col-sm-6">
+                        <span class="skillListHeader">CS & OOP Principals</span>
+                        <ul class="lists">
+                            <li>SOLID</li>
+                            <li>MVC & MVVM</li>
+                            <li>BigO Notation</li>
+                            <li>Agile (Scrum)</li>
+                            <li>Algorithms & Data Structures</li>
+                            <li>Object Oriented Programming</li>
+                        </ul>
+                    </div>
+
+                    <div class="container-fluid fourthList col-lg-3 col-sm-6">
+                        <span class="skillListHeader">Additional Useful Skills</span>
+                        <ul class="lists">
+                            <li>GraphQL</li>
+                            <li>Rest API - (JSON)</li>
+                            <li>CoreData, Realm</li>
+                            <li>Continous Integration</li>
+                            <li>Memory Management</li>
+                            <li>Documentation & clean code</li>
+                        </ul>
+                    </div>
+                </div>
+
             </div>
-            .<div class="container-fluid skillList row m-auto">
-                <div class="container-fluid firstList col-lg-3 col-sm-6">
-                    <span class="skillListHeader">Tech Stacks</span>
-                    <ul>
-                        <li>Swift</li>
-                        <li>Objective-C</li>
-                        <li>SwiftUI</li>
-                        <li>HTML5</li>
-                        <li>CSS3</li>
-                        <li>JavaScript</li>
-                    </ul>
-                </div>
-                <div class="container-fluid secondtList col-lg-3 col-sm-6">
-                    <span class="skillListHeader">Software & Tools</span>
-                    <ul>
-                        <li>GitHub</li>
-                        <li>Xcode IDE</li>
-                        <li>Google FireBase</li>
-                        <li>Visual Code Studio</li>
-                        <li>Adobe Design Suite</li>
-                        <li>CocoaPods / Swift Packages</li>
-                    </ul>
-                </div>
-                <div class="container-fluid thirdList col-lg-3 col-sm-6">
-                    <span class="skillListHeader">Principals of CS & OOP</span>
-                    <ul>
-                        <li>SOLID</li>
-                        <li>MVC & MVVM</li>
-                        <li>BigO Notation</li>
-                        <li>Agile (Scrum)</li>
-                        <li>Algorithms & Data Structures</li>
-                        <li>Object Oriented Programming</li>
-                    </ul>
-                </div>
-                <div class="container-fluid fourthList col-lg-3 col-sm-6">
-                    <span class="skillListHeader">Additional Useful Skills</span>
-                    <ul>
-                        <li>GraphQL</li>
-                        <li>Rest API - (JSON)</li>
-                        <li>CoreData, Realm</li>
-                        <li>Continous Integration</li>
-                        <li>Memory Management</li>
-                        <li>Documentation & clean code</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
+        </span>
+        <span id="Section2">
+            <div class="flex-row my-4 container-fluid" id="Projects">
+                <p class="display-4 sectionHeader">Projects</p>
+                <div class="row container-fluid" id="ProjectDescriptions">
+                    <div class="flex-column col-md-6 col-lg-3">
+                        <div class="flex-column text-center">
+                            <p class="projectTitle">Inventory Tracker</p>
+                            <img class="img-fluid py-4" id="ScreenShots" src="Images/InventoryTrackerUpSlanted.png"
+                                alt="">
+                        </div>
+                    </div>
+                    <div class="flex-column col-md-6 col-lg-3 projectD text-center" id="Description">
+                        <p>Inventory Tracker App helps print shops organize and maintain their inventory. Google API is
+                            used to query vendor location and contact info for re-orders, and changes to inventory are
+                            noticable at a glance thanks to dynamic visual cues.</p>
 
-        <!-- <div class="projectImage container-fluid text-right">
-            <img class="img-fluid" src="Images/projectImage.jpg">
-        </div> -->
+                        <span>
+                            <p>
+                                <strong>
+                                    <h5>Technologies</h5>
+                                </strong><br>
+                                <span>
+                                    GoogleMaps<br>
+                                    GooglePlaces <br>
+                                    UIKit (Foundation) <br>
+                                    Combine <br>
+                                    NSDiffableDataSourceSnapshot <br>
+                                    UICollectionViewDiffableDataSource <br>
+                                    UICollectionViewCompositionalLayout <br>
+                                    CoreLocation <br>
+                                </span>
+                            </p>
+                        </span>
 
-        <!-- Projects List -->
-        <div class="container-fluid sectionHeaders" id="Projects">
+                    </div>
+                    <div class="flex-column col-md-6 col-lg-3 text-center">
+                        <p class="projectTitle">Print Shop Pro Quoter</p>
+                        <img class="img-fluid py-4" id="ScreenShots" src="Images/printShopProUpAngle.png" alt="">
+                    </div>
+                    <div class="flex-column col-md-6 col-lg-3 text-center projectD" id="Description">
 
-            <p class="display-4 projectHeader">Projects:</p>
-            <div class="container-fluid" id="projectContent">
-                <div class="row">
-                    <div class="col-12">
-<img class="img-fluid" src="/Images" alt="">
+                        <p>Print Shop Pro Quoter functions as both a basic CRM system and quoting application. Users can
+                            use this application to produce quotes, write orders, and keep track of customers. Data is
+                            stored in the cloud and accessable through an AWS GraphQL enpoint.</p>
+
+                        <span>
+                            <p>
+                                <strong>
+                                    <h5>Technologies</h5>
+                                </strong><br>
+                                <span>
+                                    SWIFTUI <br>
+                                    Core Data <br>
+                                    UIKit (Foundation) <br>
+                                    Combine <br>
+                                    IQKeyboard Manager <br>
+                                    GraphQL (Planned) <br>
+                                    Amazon AWS (Planned) <br>
+                                    GooglePlaces (Planned) <br>
+                                    GoogleMaps (Planned) <br>
+                                    CoreLocation (Planned) <br>
+                                </span>
+                            </p>
+                        </span>
+                    </div>
+                    <div class="flex-column col-md-6 col-lg-3 text-center">
+                        <p class="projectTitle">Petstagram</p>
+                        <img class="img-fluid py-4" id="ScreenShots" src="Images/SlantedPetstagram.png" alt="">
+                    </div>
+                    <div class="flex-column col-md-6 col-lg-3 text-center projectD" id="Description">
+
+                        <p>Petstagram is an Instagram clone written entirly from scratch in Swift. Users are able to
+                            follow each other, share photos, and then access them from any device where the application
+                            is installed.</p>
+
+                        <span>
+                            <p>
+                                <strong>
+                                    <h5>Technologies</h5>
+                                </strong><br>
+                                <span>
+                                    Google FireBase <br>
+                                    Google Storage<br>
+                                    UIKit (Foundation)<br>
+                                    Combine<br>
+                                    NSDiffableDataSourceSnapshot<br>
+                                    UICollectionViewDiffableDataSource<br>
+                                    UICollectionViewCompositionalLayout<br>
+                                    Core Data \ Photos<br>
+                                    PhotoUI<br>
+                                    Security (Apple Keychain)<br>
+                                </span>
+                            </p>
+                        </span>
+                    </div>
+                    <div class="flex-column col-md-6 col-lg-3 text-center">
+                        <p class="projectTitle">Awesome Note</p>
+                        <img class="img-fluid py-4" id="ScreenShots" src="Images/AwesomeNoteSlanted.png" alt="">
+                    </div>
+                    <div class="flex-column col-md-6 col-lg-3 text-center projectD" id="Description">
+
+                        <p>Awesome note allows users to quickly jot down their thoughts and then access them on any
+                            device were the application is installed or online using the apps AWS API.</p>
+                        <span>
+                            <p>
+                                <strong>
+                                    <h5>Technologies</h5>
+                                </strong><br>
+                                <span>
+                                    Amazon AWS <br>
+                                    DynamoDB <br>
+                                    GraphQL<br>
+                                    UIKit (Foundation)<br>
+                                    NSDiffableDataSourceSnapshot<br>
+                                    UICollectionViewDiffableDataSource<br>
+                                    UICollectionViewCompositionalLayout<br>
+                                    Core Data <br>
+                                </span>
+                            </p>
+                        </span>
                     </div>
                 </div>
             </div>
-        </div>
-        <!-- Experience Container -->
-        <div class="container-fluid sectionHeaders" id="Experience">
-            <p class="display-4 experienceHeader" style="color: rgba(37, 18, 200, 0.911);">Professional Experience:</p>
-            <div class="experienceData checker">
+        </span>
+        <span id="Section3">
+            <div class="flex-row my-4 container-fluid" id="Experience">
+                <p class="display-4 sectionHeader">Professional Experience</p>
+
                 <p class="jobList" id="Jobs">
 
                     <b class="h3">Speedy Quick Printing - Present</b>
@@ -232,17 +394,32 @@
                         </li>
                     </ul>
                 </p>
+
             </div>
-        </div>
+        </span>
+
         <!-- Education Container -->
-        <div class="container-fluid sectionHeaders" id="Education">
-            <p class="display-4 educationHeader">Education:</p>
-            <p class="content">
-                Seminole State College — 2016 <br />
-                <i>Associates in Arts Degree</i>
-            </p>
-        </div>
+        <span id="Section4">
+            <div class="flex-row container-fluid" id="Education">
+                <p class="display-4 sectionHeader">Education</p>
+
+                <p class="content">
+                    Seminole State College — 2016 <br />
+                    <i>Associates in Arts Degree</i>
+                </p>
+            </div>
+        </span>
+
+
     </div>
+
+    <div class="flex-row container-fluid" id="FOOTER">
+
+    </div>
+    <div class="container-fluid" id="FOOTERCONTENT">
+
+    </div>
+
     <!-- BOOTSTRAP JQUERY & JAVASCRIPT -->
     <!-- ! IMPORTANT: Required for proper functioning of Bootstrap CDN  -->
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"

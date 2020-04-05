@@ -1,141 +1,127 @@
 
-/*! CSS For Small Screens */
-@media only screen and (max-width: 896px) {
-   
-    #Header .headerContent {
-       font-size: medium;
+
+
+/*! SMALL SCREENS  */
+
+@media only screen and (max-width: 896px){
+
+    #MyName .display-1 {
+    font-family: "Rubik", sans-serif;
+    font-size: xx-large;
     }
 
-    .display-1 {
-        font-size: xx-large;
-        margin-top: 50px;
-    }
-
-    #Header .headerContent .position {
-        font-size: x-large;
-    }
-
-    .sectionHeaders .display-4 {
-        font-size: xx-large;
-    }
-
-}
-/*! Large Screens Only */
-
-@media only screen and (min-width:897px){
-
-    .btn {
-        margin-top: 2em;
-    }
-   
-    #Summary .btn {
-    border-radius: 5em;
-    height: 5em;
-    width: 30%;
-    }
+    #Position .h1 {
+    font-weight: 100;
+    font-size: large;
 }
 
-/*! Default values */
+    .sectionHeader {
+        font-family: "Rubik", sans-serif;
+        font-size: xx-large;
+    }
 
-html,
-body {
+    #ContactForm {
+    position: absolute;
+    background-color: white;
+    padding: 2%;
+    border-radius: 10px;
+    z-index: 3;
+    }
+
+    #FormHolder {
+        margin-right: 20px;
+        margin-left: 20px;
+    }
+}
+
+
+/*! LARGE SCREENS  */
+
+@media only screen and (min-width: 897px){
+
+    #MyName {
+    font-family: "Rubik", sans-serif;
+    }
+
+    #Position .h1 {
+    font-weight: 100;
+}
+
+    .sectionHeader {
+        font-family: "Rubik", sans-serif;
+    }
+
+    #ContactForm {
+    position: absolute;
+    width: 33.3%;
+    background-color: white;
+    padding: 2%;
+    border-radius: 10px;
+    z-index: 3;
+    }
+}
+
+/* Sets the body equal to beginning section of site. */
+html,body{
     height: 100%;
     margin: 0px;
 }
 
-#RequestServiceForm {
-    position: absolute;
-    background: linear-gradient(rgb(255, 19, 90), rgb(250, 187, 69));
-    width: 100%;
-    height: 0%;
-}
-
-#ContactForm {
-    visibility: hidden;
-}
-
-#RequestServiceForm .btn {
-    margin: auto;
-}
-
-#MenuButton {
-    position: absolute;
-    color: white;
-    width: 1em;
-}
-
-#MenuButton:hover {
-    animation-name: hovering;
-    animation-duration: 1s;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
-}
-
-@keyframes hovering {
-    0%{}
-    100%{
-        color: rgb(250, 187, 69);
-    }
-}
-
-#ChildScreen {
-    background-color: rgba(79, 118, 245, 0.884);
-    width: 0px;
-    height: 75%;
-    position: absolute;
-    margin-top: 100px;
-    border-top-right-radius: 15px;
-    border-bottom-right-radius: 15px;
-    box-shadow: 5px 0px 30px rgba(0, 0, 0, 0.541);
-    overflow: hidden;
-}
-
-#ChildScreen .menuItems a {
-    color: white;
-}
-
-#ChildScreen .menuName {
-font-family: "Rubik", sans-serif;
-}
-
-#ChildScreen .menuTitle {
-font-weight: 100;
-}
-
-#Header {
-    /* background: linear-gradient(rgb(255, 255, 255,0.8), rgb(255, 255, 255,0.8)), 
-    url(Images/3f2140094e808464c825a2706032a1ba.jpg); */
-    /* background-color: rgba(37, 4, 182, 0.911); */
+/* Sets background color for whole background. */
+.fluidArea {
     background: linear-gradient( rgba(37, 4, 182, 0.911), rgba(90, 126, 247, 0.911));
+    transition: 0.5s all ease-in;
+}
+
+.orangeFluid {
+    background: linear-gradient(rgb(255, 19, 90), rgb(250, 187, 69));
+    transition: 0.5s all ease-in;
+}
+
+/*% Contact Form */
+
+.contactFormHeader {
+    font-weight: 800;
+}
+
+#ContactForm .hidden {
+    opacity: 0;
+    /* transition: all ease-out 1s; */
+}
+
+#ContactForm .visible {
+    opacity: 1;
+    transition: all ease-in 1s;
+}
+
+#SubmitButton {
+    /* margin-right: 20%;
+    margin-left: 20%; */
+    margin-bottom: 10px;
+}
+
+.DescriptionLabel {
+    color: white;
+}
+
+
+/*% Form End  */
+
+/* Sets attributes for header section. */
+#Header {
+    
     width: 100%;
     height: 100%;
-    display: table;
+    /* display: table; */
     color: white;
     margin-bottom: 0px;
 }
 
-#Header .headerContent {
-    margin-left: 10%;
-    margin-right: 10%;
-    /* border: white solid 1px; */
-    border-radius: 20px;
-}
-
-#Header .headerContent .display-1 {
-    font-family: "Rubik", sans-serif;
-}
-
-#Header .headerContent .position {
-    font-weight: 100;
-}
-
-#Header .headerContent #socialMediaIcons a {
+#SocialMediaIcons .fab {
     color: white;
 }
 
-#Header .headerContent #socialMediaIcons .fa-github:hover,
-#Header .headerContent #socialMediaIcons .fa-linkedin:hover {
-    /* font-size: 5rem; */
+#SocialMediaIcons i:hover {
     animation-name: socailMediaIcons;
     animation-duration: 2s;
     animation-iteration-count: infinite;
@@ -149,15 +135,13 @@ font-weight: 100;
     }
 }
 
-#Summary {
+#AboutME {
     font-weight: 200;
+    padding-left: 15%;
+    padding-right: 15%;
 }
 
-#Summary .helloWorld {
-    font-size: larger;
-}
-
-#Summary .btn:hover {
+#RequestInfoButton .btn:hover {
     animation-name: requestInfobutton;
     animation-duration: 1s;
     animation-iteration-count: infinite;
@@ -173,135 +157,127 @@ font-weight: 100;
     }
 }
 
-.sectionHeaders .display-4 {
-    font-family: "Rubik", sans-serif;
-    opacity: 0;
-    transition: ease-out 0.5s all;
+.navbar {
+    background-color: rgba(37, 4, 182, 0.911);
 }
 
-#Skills .animateSectionHeader, 
-#Projects .animateSectionHeader, 
-#Experience .animateSectionHeader {
-    color: black;
-    opacity: 1;
-    transform: translateX(2px);
-    transition: 0.5s all ease-in;
+.dropdown-item {
+    font-weight: 200;
+    font-family: 'Ubuntu', sans-serif;
+    color: rgba(37, 4, 182, 0.7);
 }
 
-#Education .animateSectionHeader {
-    color: white;
-    opacity: 1;
-    transform: translateX(2px);
-    transition: 0.5s all ease-in;
-}
-
-/*TODO: Find alternative method for butting up Skills div with html div*/
-
-#Skills .blueGradient {
+#TransitionArea {
+    height: 75px;
+    width: 100%;
     background: linear-gradient(rgba(90, 126, 247, 0.911), rgb(255, 255, 255));
-    margin-top: -24px;
 }
 
-#Skills .orangeGradient {
-    background: linear-gradient(rgb(250, 187, 69), rgb(255, 255, 255));
-    margin-top: -24px;
+/* Content */
+
+.sectionHeader {
+    font-family: "Rubik", sans-serif;
 }
 
-#Skills .skillHeader {
-    color: black;
-    padding-top: 5%;
+/* SKILLS */
+
+#Section1 .nonVisable {
+    opacity: 0;
+    transition: all 1s ease-in;
 }
 
-#Skills .skillListHeader {
+#Section1 .animateSectionHeader {
+    opacity: 1;
+    transition: all 1s ease-in;
+}
+
+.skillListHeader {
     font-weight: 900;
     font-size: larger;
 }
 
-#Skills .firstList, 
-#Skills .secondtList, 
-#Skills .thirdList, 
-#Skills .fourthList {
-opacity: 0;
-transition: all ease-out 2s;
-}
-
-/*% Eventually modify to have them slide into view one by one.*/
-#Skills .appear .fourthList {
-opacity: 1;
-transition: ease-in all 6s;
-}
- 
-#Skills .appear .thirdList {
-opacity: 1;
-transition: ease-in all 4s;
-}
-
-#Skills .appear .secondtList {
-opacity: 1;
-transition: ease-in all 2s;
-}
-#Skills .appear .firstList {
-opacity: 1;
-transition: ease-in all 1s;
-}
-
-#Skills ul {
+.lists {
     font-weight: 100;
 }
 
-.projectImage {
-    height: 300px;
-    /* position: absolute; */
-    opacity: 0.2;
-}
+/* PROJECTS */
 
-#Projects {
-    height: 300px;
-}
-
-#projectContent {
+#Section2 .nonVisable {
     opacity: 0;
-    transition: ease-out 1s all;
+    transition: all 1s ease-in;
 }
 
-.animateSectionHeader #projectContent {
+#Section2 .animateSectionHeader {
     opacity: 1;
-    transition: ease-out 1s all;
+    transition: all 1s ease-in;
 }
 
-
- .experienceData .h3 {
-    font-size: large;
+.projectTitle {
+    margin-top: 10%;
     font-family: 'Baloo Da 2', cursive;
+    font-size: xx-large;
+    color: rgb(37, 86, 248);
+}
+.projectD {
+    font-weight: 100;
 }
 
-.experienceData p, .experienceData ul {
-    margin-left: 40px;
-    margin-right: 40px;
-    font-weight: 200;
+img #ScreenShots {
+    display: inline-block;
 }
+
+#Description {
+    margin-top: 10%;
+}
+
+/* EXPERIENCE */
+
+#Section3 .nonVisable {
+    opacity: 0;
+    transition: all 1s ease-in;
+}
+
+#Section3 .animateSectionHeader {
+    opacity: 1;
+    transition: all 1.5s ease-in;
+}
+
+#Experience {
+    background-color: rgb(12, 81, 172);
+    padding: 5%;
+    border-radius: 10px;
+    color: white;
+}
+
+.jobList .h3 {
+     font-family: 'Baloo Da 2', cursive;
+}
+
+/* EDUCATION */
 
 #Education {
-    background-color: black;
-    color: white;
-    background: linear-gradient( rgba(43, 92, 255, 0.911), rgba(90, 126, 247, 0.911));
-    padding-bottom: 50px;
-    padding-top: 20px;
-    position: absolute;
+    margin-top: 5%;
 }
 
-#Education .content {
-
-    margin-left: 40px;
-    margin-right: 40px;
-}
-
-.container-fluid .checker {
+#Section4 .nonVisable {
     opacity: 0;
-    transition: ease-out 1s all;
+    transition: all 1s ease-in;
 }
 
-.container-fluid .appear {
+#Section4 .animateSectionHeader {
     opacity: 1;
-    transition: ease-in all 2s;
+    transition: all 1.5s ease-in;
+}
+
+/* FOOTER */ 
+
+#FOOTER {
+    background: linear-gradient(rgb(255, 255, 255), rgba(90, 126, 247, 0.911));
+    height: 100px;
+    margin-top: 100px;
+}
+
+#FOOTERCONTENT {
+    height: 300px;
+    background-color: rgba(90, 126, 247, 0.911);
 }
