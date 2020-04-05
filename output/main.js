@@ -19,6 +19,7 @@ var textField = document.getElementById("DescriptionField");
 var transitionArea = document.getElementById("TransitionArea");
 var headerArea = document.getElementById("Header");
 var headerContent = document.getElementById("HeaderContent");
+var formHolder = document.getElementById("FormHolder");
 
 var skillsSection = document.getElementById("Skills");
 var projectSection = document.getElementById("Projects");
@@ -49,6 +50,8 @@ submitButton.addEventListener("click", submitButtonTapped);
 
 contactFormScreen.style.height = "0%";
 contactFormScreen.style.visibility = "hidden";
+//Stops form from briefly flashing when DOM is being loaded.
+formHolder.style.opacity = "100%";
 loadSectionHeaderWithFadeIn()
 
 //%End Load
