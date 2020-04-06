@@ -211,7 +211,8 @@ function clearfields() {
 
 //Is called when DOM loads; creates smooth loading animation for content within header section.
 function loadSectionHeaderWithFadeIn() {
-    
+    headerContent.classList.remove("hidden");
+    headerContent.classList.add("visible");
 }
 
 

@@ -112,51 +112,52 @@
     </nav>
 
     <div id="Header" class="headerContent flex-row d-flex align-items-center fluidArea">
+        <span id="SiteHeaderContentWrapper">
+            <div class="container-fluid text-center hidden" id="HeaderContent">
 
-        <div class="container-fluid text-center" id="HeaderContent">
+                <!-- My Name -->
+                <div id="MyName" class="flex-column">
+                    <strong class="display-1">Michael Wells</strong>
+                </div>
 
-            <!-- My Name -->
-            <div id="MyName" class="flex-column">
-                <strong class="display-1">Michael Wells</strong>
+                <!-- Position -->
+                <div id="Position" class="flex-column">
+                    <p class="h1">Software Engineer</p>
+                </div>
+
+                <!-- Social Media Icons -->
+                <div id="SocialMediaIcons" class="d-flex justify-content-center">
+                    <a href="https://www.github.com/victis23" target="_blank">
+                        <i class="fab fa-github h2 mr-4"></i>
+                    </a>
+
+                    <a href="https://www.linkedin.com/in/michael-wells-17b21857/" target="_blank">
+                        <i class="fab fa-linkedin h2"></i>
+                    </a>
+                </div>
+
+                <!-- About Me Summary -->
+                <div id="AboutME" class="flex-column py-4">
+                    <p>
+                        <strong><span class="helloWorld">Hello world</span></strong>, I am a software engineer who
+                        specializes in building robust mobile experiences for both enterprise and commercial usage.
+                    </p>
+
+                    <p>
+                        I have a passion for learning new things and work efficiently in a team setting utilizing AGILE
+                        development methodologies—Scrum—writing code with proper documentation; leveraging source code
+                        management tools such as Git, using industry standard OOP architectures
+                        such MVC & MVVM, and best practices like SOLID.
+                    </p>
+                </div>
+
+                <div id="RequestInfoButton" class="d-flex justify-content-center">
+                    <button class="btn btn-outline-light btn-lg requestInfoButton" type="button">
+                        Request Services
+                    </button>
+                </div>
             </div>
-
-            <!-- Position -->
-            <div id="Position" class="flex-column">
-                <p class="h1">Software Engineer</p>
-            </div>
-
-            <!-- Social Media Icons -->
-            <div id="SocialMediaIcons" class="d-flex justify-content-center">
-                <a href="https://www.github.com/victis23" target="_blank">
-                    <i class="fab fa-github h2 mr-4"></i>
-                </a>
-
-                <a href="https://www.linkedin.com/in/michael-wells-17b21857/" target="_blank">
-                    <i class="fab fa-linkedin h2"></i>
-                </a>
-            </div>
-
-            <!-- About Me Summary -->
-            <div id="AboutME" class="flex-column py-4">
-                <p>
-                    <strong><span class="helloWorld">Hello world</span></strong>, I am a software engineer who
-                    specializes in building robust mobile experiences for both enterprise and commercial usage.
-                </p>
-
-                <p>
-                    I have a passion for learning new things and work efficiently in a team setting utilizing AGILE
-                    development methodologies—Scrum—writing code with proper documentation; leveraging source code
-                    management tools such as Git, using industry standard OOP architectures
-                    such MVC & MVVM, and best practices like SOLID.
-                </p>
-            </div>
-
-            <div id="RequestInfoButton" class="d-flex justify-content-center">
-                <button class="btn btn-outline-light btn-lg requestInfoButton" type="button">
-                    Request Services
-                </button>
-            </div>
-        </div>
+        </span>
     </div>
 
     <!-- Transition Area -->
@@ -525,7 +526,7 @@
     <!-- GOOGLE FIREBASE -->
     <!-- The core Firebase JS SDK is always required and must be listed first -->
     <script src="https://www.gstatic.com/firebasejs/7.13.2/firebase-app.js"></script>
-    
+
     <!-- TODO: Add SDKs for Firebase products that you want to use
          https://firebase.google.com/docs/web/setup#available-libraries -->
 
@@ -535,31 +536,31 @@
 
     <script>
         // Your web app's Firebase configuration
-            var firebaseConfig = {
-                apiKey: "AIzaSyA8uLjvF05fH-TUjt-QRZ8pkZeFeJWVmno",
-                authDomain: "portfolio-5f956.firebaseapp.com",
-                databaseURL: "https://portfolio-5f956.firebaseio.com",
-                projectId: "portfolio-5f956",
-                storageBucket: "portfolio-5f956.appspot.com",
-                messagingSenderId: "322089138229",
-                appId: "1:322089138229:web:550438e22376920995d97c",
-                measurementId: "G-9GSC89H1B3"
-            };
-            // Initialize Firebase
-            firebase.initializeApp(firebaseConfig);
-            firebase.analytics();
+        var firebaseConfig = {
+            apiKey: "AIzaSyA8uLjvF05fH-TUjt-QRZ8pkZeFeJWVmno",
+            authDomain: "portfolio-5f956.firebaseapp.com",
+            databaseURL: "https://portfolio-5f956.firebaseio.com",
+            projectId: "portfolio-5f956",
+            storageBucket: "portfolio-5f956.appspot.com",
+            messagingSenderId: "322089138229",
+            appId: "1:322089138229:web:550438e22376920995d97c",
+            measurementId: "G-9GSC89H1B3"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        firebase.analytics();
     </script>
-    
 
-<!-- The core Firebase JS SDK is always required and must be listed first -->
-<!-- <script src="/__/firebase/7.13.2/firebase-app.js"></script> -->
 
-<!-- TODO: Add SDKs for Firebase products that you want to use
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <!-- <script src="/__/firebase/7.13.2/firebase-app.js"></script> -->
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
      https://firebase.google.com/docs/web/setup#available-libraries -->
-<!-- <script src="/__/firebase/7.13.2/firebase-analytics.js"></script> -->
+    <!-- <script src="/__/firebase/7.13.2/firebase-analytics.js"></script> -->
 
-<!-- Initialize Firebase -->
-<!-- <script src="/__/firebase/init.js"></script> -->
+    <!-- Initialize Firebase -->
+    <!-- <script src="/__/firebase/init.js"></script> -->
 
     <!-- INTERNAL JAVASCRIPT FILE -->
     <script type="text/javascript" src="main.js"></script>

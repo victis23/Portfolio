@@ -141,6 +141,15 @@ html,body{
     margin-bottom: 0px;
 }
 
+#SiteHeaderContentWrapper .hidden {
+    opacity: 0;
+}
+
+#SiteHeaderContentWrapper .visible {
+    opacity: 100;
+    transition: all ease-in 1.5s;
+}
+
 #HeaderContent {
     z-index: 3;
 }
