@@ -20,7 +20,7 @@
         font-size: xx-large;
     }
 
-    #ContactForm {
+    #RequestForm {
     position: absolute;
     background-color: white;
     padding: 2%;
@@ -29,10 +29,23 @@
     z-index: 3;
     }
 
-    #FormHolder {
-        margin-right: 20px;
-        margin-left: 20px;
-    }
+       #UserFormWrapper .hidden {
+        height: 0%;
+        transition: ease-out all 1s;
+}
+
+    #UserFormWrapper .visible {
+    height: 60%;
+    transition: all ease-in 1s;
+}
+
+    #Container .hidden {
+    opacity: 0%;
+}
+
+#Container .visible {
+    opacity: 100%;
+}
 
     #HeaderContent {
         padding-top: 10px;
@@ -63,15 +76,34 @@
         font-family: "Rubik", sans-serif;
     }
 
-    #ContactForm {
+    #RequestForm {
     position: absolute;
     width: 33.3%;
     background-color: white;
     padding: 2%;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
+    margin: auto;
     z-index: 3;
     }
+
+    #UserFormWrapper .hidden {
+        height: 0%;
+        transition: ease-out all 1s;
+}
+
+    #UserFormWrapper .visible {
+    height: 50%;
+    transition: all ease-in 1s;
+}
+
+#Container .hidden {
+    opacity: 0%;
+}
+
+#Container .visible {
+    opacity: 100%;
+}
 
     #AboutME {
     font-weight: 200;
@@ -101,31 +133,6 @@ html,body{
 
 .contactFormHeader {
     font-weight: 800;
-}
-
-/* #FormWrapper .added{
-    height: 75%;
-    transition: all 1s ease-in;
-}
-
-#FormWrapper .hide {
-    height: 0%;
-    transition:  all 1s ease-out;
-} */
-
-/* Stops Form from briefly flahshing as DOM is being loaded. */
-#FormHolder {
-    opacity: 0;
-}
-
-#ContactForm .hidden {
-    opacity: 0;
-    /* transition: all ease-out 1s; */
-}
-
-#ContactForm .visible {
-    opacity: 1;
-    transition: all ease-in 1s;
 }
 
 #SubmitButton {

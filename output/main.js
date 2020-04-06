@@ -3,9 +3,10 @@ var any = firebase.firestore()
 var isFormShowing = false;
 var infoBtn = document.getElementById("RequestInfoButton");
 var navigationBar = document.getElementById("NavigationBar");
-var contactFormScreen = document.getElementById("ContactForm");
-var contactFormFields = document.getElementById("ContactFormContent");
+
 var submitButton = document.getElementById("SubmitButton");
+var requestForm = document.getElementById("RequestForm");
+
 
 //!Form Outlets & Values
 
@@ -19,7 +20,7 @@ var textField = document.getElementById("DescriptionField");
 var transitionArea = document.getElementById("TransitionArea");
 var headerArea = document.getElementById("Header");
 var headerContent = document.getElementById("HeaderContent");
-var formHolder = document.getElementById("FormHolder");
+
 
 var skillsSection = document.getElementById("Skills");
 var projectSection = document.getElementById("Projects");
@@ -47,33 +48,39 @@ window.addEventListener("scroll", scroller);
 submitButton.addEventListener("click", submitButtonTapped);
 
 //% On load
-
-contactFormScreen.style.height = "0%";
-contactFormScreen.style.visibility = "hidden";
-//Stops form from briefly flashing when DOM is being loaded.
-formHolder.style.opacity = "100%";
 loadSectionHeaderWithFadeIn()
 
 //%End Load
 
 // When user clicks info button method updates background and presents user with form.
 function infoBtnClicked() {
-
-    isFormShowing = !isFormShowing;
-
-    if (isFormShowing) {
-        showContactForm();
+    
+    if (!isFormShowing) {
+        isFormShowing = !isFormShowing;
+        growFormContainer()
         headerArea.classList.add("orangeFluid");
         headerArea.classList.remove("fluidArea");
         transitionArea.style.background = "linear-gradient(rgb(250, 187, 69), rgb(255, 255, 255))";
         navigationBar.style.backgroundColor = "rgb(255, 19, 90)";
     } else {
-        hideContactForm();
+        isFormShowing = !isFormShowing;
+        shrinkFormContainer()
         headerArea.classList.add("fluidArea");
         headerArea.classList.remove("orangeFluid");
         transitionArea.style.background = "linear-gradient(rgba(90, 126, 247, 0.911), rgb(255, 255, 255))";
         navigationBar.style.backgroundColor = "rgba(37, 4, 182, 0.911)";
+        
     }
+}
+
+function growFormContainer(){
+        requestForm.classList.add("visible");
+        requestForm.classList.remove("hidden");
+}
+
+function shrinkFormContainer(){
+        requestForm.classList.remove("visible");
+        requestForm.classList.add("hidden");
 }
 
 // Is called as user scrolls down page.
@@ -118,45 +125,6 @@ function animateElementin(element) {
 function removeElementClassIn(element) {
     element.classList.remove("animateSectionHeader")
     element.classList.add("nonVisable")
-}
-
-//Displays contact form to user.
-function showContactForm() {
-    var position = 0;
-    var interval = setInterval(move, 5);
-    function move() {
-        if (position === 75) {
-            // formView.style.visibility = "visible";
-            clearInterval(interval);
-        } else {
-            position += 1;
-            contactFormScreen.style.height = position + "%";
-        }
-    }
-    contactFormFields.classList.add("visible");
-    contactFormFields.classList.remove("hidden");
-    contactFormScreen.style.visibility = "visible";
-}
-
-//Hides contact from from user.
-function hideContactForm() {
-    var position = 50;
-    var interval = setInterval(move, 5);
-    // formView.style.visibility = "hidden";
-    function move() {
-        if (position === 75) {
-            clearInterval(interval);
-        } else {
-            position -= 1;
-            contactFormScreen.style.height = position + "%";
-        }
-
-        if (position === 0) {
-            contactFormScreen.style.visibility = "hidden";
-        }
-    }
-    contactFormFields.classList.remove("visible");
-    contactFormFields.classList.add("hidden");
 }
 
 //Handles data returned from form.
