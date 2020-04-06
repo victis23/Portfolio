@@ -6,14 +6,14 @@
 @media only screen and (max-width: 896px){
 
     #MyName .display-1 {
-    font-family: "Rubik", sans-serif;
-    font-size: xx-large;
+        font-family: "Rubik", sans-serif;
+        font-size: xx-large;
     }
 
     #Position .h1 {
-    font-weight: 100;
-    font-size: large;
-}
+        font-weight: 100;
+        font-size: large;
+    }
 
     .sectionHeader {
         font-family: "Rubik", sans-serif;
@@ -21,31 +21,32 @@
     }
 
     #RequestForm {
-    position: absolute;
-    background-color: white;
-    padding: 2%;
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
-    z-index: 3;
+        position: absolute;
+        background-color: white;
+        padding: 2%;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+        z-index: 3;
     }
 
-       #UserFormWrapper .hidden {
+    #UserFormWrapper .hidden {
         height: 0%;
         transition: ease-out all 1s;
-}
+    }
 
     #UserFormWrapper .visible {
-    height: 60%;
-    transition: all ease-in 1s;
-}
+        height: 80%;
+        transition: all ease-in 1s;
+        padding: 10px;
+    }
 
     #Container .hidden {
-    opacity: 0%;
-}
+        opacity: 0%;
+    }
 
-#Container .visible {
-    opacity: 100%;
-}
+    #Container .visible {
+        opacity: 100%;
+    }
 
     #HeaderContent {
         padding-top: 10px;
@@ -53,9 +54,9 @@
     }
 
     #AboutME {
-    font-weight: 200;
-    padding-left: 5%;
-    padding-right: 5%;
+        font-weight: 200;
+        padding-left: 5%;
+        padding-right: 5%;
     }
 }
 
