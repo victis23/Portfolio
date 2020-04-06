@@ -26,6 +26,8 @@ DerivedData/
 
 ## Obj-C/Swift specific
 *.hmap
+GoogleService-Info.plist
+
 
 ## App packaging
 *.ipa
