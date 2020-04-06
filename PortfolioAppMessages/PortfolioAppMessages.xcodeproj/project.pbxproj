@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -18,6 +18,7 @@
 		7D506538243AD54300B10038 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D506536243AD54300B10038 /* LaunchScreen.storyboard */; };
 		7D506543243AD54300B10038 /* PortfolioAppMessagesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D506542243AD54300B10038 /* PortfolioAppMessagesTests.swift */; };
 		7D50654E243AD54300B10038 /* PortfolioAppMessagesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D50654D243AD54300B10038 /* PortfolioAppMessagesUITests.swift */; };
+		7D50655C243ADCB300B10038 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7D50655B243ADCB300B10038 /* GoogleService-Info.plist */; };
 		80832B2188A684B8C066743B /* Pods_PortfolioAppMessages.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6252E70E6609686C2868DFE4 /* Pods_PortfolioAppMessages.framework */; };
 /* End PBXBuildFile section */
 
@@ -59,6 +60,7 @@
 		7D506549243AD54300B10038 /* PortfolioAppMessagesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PortfolioAppMessagesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D50654D243AD54300B10038 /* PortfolioAppMessagesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioAppMessagesUITests.swift; sourceTree = "<group>"; };
 		7D50654F243AD54300B10038 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7D50655B243ADCB300B10038 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../GoogleService-Info.plist"; sourceTree = "<group>"; };
 		963735B9CE58462F1DFB6174 /* Pods-PortfolioAppMessages.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PortfolioAppMessages.release.xcconfig"; path = "Target Support Files/Pods-PortfolioAppMessages/Pods-PortfolioAppMessages.release.xcconfig"; sourceTree = "<group>"; };
 		B73030F057D227E1802AB004 /* Pods-PortfolioAppMessages.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PortfolioAppMessages.debug.xcconfig"; path = "Target Support Files/Pods-PortfolioAppMessages/Pods-PortfolioAppMessages.debug.xcconfig"; sourceTree = "<group>"; };
 		D3D524A12E30A69AED638D9B /* Pods_PortfolioAppMessages_PortfolioAppMessagesUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PortfolioAppMessages_PortfolioAppMessagesUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -113,7 +115,6 @@
 				052FCDE7CB3DD1C7F9ADD991 /* Pods-PortfolioAppMessagesTests.debug.xcconfig */,
 				24AC076358E6F5CC4C1C9D0E /* Pods-PortfolioAppMessagesTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -142,6 +143,7 @@
 		7D506527243AD54100B10038 /* PortfolioAppMessages */ = {
 			isa = PBXGroup;
 			children = (
+				7D50655B243ADCB300B10038 /* GoogleService-Info.plist */,
 				7D506528243AD54100B10038 /* AppDelegate.swift */,
 				7D50652A243AD54100B10038 /* SceneDelegate.swift */,
 				7D50652F243AD54100B10038 /* ContentView.swift */,
@@ -290,6 +292,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7D506538243AD54300B10038 /* LaunchScreen.storyboard in Resources */,
+				7D50655C243ADCB300B10038 /* GoogleService-Info.plist in Resources */,
 				7D506535243AD54300B10038 /* Preview Assets.xcassets in Resources */,
 				7D506532243AD54300B10038 /* Assets.xcassets in Resources */,
 			);
