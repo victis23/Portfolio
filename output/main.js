@@ -123,19 +123,11 @@ function removeElementClassIn(element) {
 
 //Displays contact form to user.
 function showContactForm() {
-    var position = 0;
-    var interval = setInterval(move, 5);
-    function move() {
-        if (position === 75) {
-            // formView.style.visibility = "visible";
-            clearInterval(interval);
-        } else {
-            position += 1;
-            contactFormScreen.style.height = position + "%";
-        }
-    }
-    contactFormFields.classList.add("visible");
-    contactFormFields.classList.remove("hidden");
+    
+    // contactFormFields.classList.add("visible");
+    // contactFormFields.classList.remove("hidden");
+    contactFormScreen.classList.add("added")
+    contactFormScreen.classList.remove("hide")
     contactFormScreen.style.visibility = "visible";
 }
 
@@ -151,13 +143,11 @@ function hideContactForm() {
             position -= 1;
             contactFormScreen.style.height = position + "%";
         }
-
-        if (position === 0) {
-            contactFormScreen.style.visibility = "hidden";
-        }
-    }
-    contactFormFields.classList.remove("visible");
-    contactFormFields.classList.add("hidden");
+    
+    // contactFormFields.classList.remove("visible");
+    // contactFormFields.classList.add("hidden");
+    contactFormScreen.classList.remove("added")
+    contactFormScreen.classList.add("hide")
 }
 
 //Handles data returned from form.
