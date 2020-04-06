@@ -103,6 +103,16 @@ html,body{
     font-weight: 800;
 }
 
+#FormWrapper .added{
+    height: 75%;
+    transition: all 1s ease-in;
+}
+
+#FormWrapper .hide {
+    height: 0%;
+    transition:  all 1s ease-out;
+}
+
 /* Stops Form from briefly flahshing as DOM is being loaded. */
 #FormHolder {
     opacity: 0;
