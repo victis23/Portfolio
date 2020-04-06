@@ -1,4 +1,9 @@
 
+const firebase = require("firebase");
+// Required for side-effects
+require("firebase/firestore");
+
+
 
 var isFormShowing = false;
 var infoBtn = document.getElementById("RequestInfoButton");
