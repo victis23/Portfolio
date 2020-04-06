@@ -1,0 +1,6 @@
+framework module Pods_PortfolioAppMessages {
+  umbrella header "Pods-PortfolioAppMessages-umbrella.h"
+
+  export *
+  module * { export * }
+}

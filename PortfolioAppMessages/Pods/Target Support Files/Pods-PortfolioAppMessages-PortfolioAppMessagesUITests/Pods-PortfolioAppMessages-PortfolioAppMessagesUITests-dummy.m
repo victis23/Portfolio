@@ -1,0 +1,5 @@
+#import <Foundation/Foundation.h>
+@interface PodsDummy_Pods_PortfolioAppMessages_PortfolioAppMessagesUITests : NSObject
+@end
+@implementation PodsDummy_Pods_PortfolioAppMessages_PortfolioAppMessagesUITests
+@end
