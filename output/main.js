@@ -211,20 +211,7 @@ function clearfields() {
 
 //Is called when DOM loads; creates smooth loading animation for content within header section.
 function loadSectionHeaderWithFadeIn() {
-    headerContent.style.opacity = "0";
-    var currentOpacity = 0;
-
-    var interval = setInterval(function () {
-
-        if (currentOpacity != 100) {
-            headerContent.style.opacity = currentOpacity + "%";
-            currentOpacity += 0.3; // might need to change this to 1 (might be introducing a bug).
-        }
-    }, 5);
-
-    if (currentOpacity === 100) {
-        clearInterval(interval);
-    }
+    
 }
 
 
