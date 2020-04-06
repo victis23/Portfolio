@@ -21,6 +21,9 @@
 		7D50655E243AE32100B10038 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7D50655D243AE32100B10038 /* GoogleService-Info.plist */; };
 		7D50655F243AE32100B10038 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7D50655D243AE32100B10038 /* GoogleService-Info.plist */; };
 		7D506560243AE32100B10038 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7D50655D243AE32100B10038 /* GoogleService-Info.plist */; };
+		7D506562243AE6F800B10038 /* Messages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D506561243AE6F800B10038 /* Messages.swift */; };
+		7D506563243AE6F800B10038 /* Messages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D506561243AE6F800B10038 /* Messages.swift */; };
+		7D506564243AE6F800B10038 /* Messages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D506561243AE6F800B10038 /* Messages.swift */; };
 		80832B2188A684B8C066743B /* Pods_PortfolioAppMessages.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6252E70E6609686C2868DFE4 /* Pods_PortfolioAppMessages.framework */; };
 /* End PBXBuildFile section */
 
@@ -63,6 +66,7 @@
 		7D50654D243AD54300B10038 /* PortfolioAppMessagesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioAppMessagesUITests.swift; sourceTree = "<group>"; };
 		7D50654F243AD54300B10038 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7D50655D243AE32100B10038 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		7D506561243AE6F800B10038 /* Messages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Messages.swift; sourceTree = "<group>"; };
 		963735B9CE58462F1DFB6174 /* Pods-PortfolioAppMessages.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PortfolioAppMessages.release.xcconfig"; path = "Target Support Files/Pods-PortfolioAppMessages/Pods-PortfolioAppMessages.release.xcconfig"; sourceTree = "<group>"; };
 		B73030F057D227E1802AB004 /* Pods-PortfolioAppMessages.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PortfolioAppMessages.debug.xcconfig"; path = "Target Support Files/Pods-PortfolioAppMessages/Pods-PortfolioAppMessages.debug.xcconfig"; sourceTree = "<group>"; };
 		D3D524A12E30A69AED638D9B /* Pods_PortfolioAppMessages_PortfolioAppMessagesUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PortfolioAppMessages_PortfolioAppMessagesUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -147,6 +151,7 @@
 			children = (
 				7D50655D243AE32100B10038 /* GoogleService-Info.plist */,
 				7D506528243AD54100B10038 /* AppDelegate.swift */,
+				7D506561243AE6F800B10038 /* Messages.swift */,
 				7D50652A243AD54100B10038 /* SceneDelegate.swift */,
 				7D50652F243AD54100B10038 /* ContentView.swift */,
 				7D506531243AD54300B10038 /* Assets.xcassets */,
@@ -428,6 +433,7 @@
 			files = (
 				7D506529243AD54100B10038 /* AppDelegate.swift in Sources */,
 				7D50652E243AD54100B10038 /* PortfolioAppMessages.xcdatamodeld in Sources */,
+				7D506562243AE6F800B10038 /* Messages.swift in Sources */,
 				7D506530243AD54100B10038 /* ContentView.swift in Sources */,
 				7D50652B243AD54100B10038 /* SceneDelegate.swift in Sources */,
 			);
@@ -438,6 +444,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7D506543243AD54300B10038 /* PortfolioAppMessagesTests.swift in Sources */,
+				7D506563243AE6F800B10038 /* Messages.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -446,6 +453,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7D50654E243AD54300B10038 /* PortfolioAppMessagesUITests.swift in Sources */,
+				7D506564243AE6F800B10038 /* Messages.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
