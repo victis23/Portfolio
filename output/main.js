@@ -1,4 +1,3 @@
-
 var any = firebase.firestore()
 
 var isFormShowing = false;
@@ -123,11 +122,19 @@ function removeElementClassIn(element) {
 
 //Displays contact form to user.
 function showContactForm() {
-    
-    // contactFormFields.classList.add("visible");
-    // contactFormFields.classList.remove("hidden");
-    contactFormScreen.classList.add("added")
-    contactFormScreen.classList.remove("hide")
+    var position = 0;
+    var interval = setInterval(move, 5);
+    function move() {
+        if (position === 75) {
+            // formView.style.visibility = "visible";
+            clearInterval(interval);
+        } else {
+            position += 1;
+            contactFormScreen.style.height = position + "%";
+        }
+    }
+    contactFormFields.classList.add("visible");
+    contactFormFields.classList.remove("hidden");
     contactFormScreen.style.visibility = "visible";
 }
 
@@ -143,11 +150,13 @@ function hideContactForm() {
             position -= 1;
             contactFormScreen.style.height = position + "%";
         }
-    
-    // contactFormFields.classList.remove("visible");
-    // contactFormFields.classList.add("hidden");
-    contactFormScreen.classList.remove("added")
-    contactFormScreen.classList.add("hide")
+
+        if (position === 0) {
+            contactFormScreen.style.visibility = "hidden";
+        }
+    }
+    contactFormFields.classList.remove("visible");
+    contactFormFields.classList.add("hidden");
 }
 
 //Handles data returned from form.
@@ -167,10 +176,10 @@ function submitButtonTapped() {
     data.description = descriptionText;
 
     any.collection("Messages").doc().set({
-       name : data.name,
-       phone : data.phone,
-       email : data.email,
-       message : data.description,
+        name: data.name,
+        phone: data.phone,
+        email: data.email,
+        message: data.description,
     }).then(function () {
         console.log("Value added to database successfully!");
     })
@@ -204,8 +213,3 @@ function loadSectionHeaderWithFadeIn() {
     headerContent.classList.remove("hidden");
     headerContent.classList.add("visible");
 }
-
-
-
-
-
