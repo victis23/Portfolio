@@ -12,12 +12,13 @@ import FirebaseFirestore
 class FireBaseHelper {
 	
 	var db = Firestore.firestore()
+	var collectionName : String = "Messages"
 	
 	func retrieveMessages(handler : @escaping ([Message])->Void){
 		
 		let messageContainer = Messages()
 		
-		let messageCollection = db.collection("Messages")
+		let messageCollection = db.collection(collectionName)
 		
 		messageCollection.addSnapshotListener { (snapshot, error) in
 			
@@ -44,5 +45,9 @@ class FireBaseHelper {
 				handler(messageContainer.messages)
 			})
 		}
+	}
+	
+	func removeMessageFromDB(message: Message){
+		db.collection(collectionName)
 	}
 }
