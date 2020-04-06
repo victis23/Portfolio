@@ -13,16 +13,24 @@ struct ContentView: View {
 	@ObservedObject var messageList :Messages = Messages()
 	
 	var body: some View {
-		List {
-			ForEach(messageList.messages, id: \Message.message, content: { item in
-				VStack{
-					Text(item.name)
-					Text(item.phone)
-					Text(item.email)
-					Text(item.message)
-				}
-			})
+		NavigationView {
+			List {
+				ForEach(messageList.messages, id: \Message.message, content: { item in
+					VStack(alignment: .leading){
+						Text(item.name)
+							.bold()
+							.font(.headline)
+							.foregroundColor(.blue)
+						Text(item.phone)
+						Text(item.email)
+						Text(item.message)
+					}
+					.font(.subheadline)
+				})
+			}
+			.navigationBarTitle("Client Messages")
 		}
+			
 		.onAppear {
 			let helper = FireBaseHelper()
 			
