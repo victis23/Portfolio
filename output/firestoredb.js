@@ -1,15 +1,32 @@
 
-const firebase = require("firebase");
+// const firebase = require("firebase");
 
 // Required for side-effects
 
-require("firebase/firestore");
+// require("firebase/firestore");
+
+submitButton.addEventListener("click",addToDataBase);
 
 var db = firebase.firestore()
 
+function addToDataBase(){
+
+    console.log("The firebase file is being loaded");
+
+    db.collection("users").add({
+        first: "Ada",
+        last: "Lovelace",
+        born: 1815
+    })
+        .then(function (docRef) {
+            console.log("Document written with ID: ", docRef.id);
+        })
+        .catch(function (error) {
+            console.error("Error adding document: ", error);
+        });
+}
 
 
-console.log("The firebase file is being loaded");
 
 // var nameField = document.getElementById("NameField");
 // var phoneField = document.getElementById("PhoneNumberField");
