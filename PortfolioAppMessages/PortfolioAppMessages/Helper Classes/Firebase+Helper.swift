@@ -19,7 +19,7 @@ class FireBaseHelper {
 		
 		let messageCollection = db.collection("Messages")
 		
-		messageCollection.getDocuments { (snapshot, error) in
+		messageCollection.addSnapshotListener { (snapshot, error) in
 			
 			if let error = error {
 				print(error.localizedDescription)
