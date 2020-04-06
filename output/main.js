@@ -176,7 +176,7 @@ function submitButtonTapped() {
     data.email = email;
     data.description = descriptionText;
 
-    any.collection("Messages").doc("Message").set({
+    any.collection("Messages").doc().set({
        name : data.name,
        phone : data.phone,
        email : data.email,
@@ -184,6 +184,7 @@ function submitButtonTapped() {
     }).then(function () {
         console.log("Value added to database successfully!");
     })
+
 
     clearfields();
     return data;
