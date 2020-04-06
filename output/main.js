@@ -1,4 +1,5 @@
 
+var any = firebase.firestore()
 
 var isFormShowing = false;
 var infoBtn = document.getElementById("RequestInfoButton");
@@ -174,6 +175,15 @@ function submitButtonTapped() {
     data.phone = phone;
     data.email = email;
     data.description = descriptionText;
+
+    any.collection("Messages").doc("Message").set({
+       name : data.name,
+       phone : data.phone,
+       email : data.email,
+       message : data.description,
+    }).then(function () {
+        console.log("Value added to database successfully!");
+    })
 
     clearfields();
     return data;
