@@ -149,11 +149,10 @@
 		7D506527243AD54100B10038 /* PortfolioAppMessages */ = {
 			isa = PBXGroup;
 			children = (
+				7D506567243B446500B10038 /* ViewModels */,
+				7D506566243B445A00B10038 /* Models */,
+				7D506565243B443D00B10038 /* Application State */,
 				7D50655D243AE32100B10038 /* GoogleService-Info.plist */,
-				7D506528243AD54100B10038 /* AppDelegate.swift */,
-				7D506561243AE6F800B10038 /* Messages.swift */,
-				7D50652A243AD54100B10038 /* SceneDelegate.swift */,
-				7D50652F243AD54100B10038 /* ContentView.swift */,
 				7D506531243AD54300B10038 /* Assets.xcassets */,
 				7D506536243AD54300B10038 /* LaunchScreen.storyboard */,
 				7D506539243AD54300B10038 /* Info.plist */,
@@ -187,6 +186,31 @@
 				7D50654F243AD54300B10038 /* Info.plist */,
 			);
 			path = PortfolioAppMessagesUITests;
+			sourceTree = "<group>";
+		};
+		7D506565243B443D00B10038 /* Application State */ = {
+			isa = PBXGroup;
+			children = (
+				7D506528243AD54100B10038 /* AppDelegate.swift */,
+				7D50652A243AD54100B10038 /* SceneDelegate.swift */,
+			);
+			path = "Application State";
+			sourceTree = "<group>";
+		};
+		7D506566243B445A00B10038 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				7D506561243AE6F800B10038 /* Messages.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		7D506567243B446500B10038 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				7D50652F243AD54100B10038 /* ContentView.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
