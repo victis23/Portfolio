@@ -9,13 +9,39 @@
 import SwiftUI
 
 struct ContentView: View {
-    var body: some View {
-        Text("Hello, World!")
-    }
+	
+	@ObservedObject var messageList :Messages = Messages()
+	
+	var body: some View {
+		List {
+			ForEach(messageList.messages, id: \Message.message, content: { item in
+				VStack{
+					Text(item.name)
+					Text(item.phone)
+					Text(item.email)
+					Text(item.message)
+				}
+			})
+		}
+		.onAppear {
+			let helper = FireBaseHelper()
+			
+			helper.retrieveMessages { (messages) in
+				messages.forEach { item in
+					
+					self.messageList.messages.removeAll { value in
+						value.message == item.message
+					}
+					self.messageList.messages.append(item)
+				}
+			}
+			
+		}
+	}
 }
 
 struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
-    }
+	static var previews: some View {
+		ContentView()
+	}
 }
