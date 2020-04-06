@@ -24,6 +24,9 @@
 		7D506562243AE6F800B10038 /* Messages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D506561243AE6F800B10038 /* Messages.swift */; };
 		7D506563243AE6F800B10038 /* Messages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D506561243AE6F800B10038 /* Messages.swift */; };
 		7D506564243AE6F800B10038 /* Messages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D506561243AE6F800B10038 /* Messages.swift */; };
+		7D50656A243B44EE00B10038 /* Firebase+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D506569243B44EE00B10038 /* Firebase+Helper.swift */; };
+		7D50656B243B44EE00B10038 /* Firebase+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D506569243B44EE00B10038 /* Firebase+Helper.swift */; };
+		7D50656C243B44EE00B10038 /* Firebase+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D506569243B44EE00B10038 /* Firebase+Helper.swift */; };
 		80832B2188A684B8C066743B /* Pods_PortfolioAppMessages.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6252E70E6609686C2868DFE4 /* Pods_PortfolioAppMessages.framework */; };
 /* End PBXBuildFile section */
 
@@ -67,6 +70,7 @@
 		7D50654F243AD54300B10038 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7D50655D243AE32100B10038 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		7D506561243AE6F800B10038 /* Messages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Messages.swift; sourceTree = "<group>"; };
+		7D506569243B44EE00B10038 /* Firebase+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Firebase+Helper.swift"; sourceTree = "<group>"; };
 		963735B9CE58462F1DFB6174 /* Pods-PortfolioAppMessages.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PortfolioAppMessages.release.xcconfig"; path = "Target Support Files/Pods-PortfolioAppMessages/Pods-PortfolioAppMessages.release.xcconfig"; sourceTree = "<group>"; };
 		B73030F057D227E1802AB004 /* Pods-PortfolioAppMessages.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PortfolioAppMessages.debug.xcconfig"; path = "Target Support Files/Pods-PortfolioAppMessages/Pods-PortfolioAppMessages.debug.xcconfig"; sourceTree = "<group>"; };
 		D3D524A12E30A69AED638D9B /* Pods_PortfolioAppMessages_PortfolioAppMessagesUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PortfolioAppMessages_PortfolioAppMessagesUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -149,6 +153,7 @@
 		7D506527243AD54100B10038 /* PortfolioAppMessages */ = {
 			isa = PBXGroup;
 			children = (
+				7D506568243B44D200B10038 /* Helper Classes */,
 				7D506567243B446500B10038 /* ViewModels */,
 				7D506566243B445A00B10038 /* Models */,
 				7D506565243B443D00B10038 /* Application State */,
@@ -211,6 +216,14 @@
 				7D50652F243AD54100B10038 /* ContentView.swift */,
 			);
 			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		7D506568243B44D200B10038 /* Helper Classes */ = {
+			isa = PBXGroup;
+			children = (
+				7D506569243B44EE00B10038 /* Firebase+Helper.swift */,
+			);
+			path = "Helper Classes";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -457,6 +470,7 @@
 			files = (
 				7D506529243AD54100B10038 /* AppDelegate.swift in Sources */,
 				7D50652E243AD54100B10038 /* PortfolioAppMessages.xcdatamodeld in Sources */,
+				7D50656A243B44EE00B10038 /* Firebase+Helper.swift in Sources */,
 				7D506562243AE6F800B10038 /* Messages.swift in Sources */,
 				7D506530243AD54100B10038 /* ContentView.swift in Sources */,
 				7D50652B243AD54100B10038 /* SceneDelegate.swift in Sources */,
@@ -469,6 +483,7 @@
 			files = (
 				7D506543243AD54300B10038 /* PortfolioAppMessagesTests.swift in Sources */,
 				7D506563243AE6F800B10038 /* Messages.swift in Sources */,
+				7D50656B243B44EE00B10038 /* Firebase+Helper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -478,6 +493,7 @@
 			files = (
 				7D50654E243AD54300B10038 /* PortfolioAppMessagesUITests.swift in Sources */,
 				7D506564243AE6F800B10038 /* Messages.swift in Sources */,
+				7D50656C243B44EE00B10038 /* Firebase+Helper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
