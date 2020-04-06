@@ -36,6 +36,7 @@
 
     #HeaderContent {
         padding-top: 10px;
+        z-index: 3;
     }
 
     #AboutME {
@@ -138,6 +139,10 @@ html,body{
     /* display: table; */
     color: white;
     margin-bottom: 0px;
+}
+
+#HeaderContent {
+    z-index: 3;
 }
 
 #SocialMediaIcons .fab {
