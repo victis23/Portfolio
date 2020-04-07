@@ -95,7 +95,7 @@
     }
 
     #UserFormWrapper .visible {
-        height: 50%;
+        height: 75%;
         transition: all ease-in 1s;
     }
 
