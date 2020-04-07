@@ -14,19 +14,23 @@ import FirebaseMessaging
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 	
+	let notificationCenter = UNUserNotificationCenter.current()
+	let fireBaseMessageCenter = Messaging.messaging()
+	
+	
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 		
 		FirebaseApp.configure()
 		
 		// Push notification setup
 		
-		Messaging.messaging().delegate = self
+		fireBaseMessageCenter.delegate = self
+		notificationCenter.delegate = self
 		
-		UNUserNotificationCenter.current().delegate = self
 		
 		let authOptions : UNAuthorizationOptions = [.alert,.badge,.sound]
 
-		UNUserNotificationCenter.current().requestAuthorization(options: authOptions) { (hasPassed, error) in
+		notificationCenter.requestAuthorization(options: authOptions) { (hasPassed, error) in
 
 			if let error = error {
 				print("Request Authorization for Notification Center failed with error: \(error.localizedDescription)")
