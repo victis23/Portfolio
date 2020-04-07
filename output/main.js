@@ -148,6 +148,7 @@ function submitButtonTapped() {
         phone: data.phone,
         email: data.email,
         message: data.description,
+        timestamp : Date.now,
     }).then(function () {
         console.log("Value added to database successfully!");
     })
