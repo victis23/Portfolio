@@ -53,7 +53,7 @@
 		2E4E3748BFBA1CFB489BA731 /* Pods_PortfolioAppMessagesTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PortfolioAppMessagesTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		51941532AF9DD6B3769AF471 /* Pods-PortfolioAppMessages-PortfolioAppMessagesUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PortfolioAppMessages-PortfolioAppMessagesUITests.debug.xcconfig"; path = "Target Support Files/Pods-PortfolioAppMessages-PortfolioAppMessagesUITests/Pods-PortfolioAppMessages-PortfolioAppMessagesUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		6252E70E6609686C2868DFE4 /* Pods_PortfolioAppMessages.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PortfolioAppMessages.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		7D506525243AD54100B10038 /* PortfolioAppMessages.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PortfolioAppMessages.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7D506525243AD54100B10038 /* MichaelWells.dev.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MichaelWells.dev.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D506528243AD54100B10038 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7D50652A243AD54100B10038 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		7D50652D243AD54100B10038 /* PortfolioAppMessages.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PortfolioAppMessages.xcdatamodel; sourceTree = "<group>"; };
@@ -144,7 +144,7 @@
 		7D506526243AD54100B10038 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				7D506525243AD54100B10038 /* PortfolioAppMessages.app */,
+				7D506525243AD54100B10038 /* MichaelWells.dev.app */,
 				7D50653E243AD54300B10038 /* PortfolioAppMessagesTests.xctest */,
 				7D506549243AD54300B10038 /* PortfolioAppMessagesUITests.xctest */,
 			);
@@ -247,7 +247,7 @@
 			);
 			name = PortfolioAppMessages;
 			productName = PortfolioAppMessages;
-			productReference = 7D506525243AD54100B10038 /* PortfolioAppMessages.app */;
+			productReference = 7D506525243AD54100B10038 /* MichaelWells.dev.app */;
 			productType = "com.apple.product-type.application";
 		};
 		7D50653D243AD54300B10038 /* PortfolioAppMessagesTests */ = {
@@ -656,7 +656,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.duhmarket.PortfolioAppMessages;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = MichaelWells.dev;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -678,7 +678,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.duhmarket.PortfolioAppMessages;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = MichaelWells.dev;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
