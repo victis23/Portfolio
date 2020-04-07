@@ -11,6 +11,20 @@ import SwiftUI
 struct ContentView: View {
 	
 	@ObservedObject var messageList :Messages = Messages()
+	private var firebaseHelper = FireBaseHelper()
+	
+	func deleteMessageFromDatabase(indexSet:IndexSet){
+		
+		defer {
+			messageList.messages.remove(atOffsets: indexSet)
+		}
+		
+		if let index = indexSet.first {
+			
+			let message = messageList.messages[index]
+			firebaseHelper.removeMessageFromDB(documentID: message.id)
+		}
+	}
 	
 	var body: some View {
 		NavigationView {
@@ -27,14 +41,14 @@ struct ContentView: View {
 					}
 					.font(.subheadline)
 				})
+				.onDelete(perform: deleteMessageFromDatabase(indexSet:))
 			}
 			.navigationBarTitle("Client Messages")
 		}
 			
 		.onAppear {
-			let helper = FireBaseHelper()
 			
-			helper.retrieveMessages { (messages) in
+			self.firebaseHelper.retrieveMessages { (messages) in
 				messages.forEach { item in
 					
 					self.messageList.messages.removeAll { value in

@@ -16,11 +16,9 @@ class FireBaseHelper {
 	
 	func retrieveMessages(handler : @escaping ([Message])->Void){
 		
-		let messageContainer = Messages()
-		
 		let messageCollection = db.collection(collectionName)
 		
-		messageCollection.addSnapshotListener { (snapshot, error) in
+		messageCollection.addSnapshotListener(includeMetadataChanges: true) { (snapshot, error) in
 			
 			if let error = error {
 				print(error.localizedDescription)
@@ -30,24 +28,29 @@ class FireBaseHelper {
 			guard let response = snapshot else {return}
 			
 			let document = response.documents
-			let dictionaryArray = document.map { (document) -> Message? in
+			
+			let dictionaryArray = document.map { (document) -> Message in
 				
-				let message = Message(name: document["name"] as! String,
+				guard let message = Message(name: document["name"] as! String,
 										 phone: document["phone"] as! String,
 										 email: document["email"] as! String,
-										 message: document["message"] as! String)
+										 message: document["message"] as! String,
+										 id: document.documentID) else {fatalError()}
 				return message
 			}
 			
-			dictionaryArray.forEach({ message in
-				guard let item = message else {return}
-				messageContainer.messages.append(item)
-				handler(messageContainer.messages)
-			})
+			handler(dictionaryArray)
 		}
 	}
 	
 	func removeMessageFromDB(documentID:String){
-		db.collection(collectionName).document(documentID).delete()
+		db.collection(collectionName).document(documentID).delete { (error) in
+			
+			if let error = error {
+				print(error.localizedDescription)
+				return
+			}
+			
+		}
 	}
 }
