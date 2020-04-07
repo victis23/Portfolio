@@ -27,19 +27,22 @@ class FireBaseHelper {
 			
 			guard let response = snapshot else {return}
 			
-			let document = response.documents
-			
-			let dictionaryArray = document.map { (document) -> Message in
+			if !response.metadata.hasPendingWrites && !response.metadata.isFromCache {
 				
-				guard let message = Message(name: document["name"] as! String,
-										 phone: document["phone"] as! String,
-										 email: document["email"] as! String,
-										 message: document["message"] as! String,
-										 id: document.documentID) else {fatalError()}
-				return message
+				let document = response.documents
+				
+				let dictionaryArray = document.map { (document) -> Message in
+					
+					guard let message = Message(name: document["name"] as! String,
+												phone: document["phone"] as! String,
+												email: document["email"] as! String,
+												message: document["message"] as! String,
+												id: document.documentID) else {fatalError()}
+					return message
+				}
+				
+				handler(dictionaryArray)
 			}
-			
-			handler(dictionaryArray)
 		}
 	}
 	

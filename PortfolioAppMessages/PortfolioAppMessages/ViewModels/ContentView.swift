@@ -15,6 +15,11 @@ struct ContentView: View {
 	
 	func deleteMessageFromDatabase(indexSet:IndexSet){
 		
+		//Not an elegant solution but it works.
+		defer {
+			messageList.messages.removeAll()
+		}
+		
 		if let index = indexSet.first {
 			
 			let message = messageList.messages[index]
