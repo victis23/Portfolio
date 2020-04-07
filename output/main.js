@@ -137,18 +137,14 @@ function submitButtonTapped() {
     var descriptionText = textField.value;
 
     // Asign values to properties on a new DataObject.
-    var data = new DataObject;
-    data.name = name;
-    data.phone = phone;
-    data.email = email;
-    data.description = descriptionText;
-
+    var data = new DataObject(name,phone,email,descriptionText,Date.now());
+    
     any.collection("Messages").doc().set({
         name: data.name,
         phone: data.phone,
         email: data.email,
         message: data.description,
-        timestamp : Date.now,
+        timestamp : data.timestamp,
     }).then(function () {
         console.log("Value added to database successfully!");
     })
@@ -160,11 +156,12 @@ function submitButtonTapped() {
 
 // Class that will hold data returned from form.
 class DataObject {
-    constructor(name, phone, email, description) {
+    constructor(name, phone, email, description, timestamp) {
         this.name = name;
         this.phone = phone;
         this.email = email;
         this.description = description;
+        this.timestamp = timestamp;
     }
 }
 
