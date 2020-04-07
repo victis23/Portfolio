@@ -14,6 +14,8 @@ var nameField = document.getElementById("NameField");
 var phoneField = document.getElementById("PhoneNumberField");
 var emailField = document.getElementById("EmailField");
 var textField = document.getElementById("DescriptionField");
+var descriptionLabel = document.getElementById("DescriptionLabel");
+var formTitleLabel = document.getElementById("ContactFormTitleText");
 
 //%Sections
 
@@ -52,18 +54,30 @@ loadSectionHeaderWithFadeIn()
 
 //%End Load
 
+function setFormOpacityTo(opacity) {
+    formTitleLabel.style.opacity = opacity + "%";
+    nameField.style.opacity = opacity + "%";
+    emailField.style.opacity = opacity + "%";
+    phoneField.style.opacity = opacity + "%";
+    textField.style.opacity = opacity + "%";
+    submitButton.style.opacity = opacity + "%";
+    descriptionLabel.style.opacity = opacity + "%";
+}
+
 // When user clicks info button method updates background and presents user with form.
 function infoBtnClicked() {
     
     if (!isFormShowing) {
         isFormShowing = !isFormShowing;
         growFormContainer()
+        setFormOpacityTo(100);
         headerArea.classList.add("orangeFluid");
         headerArea.classList.remove("fluidArea");
         transitionArea.style.background = "linear-gradient(rgb(250, 187, 69), rgb(255, 255, 255))";
         navigationBar.style.backgroundColor = "rgb(255, 19, 90)";
     } else {
         isFormShowing = !isFormShowing;
+        setFormOpacityTo(0)
         shrinkFormContainer()
         headerArea.classList.add("fluidArea");
         headerArea.classList.remove("orangeFluid");
