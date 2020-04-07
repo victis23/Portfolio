@@ -10,17 +10,20 @@ import UIKit
 import CoreData
 import Firebase
 import FirebaseMessaging
+import UserNotifications
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 	
 	let notificationCenter = UNUserNotificationCenter.current()
 	let fireBaseMessageCenter = Messaging.messaging()
+	let gcmMessageIDKey = "gcm.message_id"
 	
 	
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 		
 		FirebaseApp.configure()
+		
 		
 		// Push notification setup
 		
@@ -35,7 +38,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 			if let error = error {
 				print("Request Authorization for Notification Center failed with error: \(error.localizedDescription)")
 			}
-			application.registerForRemoteNotifications()
+			
+			DispatchQueue.main.async {
+				application.registerForRemoteNotifications()
+			}
 		}
 		return true
 	}
@@ -104,8 +110,34 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 extension AppDelegate : UNUserNotificationCenterDelegate {
 	
+	func application(_ application: UIApplication,
+					 didReceiveRemoteNotification userInfo: [AnyHashable : Any]) {
+		
+		if let messageID = userInfo[gcmMessageIDKey] {
+			print("Message ID: \(messageID)")
+		}
+		
+		print(userInfo)
+	}
+	
+	func application(_ application: UIApplication,
+					 didReceiveRemoteNotification userInfo: [AnyHashable : Any],
+					 fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+		if let messageID = userInfo[gcmMessageIDKey] {
+			
+			print("Method with completionHandler Message ID: \(messageID)")
+		}
+		completionHandler(UIBackgroundFetchResult.newData)
+	}
+	
 }
 
 extension AppDelegate : MessagingDelegate {
+	
+	func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String) {
+		
+		let tokenDict : [String:String] = ["token":fcmToken]
+		NotificationCenter.default.post(name: Notification.Name("FCMToken"), object: nil, userInfo: tokenDict)
+	}
 	
 }
