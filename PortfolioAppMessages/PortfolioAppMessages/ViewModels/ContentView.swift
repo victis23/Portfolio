@@ -45,6 +45,7 @@ struct ContentView: View {
 				.onDelete(perform: deleteMessageFromDatabase(indexSet:))
 			}
 			.navigationBarTitle("Client Messages")
+			.navigationViewStyle(StackNavigationViewStyle())
 		}
 			
 		.onAppear {
