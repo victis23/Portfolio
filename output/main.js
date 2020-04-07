@@ -1,4 +1,4 @@
-var any = firebase.firestore()
+var any = firebase.firestore();
 
 var isFormShowing = false;
 var infoBtn = document.getElementById("RequestInfoButton");
@@ -50,7 +50,7 @@ window.addEventListener("scroll", scroller);
 submitButton.addEventListener("click", submitButtonTapped);
 
 //% On load
-loadSectionHeaderWithFadeIn()
+loadSectionHeaderWithFadeIn();
 
 //%End Load
 
@@ -69,7 +69,7 @@ function infoBtnClicked() {
     
     if (!isFormShowing) {
         isFormShowing = !isFormShowing;
-        growFormContainer()
+        growFormContainer();
         setFormOpacityTo(100);
         headerArea.classList.add("orangeFluid");
         headerArea.classList.remove("fluidArea");
@@ -77,8 +77,8 @@ function infoBtnClicked() {
         navigationBar.style.backgroundColor = "rgb(255, 19, 90)";
     } else {
         isFormShowing = !isFormShowing;
-        setFormOpacityTo(0)
-        shrinkFormContainer()
+        setFormOpacityTo(0);
+        shrinkFormContainer();
         headerArea.classList.add("fluidArea");
         headerArea.classList.remove("orangeFluid");
         transitionArea.style.background = "linear-gradient(rgba(90, 126, 247, 0.911), rgb(255, 255, 255))";
@@ -132,13 +132,13 @@ function scroller() {
 // Shows element on screen with animations.
 function animateElementin(element) {
     element.classList.add("animateSectionHeader");
-    element.classList.remove("nonVisable")
+    element.classList.remove("nonVisable");
 }
 
 // Removes element on screen with animation.
 function removeElementClassIn(element) {
-    element.classList.remove("animateSectionHeader")
-    element.classList.add("nonVisable")
+    element.classList.remove("animateSectionHeader");
+    element.classList.add("nonVisable");
 }
 
 //Handles data returned from form.
