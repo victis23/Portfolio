@@ -15,10 +15,6 @@ struct ContentView: View {
 	
 	func deleteMessageFromDatabase(indexSet:IndexSet){
 		
-		defer {
-			messageList.messages.remove(atOffsets: indexSet)
-		}
-		
 		if let index = indexSet.first {
 			
 			let message = messageList.messages[index]
