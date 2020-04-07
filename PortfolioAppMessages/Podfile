@@ -8,6 +8,7 @@ target 'PortfolioAppMessages' do
   # Pods for PortfolioAppMessages
   pod 'Firebase/Auth'
   pod 'Firebase/Firestore'
+	pod 'Firebase/Messaging'
   
   target 'PortfolioAppMessagesTests' do
     inherit! :search_paths
