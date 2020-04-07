@@ -47,7 +47,7 @@ class FireBaseHelper {
 		}
 	}
 	
-	func removeMessageFromDB(message: Message){
-		db.collection(collectionName)
+	func removeMessageFromDB(documentID:String){
+		db.collection(collectionName).document(documentID).delete()
 	}
 }
