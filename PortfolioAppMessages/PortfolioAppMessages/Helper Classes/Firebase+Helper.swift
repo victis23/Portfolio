@@ -18,7 +18,7 @@ class FireBaseHelper {
 		
 		let messageCollection = db.collection(collectionName)
 		
-		messageCollection.addSnapshotListener(includeMetadataChanges: true) { (snapshot, error) in
+		messageCollection.order(by: "timestamp", descending: false).addSnapshotListener(includeMetadataChanges: true) { (snapshot, error) in
 			
 			if let error = error {
 				print(error.localizedDescription)
