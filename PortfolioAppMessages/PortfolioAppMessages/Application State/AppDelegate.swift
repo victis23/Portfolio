@@ -9,7 +9,6 @@
 import UIKit
 import CoreData
 import Firebase
-import FirebaseMessaging
 import UserNotifications
 
 @UIApplicationMain
@@ -117,7 +116,7 @@ extension AppDelegate : UNUserNotificationCenterDelegate {
 			print("Message ID: \(messageID)")
 		}
 		
-		print(userInfo)
+		print("UserInfo : \(userInfo)...")
 	}
 	
 	func application(_ application: UIApplication,
