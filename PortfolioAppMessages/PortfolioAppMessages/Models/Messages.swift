@@ -17,12 +17,14 @@ class Message {
 	var phone : String;
 	var email : String;
 	var message : String;
+	var id : String;
 	
-	init?(name:Any, phone:Any, email:Any, message: Any){
+	init?(name:Any, phone:Any, email:Any, message: Any, id: String){
 		self.name = name as! String;
 		self.phone = phone as! String;
 		self.email = email as! String;
 		self.message = message as! String;
+		self.id = id;
 	}
 	
 }
