@@ -9,6 +9,7 @@
 import UIKit
 import CoreData
 import Firebase
+import FirebaseMessaging
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -17,8 +18,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		
 		FirebaseApp.configure()
 		
+		// Push notification setup
+		
+		Messaging.messaging().delegate = self
+		
+		UNUserNotificationCenter.current().delegate = self
+		
+		let authOptions : UNAuthorizationOptions = [.alert,.badge,.sound]
+
+		UNUserNotificationCenter.current().requestAuthorization(options: authOptions) { (hasPassed, error) in
+
+			if let error = error {
+				print("Request Authorization for Notification Center failed with error: \(error.localizedDescription)")
+			}
+			application.registerForRemoteNotifications()
+		}
 		return true
 	}
+	
 	
 	// MARK: UISceneSession Lifecycle
 	
@@ -81,3 +98,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	
 }
 
+extension AppDelegate : UNUserNotificationCenterDelegate {
+	
+}
+
+extension AppDelegate : MessagingDelegate {
+	
+}
