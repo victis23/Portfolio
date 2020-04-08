@@ -109,6 +109,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 extension AppDelegate : UNUserNotificationCenterDelegate {
 	
+	/// Unique device token recieved from APPLE APN upon successful device registration.
+	func application(_ application: UIApplication,
+					 didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+		
+		print("This was the registration token recieved: \(deviceToken)...")
+	}
+	
+	///Error message recieved when registration has failed.
+	func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
+		print("Registratoin to remote APN failed with error : \(error).")
+	}
+	
+	///User information recieved after sucessful APN resigstation.
 	func application(_ application: UIApplication,
 					 didReceiveRemoteNotification userInfo: [AnyHashable : Any]) {
 		
@@ -137,6 +150,7 @@ extension AppDelegate : MessagingDelegate {
 		
 		let tokenDict : [String:String] = ["token":fcmToken]
 		NotificationCenter.default.post(name: Notification.Name("FCMToken"), object: nil, userInfo: tokenDict)
+		
+		print("This is the token recieved for this device! \(fcmToken)")
 	}
-	
 }

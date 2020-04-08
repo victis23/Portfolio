@@ -7,6 +7,8 @@
 //
 
 import SwiftUI
+import Firebase
+import FirebaseMessaging
 
 struct ContentView: View {
 	
@@ -26,6 +28,23 @@ struct ContentView: View {
 			firebaseHelper.removeMessageFromDB(documentID: message.id)
 		}
 	}
+	
+	func subscribeToTopic(){
+		
+		Messaging.messaging().subscribe(toTopic: "/topics/sentMessages") { (error) in
+			if let error = error {
+				print("Subscription failed with error: \(error.localizedDescription).")
+			}
+		}
+	}
+	
+	func setNotificationObserver()->String {
+		let tokenRetriever = GetGFBToken()
+		tokenRetriever.setNotificationObserver()
+		let token = tokenRetriever.getTokenString()
+		return token
+	}
+	
 	
 	var body: some View {
 		NavigationView {
@@ -49,6 +68,13 @@ struct ContentView: View {
 		}
 			
 		.onAppear {
+			
+			print("This is the token: \(Messaging.messaging().fcmToken ?? "No token issued...")")
+			
+			let token = self.setNotificationObserver()
+			self.subscribeToTopic()
+			
+			print("This is the returned token: \(token).")
 			
 			self.firebaseHelper.retrieveMessages { (messages) in
 				messages.forEach { item in
