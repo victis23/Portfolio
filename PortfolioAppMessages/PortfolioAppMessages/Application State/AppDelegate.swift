@@ -23,12 +23,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		
 		FirebaseApp.configure()
 		
-		
 		// Push notification setup
 		
 		fireBaseMessageCenter.delegate = self
 		notificationCenter.delegate = self
-		
 		
 		let authOptions : UNAuthorizationOptions = [.alert,.badge,.sound]
 
@@ -42,6 +40,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 				application.registerForRemoteNotifications()
 			}
 		}
+		
 		return true
 	}
 	
@@ -135,8 +134,11 @@ extension AppDelegate : UNUserNotificationCenterDelegate {
 	func application(_ application: UIApplication,
 					 didReceiveRemoteNotification userInfo: [AnyHashable : Any],
 					 fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+		
 		if let messageID = userInfo[gcmMessageIDKey] {
 			
+			//Reset icon badge alert count.
+			application.applicationIconBadgeNumber = 0
 			print("Method with completionHandler Message ID: \(messageID)")
 		}
 		completionHandler(UIBackgroundFetchResult.newData)
