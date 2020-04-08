@@ -51,6 +51,7 @@ submitButton.addEventListener("click", submitButtonTapped);
 
 //% On load
 loadSectionHeaderWithFadeIn();
+requestForm.style.opacity = "0%";
 
 //%End Load
 
@@ -66,7 +67,9 @@ function setFormOpacityTo(opacity) {
 
 // When user clicks info button method updates background and presents user with form.
 function infoBtnClicked() {
-    
+
+    requestForm.style.opacity = "100%";
+
     if (!isFormShowing) {
         isFormShowing = !isFormShowing;
         growFormContainer();
@@ -76,6 +79,7 @@ function infoBtnClicked() {
         transitionArea.style.background = "linear-gradient(rgb(250, 187, 69), rgb(255, 255, 255))";
         navigationBar.style.backgroundColor = "rgb(255, 19, 90)";
     } else {
+
         isFormShowing = !isFormShowing;
         setFormOpacityTo(0);
         shrinkFormContainer();
@@ -83,6 +87,7 @@ function infoBtnClicked() {
         headerArea.classList.remove("orangeFluid");
         transitionArea.style.background = "linear-gradient(rgba(90, 126, 247, 0.911), rgb(255, 255, 255))";
         navigationBar.style.backgroundColor = "rgba(37, 4, 182, 0.911)";
+        requestForm.style.opacity = "0%";
         
     }
 }
@@ -161,6 +166,16 @@ function submitButtonTapped() {
         timestamp : data.timestamp,
     }).then(function () {
         console.log("Value added to database successfully!");
+    })
+
+    any.collection("Messages").doc("message").collection("List").doc().set({
+        name: data.name,
+        phone: data.phone,
+        email: data.email,
+        message: data.description,
+        timestamp: data.timestamp,
+    }).then(function(){
+        console.debug("The database has been updated!");
     })
 
 
