@@ -9,7 +9,7 @@ exports.sendPushNotification = functions.firestore.document("Messages/{document=
     console.debug(snapshot);
     console.debug(context);
 
-    const topic = "/topics/sentMessages";
+    const topic = "sentMessages";
 
     const payload = {
         notification : {
