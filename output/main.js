@@ -168,15 +168,15 @@ function submitButtonTapped() {
         console.log("Value added to database successfully!");
     })
 
-    any.collection("Messages").doc("message").collection("List").doc().set({
-        name: data.name,
-        phone: data.phone,
-        email: data.email,
-        message: data.description,
-        timestamp: data.timestamp,
-    }).then(function(){
-        console.debug("The database has been updated!");
-    })
+    // any.collection("Messages").doc("message").collection("List").doc().set({
+    //     name: data.name,
+    //     phone: data.phone,
+    //     email: data.email,
+    //     message: data.description,
+    //     timestamp: data.timestamp,
+    // }).then(function(){
+    //     console.debug("The database has been updated!");
+    // })
 
 
     clearfields();
