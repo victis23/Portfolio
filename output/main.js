@@ -42,6 +42,7 @@ var sectionThreeArea = sectionThree.getBoundingClientRect();
 var sectionFourArea = sectionFour.getBoundingClientRect();
 
 var windowArea = window.screen.height;
+var submitButtonPosition = submitButton.getBoundingClientRect().bottom;
 var windowHalfway = (windowArea / 2);
 
 //! Event Listeners
@@ -55,6 +56,7 @@ requestForm.style.opacity = "0%";
 var formUserWrapper = document.getElementById('UserFormWrapper');
 var formContainer = document.getElementById('Container');
 formUserWrapper.removeChild(formContainer);
+formUserWrapper.style.height = submitButtonPosition + 20 + "px";
 //%End Load
 
 function setFormOpacityTo(opacity) {

@@ -35,7 +35,7 @@
     }
 
     #UserFormWrapper .visible {
-        height: 80%;
+        /* height: 80%; */
         transition: all ease-in 1s;
         padding: 10px;
     }
@@ -95,7 +95,7 @@
     }
 
     #UserFormWrapper .visible {
-        height: 75%;
+        /* height: 75%; */
         transition: all ease-in 1s;
     }
 
