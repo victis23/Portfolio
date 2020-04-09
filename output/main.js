@@ -52,7 +52,9 @@ submitButton.addEventListener("click", submitButtonTapped);
 //% On load
 loadSectionHeaderWithFadeIn();
 requestForm.style.opacity = "0%";
-
+var formUserWrapper = document.getElementById('UserFormWrapper');
+var formContainer = document.getElementById('Container');
+formUserWrapper.removeChild(formContainer);
 //%End Load
 
 function setFormOpacityTo(opacity) {
@@ -71,6 +73,7 @@ function infoBtnClicked() {
     requestForm.style.opacity = "100%";
 
     if (!isFormShowing) {
+        formUserWrapper.appendChild(formContainer);
         isFormShowing = !isFormShowing;
         growFormContainer();
         setFormOpacityTo(100);
@@ -79,7 +82,7 @@ function infoBtnClicked() {
         transitionArea.style.background = "linear-gradient(rgb(250, 187, 69), rgb(255, 255, 255))";
         navigationBar.style.backgroundColor = "rgb(255, 19, 90)";
     } else {
-
+        formUserWrapper.removeChild(formContainer);
         isFormShowing = !isFormShowing;
         setFormOpacityTo(0);
         shrinkFormContainer();
