@@ -14,39 +14,10 @@ struct ContentView: View {
 	@ObservedObject var messageList :Messages = Messages()
 	private var firebaseHelper = FireBaseHelper()
 	
-	func deleteMessageFromDatabase(indexSet:IndexSet) {
-		
-		//Not an elegant solution but it works.
-		defer {
-			messageList.messages.removeAll()
-		}
-		
-		if let index = indexSet.first {
-			let message = messageList.messages[index]
-			firebaseHelper.removeMessageFromDB(documentID: message.id)
-		}
-	}
-	
-	func subscribeToTopic() {
-		Messaging.messaging()
-			.subscribe(toTopic: "/topics/sentMessages") { (error) in
-				if let error = error {
-					print("Subscription failed with error: \(error.localizedDescription).")
-				}
-			}
-	}
-	
-	func setNotificationObserver()->String {
-		let tokenRetriever = GetGFBToken()
-		tokenRetriever.setNotificationObserver()
-		let token = tokenRetriever.getTokenString()
-		return token
-	}
-	
 	var body: some View {
 		NavigationView {
 			List {
-				ForEach(messageList.messages, id: \Message.message, content: { item in
+				ForEach(messageList.messages, id: \Message.id, content: { item in
 					VStack(alignment: .leading){
 						Text(item.name)
 							.bold()
@@ -72,15 +43,37 @@ struct ContentView: View {
 			print("This is the returned token: \(token).")
 			
 			self.firebaseHelper.retrieveMessages { (messages) in
-				messages.forEach { item in
-					self.messageList.messages.removeAll { value in
-						value.message == item.message
+				messages.forEach({ message in
+					if !self.messageList.messages.contains(where: { $0 == message }) {
+						self.messageList.messages.append(message)
 					}
-					
-					self.messageList.messages.append(item)
-				}
+				})
 			}
 		}
+	}
+	
+	func deleteMessageFromDatabase(indexSet:IndexSet) {
+		guard let index = indexSet.first else { return }
+			
+		let message = messageList.messages[index]
+		firebaseHelper.removeMessageFromDB(documentID: message.id)
+		messageList.messages.removeAll { $0 == message }
+	}
+	
+	func subscribeToTopic() {
+		Messaging.messaging()
+			.subscribe(toTopic: "/topics/sentMessages") { (error) in
+				if let error = error {
+					print("Subscription failed with error: \(error.localizedDescription).")
+				}
+			}
+	}
+	
+	func setNotificationObserver() -> String {
+		let tokenRetriever = GetGFBToken()
+		tokenRetriever.setNotificationObserver()
+		let token = tokenRetriever.getTokenString()
+		return token
 	}
 }
 

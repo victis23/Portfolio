@@ -12,7 +12,11 @@ class Messages : ObservableObject {
 	@Published var messages : [Message] = []
 }
 
-class Message {
+class Message: Equatable {
+	static func == (lhs: Message, rhs: Message) -> Bool {
+		lhs.id == rhs.id
+	}
+	
 	var name : String;
 	var phone : String;
 	var email : String;
