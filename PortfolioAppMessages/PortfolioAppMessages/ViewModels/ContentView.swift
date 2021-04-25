@@ -11,11 +11,10 @@ import Firebase
 import FirebaseMessaging
 
 struct ContentView: View {
-	
 	@ObservedObject var messageList :Messages = Messages()
 	private var firebaseHelper = FireBaseHelper()
 	
-	func deleteMessageFromDatabase(indexSet:IndexSet){
+	func deleteMessageFromDatabase(indexSet:IndexSet) {
 		
 		//Not an elegant solution but it works.
 		defer {
@@ -23,19 +22,18 @@ struct ContentView: View {
 		}
 		
 		if let index = indexSet.first {
-			
 			let message = messageList.messages[index]
 			firebaseHelper.removeMessageFromDB(documentID: message.id)
 		}
 	}
 	
-	func subscribeToTopic(){
-		
-		Messaging.messaging().subscribe(toTopic: "/topics/sentMessages") { (error) in
-			if let error = error {
-				print("Subscription failed with error: \(error.localizedDescription).")
+	func subscribeToTopic() {
+		Messaging.messaging()
+			.subscribe(toTopic: "/topics/sentMessages") { (error) in
+				if let error = error {
+					print("Subscription failed with error: \(error.localizedDescription).")
+				}
 			}
-		}
 	}
 	
 	func setNotificationObserver()->String {
@@ -44,7 +42,6 @@ struct ContentView: View {
 		let token = tokenRetriever.getTokenString()
 		return token
 	}
-	
 	
 	var body: some View {
 		NavigationView {
@@ -66,26 +63,23 @@ struct ContentView: View {
 			.navigationBarTitle("Client Messages")
 			.navigationViewStyle(StackNavigationViewStyle())
 		}
-			
+		
 		.onAppear {
-			
 			print("This is the token: \(Messaging.messaging().fcmToken ?? "No token issued...")")
 			
 			let token = self.setNotificationObserver()
 			self.subscribeToTopic()
-			
 			print("This is the returned token: \(token).")
 			
 			self.firebaseHelper.retrieveMessages { (messages) in
 				messages.forEach { item in
-					
 					self.messageList.messages.removeAll { value in
 						value.message == item.message
 					}
+					
 					self.messageList.messages.append(item)
 				}
 			}
-			
 		}
 	}
 }

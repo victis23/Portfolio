@@ -9,11 +9,15 @@
 import Foundation
 
 class GetGFBToken {
-	
 	private var token : String = ""
 	
-	func setNotificationObserver(){
-		NotificationCenter.default.addObserver(self, selector: #selector(getToken(notification:)), name: Notification.Name("FCMToken"), object: nil)
+	func setNotificationObserver() {
+		NotificationCenter.default.addObserver(
+			self,
+			selector: #selector(getToken(notification:)),
+			name: Notification.Name("FCMToken"),
+			object: nil
+		)
 	}
 	
 	@objc func getToken(notification:NSNotification) {
