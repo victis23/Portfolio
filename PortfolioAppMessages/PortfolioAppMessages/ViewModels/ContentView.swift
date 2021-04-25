@@ -36,11 +36,11 @@ struct ContentView: View {
 		}
 		
 		.onAppear {
-			print("This is the token: \(Messaging.messaging().fcmToken ?? "No token issued...")")
+			LogHelper.debug("This is the token: \(Messaging.messaging().fcmToken ?? "No token issued...")")
 			
 			let token = self.setNotificationObserver()
 			self.subscribeToTopic()
-			print("This is the returned token: \(token).")
+			LogHelper.debug("This is the returned token: \(token).")
 			
 			self.firebaseHelper.retrieveMessages { (messages) in
 				messages.forEach({ message in
@@ -64,7 +64,7 @@ struct ContentView: View {
 		Messaging.messaging()
 			.subscribe(toTopic: "/topics/sentMessages") { (error) in
 				if let error = error {
-					print("Subscription failed with error: \(error.localizedDescription).")
+					LogHelper.error("Subscription failed with error: \(error.localizedDescription).")
 				}
 			}
 	}
