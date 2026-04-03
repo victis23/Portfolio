@@ -1,215 +1,95 @@
-var any = firebase.firestore();
+const topbar = document.getElementById('topbar');
+const nav = document.getElementById('nav');
+const navToggle = document.getElementById('navToggle');
+const revealNodes = document.querySelectorAll('.reveal');
+const form = document.getElementById('contactForm');
+const formStatus = document.getElementById('formStatus');
+const submitButton = document.getElementById('SubmitButton');
 
-var isFormShowing = false;
-var infoBtn = document.getElementById("RequestInfoButton");
-var navigationBar = document.getElementById("NavigationBar");
-
-var submitButton = document.getElementById("SubmitButton");
-var requestForm = document.getElementById("RequestForm");
-
-
-//!Form Outlets & Values
-
-var nameField = document.getElementById("NameField");
-var phoneField = document.getElementById("PhoneNumberField");
-var emailField = document.getElementById("EmailField");
-var textField = document.getElementById("DescriptionField");
-var descriptionLabel = document.getElementById("DescriptionLabel");
-var formTitleLabel = document.getElementById("ContactFormTitleText");
-
-//%Sections
-
-var transitionArea = document.getElementById("TransitionArea");
-var headerArea = document.getElementById("Header");
-var headerContent = document.getElementById("HeaderContent");
-
-
-var skillsSection = document.getElementById("Skills");
-var projectSection = document.getElementById("Projects");
-var experienceSection = document.getElementById("Experience");
-var educationSection = document.getElementById("Education");
-
-var sectionOne = document.getElementById("Section1");
-var sectionTwo = document.getElementById("Section2");
-var sectionThree = document.getElementById("Section3");
-var sectionFour = document.getElementById("Section4");
-
-//* Measurments
-
-var sectionOneArea = sectionOne.getBoundingClientRect();
-var sectionTwoArea = sectionTwo.getBoundingClientRect();
-var sectionThreeArea = sectionThree.getBoundingClientRect();
-var sectionFourArea = sectionFour.getBoundingClientRect();
-
-var windowArea = window.screen.height;
-var submitButtonPosition = submitButton.getBoundingClientRect().bottom;
-var windowHalfway = (windowArea / 2);
-
-//! Event Listeners
-infoBtn.addEventListener("click", infoBtnClicked);
-window.addEventListener("scroll", scroller);
-submitButton.addEventListener("click", submitButtonTapped);
-
-//% On load
-loadSectionHeaderWithFadeIn();
-requestForm.style.opacity = "0%";
-var formUserWrapper = document.getElementById('UserFormWrapper');
-var formContainer = document.getElementById('Container');
-formUserWrapper.removeChild(formContainer);
-formUserWrapper.style.height = submitButtonPosition + 20 + "px";
-//%End Load
-
-function setFormOpacityTo(opacity) {
-    formTitleLabel.style.opacity = opacity + "%";
-    nameField.style.opacity = opacity + "%";
-    emailField.style.opacity = opacity + "%";
-    phoneField.style.opacity = opacity + "%";
-    textField.style.opacity = opacity + "%";
-    submitButton.style.opacity = opacity + "%";
-    descriptionLabel.style.opacity = opacity + "%";
+function setScrolledState() {
+  if (window.scrollY > 12) {
+    topbar.classList.add('is-scrolled');
+  } else {
+    topbar.classList.remove('is-scrolled');
+  }
 }
 
-// When user clicks info button method updates background and presents user with form.
-function infoBtnClicked() {
+setScrolledState();
+window.addEventListener('scroll', setScrolledState, { passive: true });
 
-    requestForm.style.opacity = "100%";
+navToggle?.addEventListener('click', () => {
+  nav.classList.toggle('is-open');
+  document.body.classList.toggle('nav-open');
+});
 
-    if (!isFormShowing) {
-        formUserWrapper.appendChild(formContainer);
-        isFormShowing = !isFormShowing;
-        growFormContainer();
-        setFormOpacityTo(100);
-        headerArea.classList.add("orangeFluid");
-        headerArea.classList.remove("fluidArea");
-        transitionArea.style.background = "linear-gradient(rgb(250, 187, 69), rgb(255, 255, 255))";
-        navigationBar.style.backgroundColor = "rgb(255, 19, 90)";
-    } else {
-        formUserWrapper.removeChild(formContainer);
-        isFormShowing = !isFormShowing;
-        setFormOpacityTo(0);
-        shrinkFormContainer();
-        headerArea.classList.add("fluidArea");
-        headerArea.classList.remove("orangeFluid");
-        transitionArea.style.background = "linear-gradient(rgba(90, 126, 247, 0.911), rgb(255, 255, 255))";
-        navigationBar.style.backgroundColor = "rgba(37, 4, 182, 0.911)";
-        requestForm.style.opacity = "0%";
-        
-    }
+document.querySelectorAll('.nav a').forEach((link) => {
+  link.addEventListener('click', () => {
+    nav.classList.remove('is-open');
+    document.body.classList.remove('nav-open');
+  });
+});
+
+const observer = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  },
+  { threshold: 0.16 }
+);
+
+revealNodes.forEach((node) => observer.observe(node));
+
+function buildPayload() {
+  return {
+    name: document.getElementById('NameField').value.trim(),
+    email: document.getElementById('EmailField').value.trim(),
+    phone: document.getElementById('PhoneNumberField').value.trim(),
+    message: document.getElementById('DescriptionField').value.trim(),
+    timestamp: Date.now()
+  };
 }
 
-function growFormContainer(){
-        requestForm.classList.add("visible");
-        requestForm.classList.remove("hidden");
+function clearFields() {
+  form.reset();
 }
 
-function shrinkFormContainer(){
-        requestForm.classList.remove("visible");
-        requestForm.classList.add("hidden");
+async function persistMessage(payload) {
+  if (window.firebase && typeof firebase.firestore === 'function') {
+    const db = firebase.firestore();
+    await db.collection('Messages').doc().set(payload);
+    return 'saved';
+  }
+
+  return 'local-only';
 }
 
-// Is called as user scrolls down page.
-function scroller() {
-    currentScrollPosition = window.scrollY;
+form?.addEventListener('submit', async (event) => {
+  event.preventDefault();
 
-    // Skills
-    if (sectionOneArea.top - currentScrollPosition <= (windowHalfway)) {
-        animateElementin(skillsSection);
-    } else {
-        removeElementClassIn(skillsSection);
-    }
-    // Projects
-    if ((sectionTwoArea.top - currentScrollPosition) <= (windowHalfway)) {
-        animateElementin(projectSection);
-    } else {
-        removeElementClassIn(projectSection);
-    }
-    // Experience
-    if (sectionThreeArea.top - currentScrollPosition <= (windowHalfway)) {
-        animateElementin(experienceSection);
-    } else {
-        removeElementClassIn(experienceSection);
-    }
-    // Education
-    //% Needs to use the offset of previous item because this will never reach the middle of the screen.
-    if (sectionFourArea.top - currentScrollPosition <= (windowHalfway)) {
-        animateElementin(educationSection);
-    } else {
-        removeElementClassIn(educationSection);
-    }
+  const payload = buildPayload();
+  if (!payload.name || !payload.email || !payload.message) {
+    formStatus.textContent = 'Please complete the required fields.';
+    return;
+  }
 
-}
+  submitButton.disabled = true;
+  formStatus.textContent = 'Sending…';
 
-// Shows element on screen with animations.
-function animateElementin(element) {
-    element.classList.add("animateSectionHeader");
-    element.classList.remove("nonVisable");
-}
-
-// Removes element on screen with animation.
-function removeElementClassIn(element) {
-    element.classList.remove("animateSectionHeader");
-    element.classList.add("nonVisable");
-}
-
-//Handles data returned from form.
-function submitButtonTapped() {
-
-    infoBtnClicked();
-    var name = nameField.value;
-    var phone = phoneField.value;
-    var email = emailField.value;
-    var descriptionText = textField.value;
-
-    // Asign values to properties on a new DataObject.
-    var data = new DataObject(name,phone,email,descriptionText,Date.now());
-    
-    any.collection("Messages").doc().set({
-        name: data.name,
-        phone: data.phone,
-        email: data.email,
-        message: data.description,
-        timestamp : data.timestamp,
-    }).then(function () {
-        console.log("Value added to database successfully!");
-    })
-
-    // any.collection("Messages").doc("message").collection("List").doc().set({
-    //     name: data.name,
-    //     phone: data.phone,
-    //     email: data.email,
-    //     message: data.description,
-    //     timestamp: data.timestamp,
-    // }).then(function(){
-    //     console.debug("The database has been updated!");
-    // })
-
-
-    clearfields();
-    return data;
-}
-
-// Class that will hold data returned from form.
-class DataObject {
-    constructor(name, phone, email, description, timestamp) {
-        this.name = name;
-        this.phone = phone;
-        this.email = email;
-        this.description = description;
-        this.timestamp = timestamp;
-    }
-}
-
-
-// Removes values from fields once submitted.
-function clearfields() {
-    nameField.value = "";
-    phoneField.value = "";
-    emailField.value = "";
-    textField.value = "";
-}
-
-//Is called when DOM loads; creates smooth loading animation for content within header section.
-function loadSectionHeaderWithFadeIn() {
-    headerContent.classList.remove("hidden");
-    headerContent.classList.add("visible");
-}
+  try {
+    const result = await persistMessage(payload);
+    clearFields();
+    formStatus.textContent =
+      result === 'saved'
+        ? 'Thanks — your message was submitted successfully.'
+        : 'The form UI works, but Firebase was not detected on this page. Add your existing Firebase scripts/config to keep submissions live.';
+  } catch (error) {
+    console.error(error);
+    formStatus.textContent = 'Something went wrong while submitting. Please try again.';
+  } finally {
+    submitButton.disabled = false;
+  }
+});
