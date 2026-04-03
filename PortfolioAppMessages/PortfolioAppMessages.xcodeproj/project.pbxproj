@@ -71,6 +71,7 @@
 		7DD96281243CA65C00D726DA /* PortfolioAppMessages.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PortfolioAppMessages.entitlements; sourceTree = "<group>"; };
 		7DEC505F2F8030A3002E3FE1 /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		7DEC50602F8034A6002E3FE1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		7DEC50762F806625002E3FE1 /* PortfolioAppMessagesDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PortfolioAppMessagesDebug.entitlements; sourceTree = "<group>"; };
 		7DF9AC722635CBF600003F69 /* LogHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -136,6 +137,7 @@
 		7D506527243AD54100B10038 /* PortfolioAppMessages */ = {
 			isa = PBXGroup;
 			children = (
+				7DEC50762F806625002E3FE1 /* PortfolioAppMessagesDebug.entitlements */,
 				7DD96281243CA65C00D726DA /* PortfolioAppMessages.entitlements */,
 				7D506568243B44D200B10038 /* Helper Classes */,
 				7D506567243B446500B10038 /* ViewModels */,
@@ -532,7 +534,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = PortfolioAppMessages/PortfolioAppMessages.entitlements;
+				CODE_SIGN_ENTITLEMENTS = PortfolioAppMessages/PortfolioAppMessagesDebug.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"PortfolioAppMessages/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
