@@ -23,6 +23,7 @@
 		7D50656B243B44EE00B10038 /* Firebase+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D506569243B44EE00B10038 /* Firebase+Helper.swift */; };
 		7D50656C243B44EE00B10038 /* Firebase+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D506569243B44EE00B10038 /* Firebase+Helper.swift */; };
 		7D57CE56243D773B004DDBEF /* TokenRetriever.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D57CE55243D773B004DDBEF /* TokenRetriever.swift */; };
+		7D995DC52F8BF31B00ECB0A4 /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D995DC42F8BF31400ECB0A4 /* ContentViewModel.swift */; };
 		7DEC50612F8034A6002E3FE1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7DEC50602F8034A6002E3FE1 /* GoogleService-Info.plist */; };
 		7DEC506D2F804068002E3FE1 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 7DEC506C2F804068002E3FE1 /* FirebaseAnalytics */; };
 		7DEC506F2F804068002E3FE1 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 7DEC506E2F804068002E3FE1 /* FirebaseAuth */; };
@@ -68,6 +69,7 @@
 		7D506561243AE6F800B10038 /* Messages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Messages.swift; sourceTree = "<group>"; };
 		7D506569243B44EE00B10038 /* Firebase+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Firebase+Helper.swift"; sourceTree = "<group>"; };
 		7D57CE55243D773B004DDBEF /* TokenRetriever.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenRetriever.swift; sourceTree = "<group>"; };
+		7D995DC42F8BF31400ECB0A4 /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
 		7DD96281243CA65C00D726DA /* PortfolioAppMessages.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PortfolioAppMessages.entitlements; sourceTree = "<group>"; };
 		7DEC505F2F8030A3002E3FE1 /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		7DEC50602F8034A6002E3FE1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -140,6 +142,7 @@
 				7DEC50762F806625002E3FE1 /* PortfolioAppMessagesDebug.entitlements */,
 				7DD96281243CA65C00D726DA /* PortfolioAppMessages.entitlements */,
 				7D506568243B44D200B10038 /* Helper Classes */,
+				7D995DC32F8BF2FE00ECB0A4 /* Views */,
 				7D506567243B446500B10038 /* ViewModels */,
 				7D506566243B445A00B10038 /* Models */,
 				7D506565243B443D00B10038 /* Application State */,
@@ -199,7 +202,7 @@
 		7D506567243B446500B10038 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				7D50652F243AD54100B10038 /* ContentView.swift */,
+				7D995DC42F8BF31400ECB0A4 /* ContentViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -212,6 +215,14 @@
 				7DF9AC722635CBF600003F69 /* LogHelper.swift */,
 			);
 			path = "Helper Classes";
+			sourceTree = "<group>";
+		};
+		7D995DC32F8BF2FE00ECB0A4 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				7D50652F243AD54100B10038 /* ContentView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -355,6 +366,7 @@
 				7D50652E243AD54100B10038 /* PortfolioAppMessages.xcdatamodeld in Sources */,
 				7D50656A243B44EE00B10038 /* Firebase+Helper.swift in Sources */,
 				7DF9AC732635CBF600003F69 /* LogHelper.swift in Sources */,
+				7D995DC52F8BF31B00ECB0A4 /* ContentViewModel.swift in Sources */,
 				7D506562243AE6F800B10038 /* Messages.swift in Sources */,
 				7D506530243AD54100B10038 /* ContentView.swift in Sources */,
 				7D50652B243AD54100B10038 /* SceneDelegate.swift in Sources */,

@@ -8,6 +8,7 @@
 
 import Foundation
 import FirebaseFirestore
+import FirebaseMessaging
 
 class FireBaseHelper {
 	var db = Firestore.firestore()
@@ -30,16 +31,12 @@ class FireBaseHelper {
 					let document = response.documents
 					
 					let dictionaryArray = document.map { (document) -> Message in
-						guard let message = Message(
+						return Message(
 							name: document["name"] as! String,
 							phone: document["phone"] as! String,
 							email: document["email"] as! String,
 							message: document["message"] as! String,
-							id: document.documentID
-						) else {
-							fatalError()
-						}
-						return message
+							id: document.documentID)
 					}
 					
 					handler(dictionaryArray)
@@ -57,5 +54,29 @@ class FireBaseHelper {
 					return
 				}
 			}
+	}
+
+	func subscribeToTopic() {
+		defer {
+			LogHelper.debug("This is the token: \(Messaging.messaging().fcmToken ?? "No token issued...")")
+		}
+
+		Messaging.messaging()
+			.subscribe(toTopic: "/topics/sentMessages") { (error) in
+				if let error = error {
+					LogHelper.error("Subscription failed with error: \(error.localizedDescription).")
+				}
+			}
+	}
+
+	func deleteMessageFromDatabase(messageID: String) {
+		removeMessageFromDB(documentID: messageID)
+	}
+
+	func setNotificationObserver() -> String {
+		let tokenRetriever = GetGFBToken()
+		tokenRetriever.setNotificationObserver()
+		let token = tokenRetriever.getTokenString()
+		return token
 	}
 }
