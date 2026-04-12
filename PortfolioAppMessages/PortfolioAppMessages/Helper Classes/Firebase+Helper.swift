@@ -13,11 +13,13 @@ import FirebaseMessaging
 class FireBaseHelper {
 	var db = Firestore.firestore()
 	var collectionName : String = "Messages"
+	var listener: ListenerRegistration?
 	
 	func retrieveMessages(handler : @escaping ([Message])->Void) {
 		let messageCollection = db.collection(collectionName)
-		
-		messageCollection.order(by: "timestamp", descending: false)
+		listener = nil
+
+		listener = messageCollection.order(by: "timestamp", descending: false)
 			.addSnapshotListener(includeMetadataChanges: true) { (snapshot, error) in
 				
 				if let error = error {
