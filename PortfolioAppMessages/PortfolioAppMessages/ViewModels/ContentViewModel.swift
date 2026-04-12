@@ -9,15 +9,25 @@
 import Observation
 import Foundation
 
-class ContentViewModel: Observable {
+protocol ContentViewModel: Observable {
+	var messageList: Messages { get }
+	var firebaseHelper: FireBaseHelper { get }
+	func onAppear()
+	func retrieveMessages()
+	func deleteMessageFromDatabase(indexSet: IndexSet)
+}
+
+class DefaultContentViewModel: ContentViewModel {
 	var messageList: Messages = Messages()
 	var firebaseHelper = FireBaseHelper()
 	
 	func onAppear() {
-		let token = firebaseHelper.setNotificationObserver()
-		self.subscribeToTopic()
-		LogHelper.debug("Token has been set: \(token). Notifications now active!")
-		
+		_ = firebaseHelper.setNotificationObserver()
+		firebaseHelper.subscribeToTopic()
+		retrieveMessages()
+	}
+
+	func retrieveMessages() {
 		self.firebaseHelper.retrieveMessages { (messages) in
 			messages.forEach({ message in
 				if !self.messageList.messages.contains(where: { $0 == message }) {
@@ -25,10 +35,6 @@ class ContentViewModel: Observable {
 				}
 			})
 		}
-	}
-
-	func subscribeToTopic() {
-		firebaseHelper.subscribeToTopic()
 	}
 
 	func deleteMessageFromDatabase(indexSet: IndexSet) {

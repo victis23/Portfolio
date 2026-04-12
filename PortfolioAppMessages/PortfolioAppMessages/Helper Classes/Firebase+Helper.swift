@@ -30,12 +30,14 @@ class FireBaseHelper {
 				if !response.metadata.hasPendingWrites && !response.metadata.isFromCache {
 					let document = response.documents
 					
-					let dictionaryArray = document.map { (document) -> Message in
+					let dictionaryArray = document.compactMap { (document) -> Message? in
+						guard let name = document["name"] as? String, let phone = document["phone"] as? String, let email = document["email"] as? String, let message = document["message"] as? String else { return nil }
+
 						return Message(
-							name: document["name"] as! String,
-							phone: document["phone"] as! String,
-							email: document["email"] as! String,
-							message: document["message"] as! String,
+							name: name,
+							phone: phone,
+							email: email,
+							message: message,
 							id: document.documentID)
 					}
 					
@@ -76,7 +78,10 @@ class FireBaseHelper {
 	func setNotificationObserver() -> String {
 		let tokenRetriever = GetGFBToken()
 		tokenRetriever.setNotificationObserver()
+
 		let token = tokenRetriever.getTokenString()
+		LogHelper.debug("Token has been set: \(token). Notifications now active!")
+
 		return token
 	}
 }

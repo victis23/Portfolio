@@ -138,7 +138,7 @@ extension AppDelegate : UNUserNotificationCenterDelegate {
 		if let messageID = userInfo[gcmMessageIDKey] {
 			
 			//Reset icon badge alert count.
-			application.applicationIconBadgeNumber = 0
+			UNUserNotificationCenter.current().setBadgeCount(0)
 			print("Method with completionHandler Message ID: \(messageID)")
 		}
 		completionHandler(UIBackgroundFetchResult.newData)
