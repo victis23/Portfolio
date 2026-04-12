@@ -8,8 +8,9 @@
 
 import Foundation
 
+@Observable
 class Messages : ObservableObject {
-	@Published var messages : [Message] = []
+	var messages : [Message] = []
 }
 
 class Message: Equatable {

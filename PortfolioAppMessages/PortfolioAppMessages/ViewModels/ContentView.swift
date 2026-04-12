@@ -11,7 +11,7 @@ import Firebase
 import FirebaseMessaging
 
 struct ContentView: View {
-	@ObservedObject var messageList :Messages = Messages()
+	@State var messageList :Messages = Messages()
 	private var firebaseHelper = FireBaseHelper()
 	
 	var body: some View {
