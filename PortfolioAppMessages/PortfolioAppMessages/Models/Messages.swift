@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import CoreData
 
 @Observable
 class Messages {
@@ -36,5 +37,17 @@ class Message: Equatable, Hashable, Identifiable {
 	// Hashable conformance matching Equatable (based on id)
 	func hash(into hasher: inout Hasher) {
 		hasher.combine(id)
+	}
+}
+
+extension SavedMessages {
+	func convertToMessage() -> Message {
+		Message(
+			name: self.name ?? "",
+			phone: self.phone ?? "",
+			email: self.email ?? "",
+			message: self.message ?? "",
+			id: self.id ?? ""
+		)
 	}
 }

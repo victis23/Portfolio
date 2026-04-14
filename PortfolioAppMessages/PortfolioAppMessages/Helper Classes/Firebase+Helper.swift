@@ -17,6 +17,7 @@ class FireBaseHelper {
 	
 	func retrieveMessages(handler : @escaping ([Message])->Void) {
 		let messageCollection = db.collection(collectionName)
+		listener?.remove()
 		listener = nil
 
 		listener = messageCollection.order(by: "timestamp", descending: false)
