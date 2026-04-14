@@ -9,6 +9,7 @@
 import Observation
 import Foundation
 import CoreData
+import UIKit
 
 protocol ContentViewModel: Observable {
 	var messageList: Messages { get }
@@ -31,8 +32,9 @@ class DefaultContentViewModel: ContentViewModel {
 	}
 
 	func retrieveMessages() {
-		self.firebaseHelper.retrieveMessages { (messages) in
-			self.messageList.messages = messages
+		self.firebaseHelper.retrieveMessages { [weak self] (messages) in
+			self?.messageList.messages = messages
+			self?.saveToCoreData(messages: messages)
 		}
 	}
 
@@ -42,5 +44,20 @@ class DefaultContentViewModel: ContentViewModel {
 		let message = messageList.messages[index]
 		firebaseHelper.deleteMessageFromDatabase(messageID: message.id)
 		retrieveMessages()
+	}
+
+	func saveToCoreData(messages: [Message]) {
+		guard let context = context else { return }
+
+		messages.forEach {
+			let coreDataMessages = SavedMessages(context: context)
+			coreDataMessages.name = $0.name
+			coreDataMessages.email = $0.email
+			coreDataMessages.id = $0.id
+			coreDataMessages.message = $0.message
+			coreDataMessages.phone = $0.phone
+		}
+
+		(UIApplication.shared.delegate as? AppDelegate)?.saveContext()
 	}
 }
