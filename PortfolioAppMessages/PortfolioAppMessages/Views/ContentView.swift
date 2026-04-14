@@ -10,6 +10,7 @@ import SwiftUI
 
 struct ContentView: View {
 	@State var viewModel: ContentViewModel = DefaultContentViewModel()
+	@Environment(\.managedObjectContext) var context
 
 	var body: some View {
 		NavigationView {
@@ -33,7 +34,7 @@ struct ContentView: View {
 		}
 		
 		.onAppear {
-			viewModel.onAppear()
+			viewModel.onAppear(with: context)
 		}
 	}
 }

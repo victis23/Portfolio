@@ -8,11 +8,13 @@
 
 import Observation
 import Foundation
+import CoreData
 
 protocol ContentViewModel: Observable {
 	var messageList: Messages { get }
 	var firebaseHelper: FireBaseHelper { get }
-	func onAppear()
+	var context: NSManagedObjectContext? { get set }
+	func onAppear(with context: NSManagedObjectContext?)
 	func retrieveMessages()
 	func deleteMessageFromDatabase(indexSet: IndexSet)
 }
@@ -20,8 +22,9 @@ protocol ContentViewModel: Observable {
 class DefaultContentViewModel: ContentViewModel {
 	var messageList: Messages = Messages()
 	var firebaseHelper = FireBaseHelper()
+	var context: NSManagedObjectContext?
 	
-	func onAppear() {
+	func onAppear(with context: NSManagedObjectContext? = nil) {
 		_ = firebaseHelper.setNotificationObserver()
 		firebaseHelper.subscribeToTopic()
 		retrieveMessages()
@@ -29,11 +32,7 @@ class DefaultContentViewModel: ContentViewModel {
 
 	func retrieveMessages() {
 		self.firebaseHelper.retrieveMessages { (messages) in
-			messages.forEach({ message in
-				if !self.messageList.messages.contains(where: { $0 == message }) {
-					self.messageList.messages.append(message)
-				}
-			})
+			self.messageList.messages = messages
 		}
 	}
 
@@ -42,6 +41,6 @@ class DefaultContentViewModel: ContentViewModel {
 
 		let message = messageList.messages[index]
 		firebaseHelper.deleteMessageFromDatabase(messageID: message.id)
-		messageList.messages.removeAll { $0 == message }
+		retrieveMessages()
 	}
 }
