@@ -14,7 +14,6 @@ import UIKit
 protocol ContentViewModel: Observable {
 	var messageList: Messages { get }
 	var firebaseHelper: FireBaseHelper { get }
-	var context: NSManagedObjectContext? { get set }
 	func onAppear(with context: NSManagedObjectContext?)
 	func retrieveMessages()
 	func deleteMessageFromDatabase(indexSet: IndexSet)
@@ -23,9 +22,13 @@ protocol ContentViewModel: Observable {
 class DefaultContentViewModel: ContentViewModel {
 	var messageList: Messages = Messages()
 	var firebaseHelper = FireBaseHelper()
-	var context: NSManagedObjectContext?
+	var coreDataHelper: CoreDataHelper?
 	
 	func onAppear(with context: NSManagedObjectContext? = nil) {
+		if let context = context {
+			coreDataHelper = MessagesCoredataHelper(context: context)
+		}
+
 		_ = firebaseHelper.setNotificationObserver()
 		firebaseHelper.subscribeToTopic()
 		messageList.messages = retrieveFromCD()
@@ -47,35 +50,15 @@ class DefaultContentViewModel: ContentViewModel {
 	}
 
 	func saveToCoreData(messages: [Message]) {
-		guard let context = context else { return }
-		deleteAllMessages(context: context)
-
-		messages.forEach {
-			let coreDataMessages = SavedMessages(context: context)
-			coreDataMessages.name = $0.name
-			coreDataMessages.email = $0.email
-			coreDataMessages.id = $0.id
-			coreDataMessages.message = $0.message
-			coreDataMessages.phone = $0.phone
-		}
-
-		(UIApplication.shared.delegate as? AppDelegate)?.saveContext()
+		let helper = coreDataHelper as? MessagesCoredataHelper
+		helper?.saveToCoreData(items: messages)
 	}
 
-	func deleteAllMessages(context: NSManagedObjectContext) {
-		let fetchRequest: NSFetchRequest<NSFetchRequestResult> = SavedMessages.fetchRequest()
-		let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
-		
-		do {
-			try context.execute(deleteRequest)
-			try context.save()
-		} catch {
-			print("Failed to batch delete: \(error)")
-		}
+	func deleteAllMessages() {
+		coreDataHelper?.deleteAllMessages()
 	}
 
 	func retrieveFromCD() -> [Message] {
-		let request = SavedMessages.fetchRequest()
-		return (try? context?.fetch(request).map { $0.convertToMessage() }) ?? []
+		return (coreDataHelper?.retrieveFromCD() as? [Message]) ?? []
 	}
 }
