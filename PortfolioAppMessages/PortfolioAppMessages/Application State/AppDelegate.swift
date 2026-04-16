@@ -20,31 +20,36 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	
 	
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-		
 		FirebaseApp.configure()
-		
-		// Push notification setup
-		
-		fireBaseMessageCenter.delegate = self
-		notificationCenter.delegate = self
-		
-		let authOptions : UNAuthorizationOptions = [.alert,.badge,.sound]
 
-		notificationCenter.requestAuthorization(options: authOptions) { (hasPassed, error) in
-
-			if let error = error {
-				print("Request Authorization for Notification Center failed with error: \(error.localizedDescription)")
-			}
+		Task {
+			fireBaseMessageCenter.delegate = self
+			notificationCenter.delegate = self
+			try? await setupPushNotifications(application: application)
 			
-			DispatchQueue.main.async {
+			await MainActor.run {
 				application.registerForRemoteNotifications()
 			}
 		}
-		
+
 		return true
 	}
-	
-	
+
+	func setupPushNotifications(application: UIApplication) async throws {
+		let authOptions : UNAuthorizationOptions = [.alert, .badge, .sound]
+		
+		return try await withCheckedThrowingContinuation { continuation in
+			notificationCenter.requestAuthorization(options: authOptions) { (hasPassed, error) in
+				if let error = error {
+					print("Request Authorization for Notification Center failed with error: \(error.localizedDescription)")
+					continuation.resume(throwing: error)
+				} else {
+					continuation.resume()
+				}
+			}
+		}
+	}
+
 	// MARK: UISceneSession Lifecycle
 	
 	func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {

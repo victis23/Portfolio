@@ -109,13 +109,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		6A1C38D8BF11C03A20F3F208 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Pods;
-			sourceTree = "<group>";
-		};
 		7D50651C243AD54100B10038 = {
 			isa = PBXGroup;
 			children = (
@@ -124,7 +117,6 @@
 				7D506541243AD54300B10038 /* PortfolioAppMessagesTests */,
 				7D50654C243AD54300B10038 /* PortfolioAppMessagesUITests */,
 				7D506526243AD54100B10038 /* Products */,
-				6A1C38D8BF11C03A20F3F208 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
