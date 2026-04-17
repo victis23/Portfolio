@@ -9,15 +9,11 @@
 import CoreData
 import UIKit
 
-protocol CoreDataServiceProtocol {
+protocol CoreDataServiceProtocol<StoredType> {
 	associatedtype StoredType
 	func saveToCoreData(items: [StoredType])
 	func deleteAllMessages()
 	func retrieveFromCD() -> [StoredType]
-}
-
-extension CoreDataServiceProtocol {
-	func saveToCoreData(items: [Message]) { }
 }
 
 class MessagesCoredataService: CoreDataServiceProtocol {
@@ -64,7 +60,7 @@ class MessagesCoredataService: CoreDataServiceProtocol {
 		do {
 			try context.save()
 		} catch {
-			print("Failed to batch delete: \(error)")
+			print("Failed to save context change: \(error)")
 		}
 	}
 }

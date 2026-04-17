@@ -20,7 +20,7 @@ protocol ContentViewModel: Observable {
 
 class DefaultContentViewModel: ContentViewModel {
 	var messageList: Messages = Messages()
-	private var coreDataHelper: (any CoreDataServiceProtocol)?
+	private var coreDataHelper: (any CoreDataServiceProtocol<Message>)?
 	private var fireBaseService = FirebaseService()
 	private var streamTask: Task<Void,Never>?
 	
