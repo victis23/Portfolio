@@ -10,43 +10,47 @@ import Foundation
 import FirebaseFirestore
 import FirebaseMessaging
 
-class FireBaseHelper {
+class FireBaseService {
 	var db = Firestore.firestore()
 	var collectionName : String = "Messages"
 	var listener: ListenerRegistration?
 	
-	func retrieveMessages(handler : @escaping ([Message])->Void) {
+	func retrieveMessages() -> AsyncThrowingStream<[Message], Error> {
 		let messageCollection = db.collection(collectionName)
 		listener?.remove()
 		listener = nil
-
-		listener = messageCollection.order(by: "timestamp", descending: false)
-			.addSnapshotListener(includeMetadataChanges: true) { (snapshot, error) in
-				
-				if let error = error {
-					print(error.localizedDescription)
-					return
-				}
-				
-				guard let response = snapshot else { return }
-				
-				if !response.metadata.hasPendingWrites && !response.metadata.isFromCache {
-					let document = response.documents
+		
+		return AsyncThrowingStream { continuation in
+			listener = messageCollection.order(by: "timestamp", descending: false)
+				.addSnapshotListener(includeMetadataChanges: true) { (snapshot, error) in
 					
-					let dictionaryArray = document.compactMap { (document) -> Message? in
-						guard let name = document["name"] as? String, let phone = document["phone"] as? String, let email = document["email"] as? String, let message = document["message"] as? String else { return nil }
-
-						return Message(
-							name: name,
-							phone: phone,
-							email: email,
-							message: message,
-							id: document.documentID)
+					if let error = error {
+						print(error.localizedDescription)
+						continuation.finish(throwing: error)
+					} else if let response = snapshot {
+						
+						if !response.metadata.hasPendingWrites && !response.metadata.isFromCache {
+							let document = response.documents
+							
+							let dictionaryArray = document.compactMap { (document) -> Message? in
+								guard let name = document["name"] as? String, let phone = document["phone"] as? String, let email = document["email"] as? String, let message = document["message"] as? String else { return nil }
+								
+								return Message(
+									name: name,
+									phone: phone,
+									email: email,
+									message: message,
+									id: document.documentID)
+							}
+							continuation.yield(dictionaryArray)
+						}
+						
+						continuation.onTermination = { [weak self] _ in
+							self?.listener?.remove()
+						}
 					}
-					
-					handler(dictionaryArray)
 				}
-			}
+		}
 	}
 	
 	func removeMessageFromDB(documentID:String) {

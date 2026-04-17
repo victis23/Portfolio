@@ -8,7 +8,7 @@
 
 import Foundation
 
-class GetGFBToken {
+class FireBaseTokenService {
 	private var token : String = ""
 	
 	func setNotificationObserver() {

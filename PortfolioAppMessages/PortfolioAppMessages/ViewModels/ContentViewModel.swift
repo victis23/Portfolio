@@ -13,52 +13,63 @@ import UIKit
 
 protocol ContentViewModel: Observable {
 	var messageList: Messages { get }
-	var firebaseHelper: FireBaseHelper { get }
 	func onAppear(with context: NSManagedObjectContext?)
-	func retrieveMessages()
 	func deleteMessageFromDatabase(indexSet: IndexSet)
+	func stopListening()
 }
 
 class DefaultContentViewModel: ContentViewModel {
 	var messageList: Messages = Messages()
-	var firebaseHelper = FireBaseHelper()
-	var coreDataHelper: CoreDataHelper?
+	private var coreDataHelper: (any CoreDataServiceProtocol)?
+	private var fireBaseService = FirebaseService()
+	private var streamTask: Task<Void,Never>?
 	
 	func onAppear(with context: NSManagedObjectContext? = nil) {
 		if let context = context {
-			coreDataHelper = MessagesCoredataHelper(context: context)
+			coreDataHelper = MessagesCoredataService(context: context)
 		}
 
-		_ = firebaseHelper.setNotificationObserver()
-		firebaseHelper.subscribeToTopic()
+		_ = fireBaseService.setNotificationObserver()
+		fireBaseService.subscribeToTopic()
 		messageList.messages = retrieveFromCD()
 		retrieveMessages()
 	}
 
-	func retrieveMessages() {
-		self.firebaseHelper.retrieveMessages { [weak self] (messages) in
-			self?.messageList.messages = messages
-			self?.saveToCoreData(messages: messages)
+	private func retrieveMessages() {
+		streamTask = Task { [ weak self ] in
+			guard let self else { return }
+			do {
+				for try await messageList in self.fireBaseService.retrieveMessages() {
+					self.messageList.messages = messageList
+					self.saveToCoreData(messages: messageList)
+				}
+			} catch {
+				print(error)
+			}
 		}
+	}
+
+	func stopListening() {
+		streamTask?.cancel()
+		streamTask = nil
 	}
 
 	func deleteMessageFromDatabase(indexSet: IndexSet) {
 		guard let index = indexSet.first else { return }
 
 		let message = messageList.messages[index]
-		firebaseHelper.deleteMessageFromDatabase(messageID: message.id)
+		fireBaseService.deleteMessageFromDatabase(messageID: message.id)
 	}
 
-	func saveToCoreData(messages: [Message]) {
-		let helper = coreDataHelper as? MessagesCoredataHelper
-		helper?.saveToCoreData(items: messages)
+	private func saveToCoreData(messages: [Message]) {
+		coreDataHelper?.saveToCoreData(items: messages)
 	}
 
-	func deleteAllMessages() {
+	private func deleteAllMessages() {
 		coreDataHelper?.deleteAllMessages()
 	}
 
-	func retrieveFromCD() -> [Message] {
+	private func retrieveFromCD() -> [Message] {
 		return (coreDataHelper?.retrieveFromCD() as? [Message]) ?? []
 	}
 }

@@ -13,7 +13,7 @@ struct ContentView: View {
 	@Environment(\.managedObjectContext) var context
 
 	var body: some View {
-		NavigationView {
+		NavigationStack {
 			List {
 				ForEach(viewModel.messageList.messages, content: { item in
 					VStack(alignment: .leading){
@@ -30,11 +30,13 @@ struct ContentView: View {
 				.onDelete(perform: viewModel.deleteMessageFromDatabase(indexSet:))
 			}
 			.navigationBarTitle("Client Messages")
-			.navigationViewStyle(StackNavigationViewStyle())
 		}
 		
 		.onAppear {
 			viewModel.onAppear(with: context)
+		}
+		.onDisappear {
+			viewModel.stopListening()
 		}
 	}
 }

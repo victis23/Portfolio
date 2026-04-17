@@ -9,14 +9,18 @@
 import CoreData
 import UIKit
 
-protocol CoreDataHelper {
+protocol CoreDataServiceProtocol {
 	associatedtype StoredType
 	func saveToCoreData(items: [StoredType])
 	func deleteAllMessages()
 	func retrieveFromCD() -> [StoredType]
 }
 
-class MessagesCoredataHelper: CoreDataHelper {
+extension CoreDataServiceProtocol {
+	func saveToCoreData(items: [Message]) { }
+}
+
+class MessagesCoredataService: CoreDataServiceProtocol {
 	typealias StoredType = Message
 	var context: NSManagedObjectContext
 
@@ -35,8 +39,8 @@ class MessagesCoredataHelper: CoreDataHelper {
 			coreDataMessages.message = $0.message
 			coreDataMessages.phone = $0.phone
 		}
-		
-		(UIApplication.shared.delegate as? AppDelegate)?.saveContext()
+
+		saveContext()
 	}
 
 	func deleteAllMessages() {
@@ -45,7 +49,7 @@ class MessagesCoredataHelper: CoreDataHelper {
 		
 		do {
 			try context.execute(deleteRequest)
-			try context.save()
+			saveContext()
 		} catch {
 			print("Failed to batch delete: \(error)")
 		}
@@ -54,5 +58,13 @@ class MessagesCoredataHelper: CoreDataHelper {
 	func retrieveFromCD() -> [Message] {
 		let request = SavedMessages.fetchRequest()
 		return (try? context.fetch(request).map { $0.convertToMessage() }) ?? []
+	}
+
+	func saveContext() {
+		do {
+			try context.save()
+		} catch {
+			print("Failed to batch delete: \(error)")
+		}
 	}
 }
