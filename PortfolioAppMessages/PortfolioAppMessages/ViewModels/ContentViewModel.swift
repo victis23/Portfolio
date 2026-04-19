@@ -9,9 +9,30 @@
 import Observation
 import Foundation
 import CoreData
-import UIKit
 
-protocol ContentViewModel: Observable {
+class AnyContentViewModel: ObservableObject {
+	var messageList: Messages
+	var viewModel: (any ContentViewModel)?
+	
+	init<AnyContentViewModelObject: ContentViewModel>(viewModel: AnyContentViewModelObject) {
+		self.viewModel = viewModel
+		self.messageList = viewModel.messageList
+	}
+
+	func onAppear(with context: NSManagedObjectContext? = nil) {
+		viewModel?.onAppear(with: context)
+	}
+
+	func deleteMessageFromDatabase(indexSet: IndexSet) {
+		viewModel?.deleteMessageFromDatabase(indexSet: indexSet)
+	}
+
+	func stopListening() {
+		viewModel?.stopListening()
+	}
+}
+
+protocol ContentViewModel: Observable, ObservableObject {
 	var messageList: Messages { get }
 	func onAppear(with context: NSManagedObjectContext?)
 	func deleteMessageFromDatabase(indexSet: IndexSet)
