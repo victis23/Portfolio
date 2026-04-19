@@ -18,11 +18,7 @@
 		7D506543243AD54300B10038 /* PortfolioAppMessagesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D506542243AD54300B10038 /* PortfolioAppMessagesTests.swift */; };
 		7D50654E243AD54300B10038 /* PortfolioAppMessagesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D50654D243AD54300B10038 /* PortfolioAppMessagesUITests.swift */; };
 		7D506562243AE6F800B10038 /* Messages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D506561243AE6F800B10038 /* Messages.swift */; };
-		7D506563243AE6F800B10038 /* Messages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D506561243AE6F800B10038 /* Messages.swift */; };
-		7D506564243AE6F800B10038 /* Messages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D506561243AE6F800B10038 /* Messages.swift */; };
 		7D50656A243B44EE00B10038 /* FirebaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D506569243B44EE00B10038 /* FirebaseService.swift */; };
-		7D50656B243B44EE00B10038 /* FirebaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D506569243B44EE00B10038 /* FirebaseService.swift */; };
-		7D50656C243B44EE00B10038 /* FirebaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D506569243B44EE00B10038 /* FirebaseService.swift */; };
 		7D57CE56243D773B004DDBEF /* FireBaseTokenService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D57CE55243D773B004DDBEF /* FireBaseTokenService.swift */; };
 		7D995DC52F8BF31B00ECB0A4 /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D995DC42F8BF31400ECB0A4 /* ContentViewModel.swift */; };
 		7DEC50612F8034A6002E3FE1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7DEC50602F8034A6002E3FE1 /* GoogleService-Info.plist */; };
@@ -284,7 +280,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = YES;
 				LastSwiftUpdateCheck = 1140;
-				LastUpgradeCheck = 2610;
+				LastUpgradeCheck = 2640;
 				ORGANIZATIONNAME = DuhMarket;
 				TargetAttributes = {
 					7D506524243AD54100B10038 = {
@@ -374,8 +370,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				7D506543243AD54300B10038 /* PortfolioAppMessagesTests.swift in Sources */,
-				7D506563243AE6F800B10038 /* Messages.swift in Sources */,
-				7D50656B243B44EE00B10038 /* FirebaseService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -384,8 +378,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				7D50654E243AD54300B10038 /* PortfolioAppMessagesUITests.swift in Sources */,
-				7D506564243AE6F800B10038 /* Messages.swift in Sources */,
-				7D50656C243B44EE00B10038 /* FirebaseService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -420,6 +412,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -484,6 +477,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -518,6 +512,7 @@
 				DEVELOPMENT_TEAM = 55P567K3FP;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -546,6 +541,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"PortfolioAppMessages/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
+				ENABLE_TESTABILITY = YES;
 				INFOPLIST_FILE = PortfolioAppMessages/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -567,6 +563,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"PortfolioAppMessages/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
+				ENABLE_TESTABILITY = YES;
 				INFOPLIST_FILE = PortfolioAppMessages/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -596,7 +593,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PortfolioAppMessages.app/PortfolioAppMessages";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MichaelWells.dev.app/MichaelWells.dev";
 			};
 			name = Debug;
 		};
@@ -616,7 +613,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PortfolioAppMessages.app/PortfolioAppMessages";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MichaelWells.dev.app/MichaelWells.dev";
 			};
 			name = Release;
 		};
